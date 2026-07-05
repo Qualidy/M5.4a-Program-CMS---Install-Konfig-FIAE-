@@ -1,0 +1,14 @@
+title: Double-Opt-in erklären
+difficulty: 2
+question: |
+  Ein Verein will einen Newsletter anbieten und einfach alle E-Mail-Adressen aus einem Formular sofort in den Verteiler übernehmen.
+
+  1. Warum ist das rechtlich problematisch?
+  2. Beschreibe die Schritte des **Double-Opt-in**-Verfahrens.
+  3. Was muss in **jeder** Newsletter-Mail enthalten sein?
+tip: |
+  Ohne bestätigte Einwilligung keine Werbe-Mails. Bestätigungslink = Nachweis.
+solution: |
+  1. Ohne **nachweisbare Einwilligung** dürfen keine Werbe-/Newsletter-Mails verschickt werden (DSGVO/UWG). Ein einfaches Opt-in reicht nicht und schützt nicht vor fremden Anmeldungen.
+  2. Formular ausfüllen → Adresse als **unbestätigt** speichern → **Bestätigungsmail** mit einmaligem Link → Klick → Status **bestätigt** (Anmeldung gültig). Ohne Klick bleibt sie unbestätigt/wird gelöscht.
+  3. Ein **Abmeldelink** (Opt-out) sowie ein Impressum/Absenderangabe.

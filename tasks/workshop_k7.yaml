@@ -1,20 +1,26 @@
-title: Tarif und Arbeitszeit – IT-Betrieb
+title: Design & Responsive-Layout umsetzen
 difficulty: 4
 question: |
-  **Szenario:** IT-Systemhaus, 60 MA, kein Tarifvertrag. Azubis und Entwickler arbeiten oft bis 20 Uhr vor Releases. Keine Betriebsvereinbarung zu Arbeitszeit.
+  **Szenario:** Die Handwerker-Website funktioniert, sieht aber „nackt" aus. Jetzt gibst du ihr ein sauberes, responsives Design – **ohne Core-Hacks**.
 
   ---
 
-  **Aufgabe:**
+  **Aufgabe (praktisch in REDAXO):**
 
-  1. Welche **Gesetze** und **Gremien** sind relevant?
+  1. **CSS-Grundlage:** Lege eine `style.css` an, definiere Design-Tokens als CSS-Variablen (Farben, Abstände, Schrift) und binde sie im Template ein.
+  2. **Layout:** Gestalte Header, Navigation, Inhaltsbereich und Footer. Mache die Navigation und mindestens einen mehrspaltigen Bereich **responsive** (Media Queries, Mobile-first).
+  3. **Komponente anpassen:** Erweitere ein Modul (z. B. „Bild mit Text") um eine Variante (Bild links/rechts) über Klasse + CSS – **ohne** Core/AddOn zu ändern.
+  4. **UX-Check:** Prüfe Kontrast, Lesbarkeit, Fokus-Stile (Tastaturbedienung) und dokumentiere zwei Verbesserungen.
+  5. **Versionieren (optional):** Lege CSS und Module über das Developer-AddOn ins Dateisystem und in Git.
 
-  2. Welche **Risiken** entstehen für Arbeitgeber und Azubis?
-
-  3. Schlage eine **Betriebsvereinbarung** (Stichpunkte) für Gleitzeit und Release-Phasen vor.
-
-  4. Vergleiche: Betrieb **mit** IG-Metall-Tarif vs. **ohne** Tarif – 3 Unterschiede für Azubis.
-
-  **Deliverables:** Stichpunkt-Gutachten
+  **Deliverable:** Eine gestaltete, responsive Startseite + kurze UX-Check-Notiz.
+tip: |
+  Teste laufend im Responsive-Modus des Browsers. Achte auf sichtbare `:focus`-Stile – das ist Barrierefreiheit. Vermeide eine !important-Flut.
 solution: |
-  ArbZG, BBiG, BetrVG; Risiken: Verstöße, Gesundheit, Kündigungs-/Bußgeldrisiko; Vereinbarung: Kernzeit, Max-Std., Ausgleich, Azubi-Ausnahme; Tarif: oft höhere Vergütung, klare Überstundenregel, Urlaub.
+  Bewertungskriterien:
+
+  - CSS nutzt Variablen; ist im Template eingebunden und strukturiert.
+  - Layout ist responsive (Mobile-first, funktionierende Media Queries); Navigation mobil bedienbar.
+  - Modul-Variante über Klasse+CSS umgesetzt, **kein** Core-Hack.
+  - UX-Check dokumentiert (Kontrast/Lesbarkeit/Fokus), zwei Verbesserungen benannt.
+  - Sauberes, semantisches HTML; keine offensichtlichen Barrieren.

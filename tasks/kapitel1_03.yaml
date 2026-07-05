@@ -1,0 +1,16 @@
+title: Trennung von Inhalt und Darstellung
+difficulty: 3
+question: |
+  Eine Firma pflegt aktuell 40 statische HTML-Dateien. Bei jeder Menü-Änderung müssen alle 40 Dateien angefasst werden.
+
+  1. Erkläre, wie ein CMS dieses Problem durch die **Trennung von Inhalt und Darstellung** löst.
+  2. Ordne die REDAXO-Begriffe **Template**, **Modul**, **Slice** und **Medienpool** den Fragen zu: „Wo steht das Seitengerüst?", „Was ist die Vorlage für einen Inhaltsbaustein?", „Was ist der befüllte Baustein im Artikel?", „Wo liegen die Bilder?".
+tip: |
+  Template = Gerüst (einmal ändern → überall wirksam). Modul = Vorlage. Slice = befüllte Instanz.
+solution: |
+  1. Inhalt liegt zentral in der Datenbank, das Aussehen im **Template**. Das Menü steht **einmal** im Template; eine Änderung wirkt sofort auf alle Seiten mit diesem Template. Redakteure pflegen nur Inhalte, ohne das Layout zu berühren.
+  2.
+     - „Wo steht das Seitengerüst?" → **Template**
+     - „Was ist die Vorlage für einen Inhaltsbaustein?" → **Modul**
+     - „Was ist der befüllte Baustein im Artikel?" → **Slice**
+     - „Wo liegen die Bilder?" → **Medienpool**

@@ -1,0 +1,14 @@
+title: Veröffentlichungs- und Versionierungs-Workflow
+difficulty: 3
+question: |
+  Eine Redakteurin überarbeitet eine wichtige, bereits **online** stehende Seite umfangreich. Die Besucher sollen währenddessen **keine** halbfertigen Inhalte sehen, und im Fehlerfall soll der alte Stand zurückgeholt werden können.
+
+  1. Wie nutzt sie **Online/Offline-Status** und **Arbeitsversion/Live-Version**, um sauber zu arbeiten?
+  2. Welche Rolle spielt das **History-AddOn**?
+  3. Warum ersetzt Versionierung **kein** Backup?
+tip: |
+  In der Arbeitsversion bauen, dann übernehmen. History = Snapshots einzelner Slices.
+solution: |
+  1. Sie baut die Änderungen in der **Arbeitsversion** auf, während die **Live-Version** unverändert online bleibt. Erst wenn alles geprüft ist, übernimmt sie die Arbeitsversion in die Live-Version. (Neue Seiten baut man offline auf und schaltet sie erst danach online.)
+  2. Das **History-AddOn** protokolliert Slice-Änderungen und erlaubt, zu einem früheren **Snapshot** zurückzuspringen.
+  3. Versionierung schützt nur **einzelne Inhalte**, nicht das Gesamtsystem (DB + Dateien, AddOns, Konfiguration). Für Datenverlust/fehlerhafte Updates braucht es echte **Backups**.

@@ -1,0 +1,15 @@
+title: Den Webserver-Stack erklären
+difficulty: 1
+question: |
+  Erkläre die Abkürzungen **XAMPP**, **LAMP** und **LEMP** und benenne, wofür jeder Buchstabe des AMP-Teils steht.
+
+  Beantworte außerdem: Welche **drei Kernkomponenten** braucht REDAXO, um zu laufen?
+tip: |
+  A = Webserver, M = Datenbank, P = PHP. Der Unterschied LAMP/LEMP liegt im Webserver.
+solution: |
+  - **XAMPP:** Fertiges Paket (Apache, MariaDB, PHP, Perl) für Windows/macOS/Linux – ideal zum lokalen Lernen.
+  - **LAMP:** Linux + Apache + MySQL/MariaDB + PHP.
+  - **LEMP:** Linux + Nginx („Engine-X" → E) + MySQL/MariaDB + PHP.
+  - **A** = Webserver (Apache/Nginx), **M** = Datenbank (MySQL/MariaDB), **P** = PHP.
+
+  REDAXO braucht: **Webserver + Datenbank (MySQL/MariaDB) + PHP**.

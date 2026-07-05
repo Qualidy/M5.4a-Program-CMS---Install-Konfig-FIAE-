@@ -1,0 +1,14 @@
+title: Eine Redaktions-Rolle planen
+difficulty: 2
+question: |
+  Eine Redakteurin soll **nur** die News-Artikel pflegen und Bilder in die Medienkategorie „News" hochladen dürfen. Sie soll **keine** Templates, Benutzer oder AddOns anfassen.
+
+  1. In welchen Bereichen legst du beim Anlegen der Rolle in REDAXO Rechte fest?
+  2. Welche Rechte bekommt die Rolle, welche ausdrücklich **nicht**?
+  3. Warum ist es falsch, ihr einfach das Admin-Flag zu geben?
+tip: |
+  REDAXO-Rollen steuern: allgemeine Rechte/Module, Struktur (Kategorien), Medienpool, Sprachen.
+solution: |
+  1. **Allgemeine Rechte/Module** (nur `structure`, `mediapool`), **Struktur** (nur News-Kategorie), **Medienpool** (nur Kategorie „News", Upload erlaubt), **Sprachen** (die benötigte).
+  2. Bekommt: News-Artikel bearbeiten/veröffentlichen, Bilder in „News" hochladen. Nicht: Templates/Module, Benutzerverwaltung, AddOn-Installation, andere Kategorien.
+  3. Das Admin-Flag überschreibt **alle** Einschränkungen → sie könnte alles ändern/zerstören. Das verstößt gegen Least Privilege.

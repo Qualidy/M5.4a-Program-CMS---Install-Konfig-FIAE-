@@ -1,0 +1,18 @@
+title: Backend absichern
+difficulty: 2
+question: |
+  Das REDAXO-Backend ist unter `/redaxo/` öffentlich erreichbar. Nenne **vier** Maßnahmen, mit denen du es zusätzlich absicherst, und erkläre jeweils die Wirkung.
+
+  Was ist der Unterschied zwischen **Debug-Modus** und **Live-/Produktivmodus** und welcher gehört auf den Live-Server?
+tip: |
+  HTTPS, starke Passwörter/2FA, IP-/HTTP-Auth-Schutz, Live-Modus, Setup sperren, Aktualität.
+solution: |
+  Vier Maßnahmen (Beispiele):
+
+  - **HTTPS** – verschlüsselt den Login.
+  - **Starke Passwörter/2FA** – erschwert Konten-Übernahme.
+  - **IP-Beschränkung oder HTTP-Auth** auf `/redaxo/` – nur bekannte Netze/mit Zusatzpasswort.
+  - **Core & AddOns aktuell** – schließt bekannte Lücken.
+  - (auch: Live-Modus an, `setup: false`.)
+
+  **Debug-Modus** zeigt detaillierte Fehler (nur lokal sinnvoll, verrät live interne Details); **Live-/Produktivmodus** blendet sie aus. Auf den Live-Server gehört der **Live-Modus** (Fehler nur ins Log).

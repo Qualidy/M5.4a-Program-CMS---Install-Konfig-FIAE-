@@ -1,4 +1,4 @@
-# Kapitel 3 – Ausbildungsplan und Ausbildungsordnung
+# Kapitel 3 – Datenbank & Konfiguration
 
 <div class="kurs-progress">
   <div class="step done"></div>
@@ -16,111 +16,169 @@
 <div class="lernziele" markdown>
 <h3>Was du in diesem Kapitel lernst</h3>
 
-- Was eine Ausbildungsordnung ist und welche Rolle sie für den Fachinformatiker spielt
-- Was ein betrieblicher Ausbildungsplan (BAP) enthält und wie er erstellt wird
-- Wie du den BAP mit der Ausbildungsordnung vergleichst und Abweichungen erkennst
+- Welche Rolle die **Datenbank** in einem CMS spielt und wie REDAXO sie nutzt
+- Wie du ein **Datenbank-Schema** und einen **eigenen DB-Benutzer mit Minimalrechten** anlegst
+- Warum das **Least-Privilege-Prinzip** die Sicherheit erhöht
+- Wo REDAXO seine **Konfiguration** speichert (`config.yml`, Tabellen-Präfix) und wie du sie nachvollziehbar pflegst
+- Wie du **Backups** der Datenbank planst und wiederherstellst
 </div>
 
 ---
 
-## So gehst du vor
+## 3.1 Die Datenbank als Herz des CMS
 
-1. Lies die Kapitelinhalte und verstehe den Zusammenhang zwischen Ordnung, Plan und Prüfung.
-2. Bearbeite die **Kurzübungen** der Reihe nach – von Grundlagen bis Experte.
-3. Arbeite die **Workshop-Aufgabe** durch. Sie vertieft das Gelernte an einem zusammenhängenden Szenario.
+In Kapitel 1 hast du gelernt: Ein CMS trennt **Inhalt** von **Darstellung**. Der **Inhalt** liegt in der **Datenbank**. REDAXO speichert dort u. a.:
 
----
-
-## 3.1 Die Ausbildungsordnung
-
-Die **Ausbildungsordnung** wird vom zuständigen Bundesministerium im Einvernehmen mit dem Bundesinstitut für Berufsbildung (BIBB) erlassen. Sie definiert:
-
-- **Berufsprofil** und Handlungsfähigkeit am Ende der Ausbildung
-- **Ausbildungsdauer** (Fachinformatiker: in der Regel 3 Jahre; in der Umschulung oft verkürzt auf 2 Jahre bei entsprechender Qualifikation)
-- **Ausbildungsinhalte** in Form von vier Fachrichtungen (AE, SI, DPA, DV) und Qualifikationsbausteinen
-- **Prüfungsanforderungen** (Teil 1 und Teil 2 der Abschlussprüfung)
-
-Für den **Fachinformatiker** gibt es eine aktuelle Ausbildungsordnung mit gemeinsamen und fachrichtungsspezifischen Inhalten.
-
-| Dokument | Zweck |
+| Was | Beispiel-Tabelle (Präfix `rex_`) |
 |---|---|
-| Ausbildungsordnung | Gesetzliche Mindestanforderungen für alle Betriebe |
-| Rahmenlehrplan | Unterrichtsinhalte in der Berufsschule / beim Bildungsträger |
-| Betrieblicher Ausbildungsplan (BAP) | Konkrete Umsetzung im einzelnen Betrieb |
+| Struktur (Kategorien/Artikel) | `rex_article` |
+| Inhaltsblöcke (Slices) | `rex_article_slice` |
+| Templates & Module | `rex_template`, `rex_module` |
+| Medienpool-Metadaten | `rex_media`, `rex_media_category` |
+| Benutzer & Rechte | `rex_user`, `rex_user_role` |
+| Konfiguration/AddOns | `rex_config` |
+
+!!! info "Datei vs. Datenbank"
+    Nicht alles liegt in der DB: **Medien-Dateien** (Bilder, PDFs) liegen als Dateien im Ordner `redaxo/data/addons/media_manager/` bzw. im Medienpool-Verzeichnis; die **Datenbank** speichert nur die **Metadaten** (Dateiname, Titel, Kategorie). Ein vollständiges Backup umfasst deshalb **DB + Dateien** (dazu Abschnitt 3.5 und Kapitel 8).
+
+**Das Tabellen-Präfix** (Standard `rex_`) wird jeder Tabelle vorangestellt. Es erlaubt, **mehrere Anwendungen in einer Datenbank** zu betreiben, und erschwert automatisierten Angriffen das Raten von Tabellennamen.
 
 ---
 
-## 3.2 Der betriebliche Ausbildungsplan (BAP)
+## 3.2 Schema und Benutzer trennen
 
-Der **betriebliche Ausbildungsplan** legt fest, **wann** und **wo** im Betrieb welche Inhalte der Ausbildungsordnung vermittelt werden. Er wird vom Betrieb erstellt – oft in Abstimmung mit der Kammer und dem Ausbilder.
-
-**Typische Bestandteile eines BAP:**
-
-| Bestandteil | Inhalt |
-|---|---|
-| Ausbildungsziele | Welche Kompetenzen am Ende erreicht werden sollen |
-| Zeitliche Gliederung | Ausbildungsjahre, Rotation zwischen Abteilungen |
-| Lernorte im Betrieb | z. B. IT-Support, Entwicklung, Netzwerk |
-| Ausbildungsmethoden | Anleitung, Projektarbeit, Schulungen |
-| Verantwortliche Personen | Ausbilder, Mentoren |
-| Abstimmung mit Ausbildungsordnung | Explizite Zuordnung der Qualifikationsbausteine |
-
-!!! info "BAP vor Vertragsbeginn"
-    Der BAP muss der Auszubildenden Person **vor Beginn** oder zu Beginn der Ausbildung vorgelegt werden. Du hast Anspruch darauf, ihn zu kennen und zu verstehen.
-
----
-
-## 3.3 Vergleich: Ausbildungsordnung und BAP
-
-Der Vergleich ist wichtig, um zu prüfen, ob der Betrieb alle **gesetzlich vorgeschriebenen Inhalte** abdeckt.
-
-**Vorgehen beim Vergleich:**
-
-1. **Ausbildungsordnung** besorgen (IHK, BIBB-Website)
-2. **Qualifikationsbausteine** und Fachrichtungsinhalte auflisten
-3. **BAP** des Betriebs Zeile für Zeile durchgehen
-4. **Lücken** identifizieren: Welche Inhalte fehlen oder sind nur unzureichend geplant?
-5. **Ergänzungen** besprechen: z. B. externe Schulungen, Berufsschule, Projekte
+Bei der Installation (Kapitel 2) haben wir uns oft noch mit dem **root**-Benutzer verbunden. Für den **Betrieb** ist das ein Fehler: Das CMS sollte einen **eigenen Datenbank-Benutzer** verwenden, der **nur auf seine eine Datenbank** und **nur mit den nötigen Rechten** zugreifen darf.
 
 ```mermaid
 flowchart LR
-    AO([Ausbildungsordnung\nPflichtinhalte]) --> V{Vergleich}
-    BAP([Betrieblicher\nAusbildungsplan]) --> V
-    V -->|Deckung vollständig| OK([Ausbildung geeignet])
-    V -->|Lücken| N([Nachbesserung\nbesprechen])
+    RX[REDAXO] -->|verbindet sich als| U([DB-Benutzer 'redaxo_user'])
+    U -->|darf NUR auf| DB[(Datenbank 'redaxo')]
+    U -.->|KEIN Zugriff| Other[(andere Datenbanken)]
 ```
 
-**Beispiel Fachinformatiker AE:**
+**Trennung von:**
 
-| Inhalt laut Ordnung (Auswahl) | Im BAP geplant? |
-|---|---|
-| Programmiersprachen und Entwicklungsumgebungen | z. B. Java-Projekt in Jahr 1 |
-| Datenbanken modellieren und nutzen | z. B. SQL-Schulung + Praxis |
-| Software testen | z. B. QA-Rotation |
-| Kundenberatung / Anforderungsanalyse | z. B. Support-Rotation |
+- **Schema** (die Datenbank `redaxo` – der „Behälter" für die Tabellen)
+- **Benutzer** (`redaxo_user` – das Konto, mit dem sich REDAXO verbindet)
+
+So kann ein kompromittiertes CMS **nicht** auf andere Datenbanken zugreifen, und `root` bleibt aus der Anwendung heraus unerreichbar.
 
 ---
 
-## 3.4 Rolle in der Umschulung
+## 3.3 Minimalrechte vergeben (Least Privilege)
 
-Der **betriebliche Ausbildungsplan** gehört zum regulären **Ausbildungsverhältnis** eines Azubis. In der Umschulung übernimmt der **Bildungsträger** die theoretischen Inhalte des Rahmenlehrplans; dein **Betriebspraktikum** liefert die praktische Erfahrung – auch ohne formalen BAP.
+Das **Least-Privilege-Prinzip** bedeutet: Ein Konto bekommt **nur die Rechte, die es wirklich braucht** – nicht mehr. REDAXO braucht im Normalbetrieb Rechte, um Daten zu **lesen, schreiben, ändern, löschen** und (bei Installationen/Updates) **Tabellen anzulegen/zu ändern**.
 
-- Unterricht beim Träger ≠ vollständige betriebliche Praxis
-- Für die **Abschlussprüfung** brauchst du praktische Erfahrung in relevanten Bereichen
-- Nutze das Praktikum gezielt, um Inhalte der Ausbildungsordnung praktisch abzudecken
+**Beispiel: eigener Benutzer mit passenden Rechten (MySQL/MariaDB):**
 
-!!! tip "Eigeninitiative"
-    Vergleiche die **Ausbildungsordnung** mit dem, was du im Unterricht und im Praktikum tatsächlich machst. Bei Lücken: mit Bildungsträger und Praktikumsbetrieb sprechen und gezielt Aufgaben oder Zusatzprojekte vereinbaren.
+```sql
+-- Eigenen Benutzer anlegen (nur von localhost erreichbar)
+CREATE USER 'redaxo_user'@'localhost' IDENTIFIED BY 'EinStarkesPasswort!';
+
+-- Nur Rechte auf die EINE Datenbank 'redaxo' vergeben
+GRANT SELECT, INSERT, UPDATE, DELETE,
+      CREATE, ALTER, DROP, INDEX, LOCK TABLES
+  ON redaxo.* TO 'redaxo_user'@'localhost';
+
+FLUSH PRIVILEGES;
+```
+
+| Recht | Wofür REDAXO es braucht |
+|---|---|
+| `SELECT` | Inhalte lesen (jeder Seitenaufruf) |
+| `INSERT`, `UPDATE`, `DELETE` | Inhalte pflegen (Redaktion) |
+| `CREATE`, `ALTER`, `DROP`, `INDEX` | AddOn-Installation & Updates (Tabellen anlegen/ändern) |
+| `LOCK TABLES` | Backup/Import konsistent durchführen |
+
+!!! warning "Was NICHT vergeben wird"
+    **Keine** globalen Rechte (`ON *.*`), **kein** `GRANT OPTION`, **kein** `SUPER`, **kein** `FILE`. Der Benutzer darf ausschließlich `redaxo.*` – nicht andere Datenbanken. So bleibt der Schaden bei einer Kompromittierung auf diese eine Datenbank begrenzt.
+
+!!! tip "Zwei Rechtestufen in der Praxis"
+    Manche Teams vergeben für den **Betrieb** nur `SELECT, INSERT, UPDATE, DELETE` und schalten `CREATE/ALTER/DROP` **nur temporär** für Updates frei. Das ist sicherer, aber aufwändiger. Für den Kurs genügt das obige Rechteset.
+
+---
+
+## 3.4 Wo REDAXO seine Konfiguration speichert
+
+REDAXO legt die zentralen Einstellungen in einer **YAML-Datei** ab:
+
+```
+redaxo/data/core/config.yml
+```
+
+Darin stehen u. a. die **Datenbank-Zugangsdaten**, das **Tabellen-Präfix** und der **Instanzname**:
+
+```yaml
+instname: rex...
+server: 'http://localhost/meinprojekt/'
+servername: 'Meine REDAXO-Seite'
+lang: de_de
+timezone: Europe/Berlin
+setup: false
+db:
+  1:
+    host: 127.0.0.1
+    login: redaxo_user
+    password: '********'
+    name: redaxo
+    persistent: false
+table_prefix: rex_
+```
+
+!!! warning "config.yml enthält Zugangsdaten – schützen!"
+    Diese Datei enthält das **DB-Passwort im Klartext**. Sie liegt im Ordner `redaxo/data/`, der **nicht öffentlich erreichbar** sein darf. REDAXO schützt `redaxo/data/` per `.htaccess`; auf Nginx musst du das in der Serverkonfiguration selbst absichern (Kapitel 10). **Niemals** `config.yml` in ein öffentliches Git-Repository committen.
+
+**Weitere Konfiguration** (z. B. AddOn-Einstellungen) speichert REDAXO in der Tabelle `rex_config` bzw. den `config.yml`-Dateien der jeweiligen AddOns. Das AddOn **phpMyAdmin** oder **Adminer** (als AddOn verfügbar) hilft, direkt in die Datenbank zu schauen.
+
+**Nachvollziehbar pflegen** heißt:
+
+- Änderungen an Konfiguration **dokumentieren** (was, warum, wann).
+- Zwischen **Entwicklungs-** und **Live-Konfiguration** unterscheiden (andere DB-Zugänge, `debug`-Modus nur lokal an).
+- Konfigurationsdateien versionieren – aber **Secrets** (Passwörter) auslassen (`.gitignore`).
+
+---
+
+## 3.5 Backups planen
+
+Ein Backup ist nur dann etwas wert, wenn man es **regelmäßig** erstellt **und** die **Wiederherstellung** getestet hat. Zu einem vollständigen REDAXO-Backup gehören **zwei Teile**:
+
+```mermaid
+flowchart LR
+    B([Vollständiges Backup]) --> DB[(Datenbank-Dump<br/>.sql)]
+    B --> F([Dateien<br/>redaxo/data/ + Medien])
+```
+
+**Datenbank-Dump per Kommandozeile:**
+
+```bash
+# Sichern
+mysqldump -u redaxo_user -p redaxo > backup_redaxo_2026-07-05.sql
+
+# Wiederherstellen (in eine leere DB)
+mysql -u redaxo_user -p redaxo < backup_redaxo_2026-07-05.sql
+```
+
+**Innerhalb von REDAXO** gibt es das AddOn **`Backup`** (früher „phpMyBackupPro"/Kern-Werkzeug), mit dem sich Datenbank-Exporte und -Importe bequem im Backend erstellen lassen – auch **zeitgesteuert** über das **`cronjob`**-AddOn.
+
+| Backup-Regel | Warum |
+|---|---|
+| **3-2-1-Regel**: 3 Kopien, 2 Medien, 1 außer Haus | Schutz vor Hardware- und Standort-Ausfall |
+| **Vor jedem Update** ein Backup | Rollback möglich, falls das Update scheitert (Kapitel 8) |
+| **Restore testen** | Ein nie getestetes Backup ist kein Backup |
+| **Dateien + DB gemeinsam** sichern | Beide gehören zu einem konsistenten Stand |
+
+!!! tip "Namenskonvention für Backups"
+    Nutze sprechende Dateinamen mit **Datum** (`backup_projekt_JJJJ-MM-TT.sql`). So findest du im Notfall schnell den richtigen Stand. Mehr zum Thema **Restore & Notfall** in Kapitel 10.
 
 ---
 
 ## Kurzübungen
 
-{{ task(file="tasks/tag3_01.yaml") }}
+{{ task(file="tasks/kapitel3_01.yaml") }}
 
-{{ task(file="tasks/tag3_02.yaml") }}
+{{ task(file="tasks/kapitel3_02.yaml") }}
 
-{{ task(file="tasks/tag3_03.yaml") }}
+{{ task(file="tasks/kapitel3_03.yaml") }}
 
 ---
 

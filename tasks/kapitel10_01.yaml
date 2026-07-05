@@ -1,0 +1,12 @@
+title: Grundlegende Schutzmaßnahmen
+difficulty: 1
+question: |
+  1. Was bewirkt **HTTPS** und warum ist es spätestens bei Login/Formularen zwingend?
+  2. Nenne drei Regeln für sichere Passwörter/Konten.
+  3. Warum ist „Erweiterungen aktuell halten" eine der wichtigsten Schutzmaßnahmen?
+tip: |
+  HTTPS verschlüsselt die Übertragung. Veraltete Software = häufigste Einfallstür.
+solution: |
+  1. **HTTPS** verschlüsselt die Verbindung (TLS). Ohne HTTPS werden Login-, Formular- und Cookie-Daten im Klartext übertragen und können mitgelesen werden.
+  2. Z. B.: lange/zufällige Passwörter (Passwort-Manager), keine Mehrfachnutzung, individuelle Konten, 2FA wo möglich, Admin-Rechte sparsam.
+  3. Veraltete Software (Core/AddOns) ist die **häufigste Einfallstür** für Angriffe; Sicherheitsupdates schließen bekannte Lücken.

@@ -1,4 +1,4 @@
-# Kapitel 10 – Lebenslanges Lernen und IT-Karriere
+# Kapitel 10 – Sicherheit & Notfallmaßnahmen
 
 <div class="kurs-progress">
   <div class="step done"></div>
@@ -16,152 +16,201 @@
 <div class="lernziele" markdown>
 <h3>Was du in diesem Kapitel lernst</h3>
 
-- Was lebensbegleitendes Lernen bedeutet und warum es im IT-Bereich besonders wichtig ist
-- Wie du persönliche Entwicklungswege reflektierst und planst
-- Welche berufliche Aufstiegs- und Weiterbildungsmöglichkeiten Fachinformatiker in allen vier Fachrichtungen haben
+- Warum **HTTPS** Pflicht ist und wie es funktioniert
+- Wie du **starke Passwörter** und sichere Konten durchsetzt
+- Wie du **Datei- und Datenbankrechte** prüfst (Wiederholung & Vertiefung)
+- Wie du das **Backend absicherst** (Zugriffsschutz, Live-Modus, Aktualität)
+- Wie du **Notfallmaßnahmen** umsetzt: **Backup/Restore** und systematische **Fehleranalyse**
 </div>
 
 ---
 
-## So gehst du vor
+## 10.1 Sicherheit als Querschnittsthema
 
-1. Lies die Kapitelinhalte und skizziere deinen eigenen Entwicklungsweg.
-2. Bearbeite die **Kurzübungen** der Reihe nach – von Grundlagen bis Experte.
-3. Arbeite die **Workshop-Aufgabe** durch. Sie vertieft das Gelernte an einem zusammenhängenden Szenario.
+Sicherheit ist kein einzelner Schalter, sondern zieht sich durch **alle** vorherigen Kapitel. Dieses Kapitel fasst die Schutzmaßnahmen zusammen und ergänzt Notfallmaßnahmen.
+
+```mermaid
+flowchart TB
+    S([Sichere REDAXO-Installation]) --> A[HTTPS / Transportverschlüsselung]
+    S --> B[Starke Passwörter & Konten]
+    S --> C[Minimale Datei- & DB-Rechte]
+    S --> D[Backend-Absicherung]
+    S --> E[Core & AddOns aktuell]
+    S --> F[Backups & Notfallplan]
+```
+
+!!! info "Defense in Depth"
+    Kein einzelner Schutz ist perfekt. Sicherheit entsteht durch **mehrere Schichten** („Defense in Depth"): Fällt eine Maßnahme aus, greifen die anderen. Deshalb kombiniert man **alle** folgenden Punkte, statt sich auf einen zu verlassen.
 
 ---
 
-## 10.1 Lebensbegleitendes Lernen
+## 10.2 HTTPS
 
-**Lebensbegleitendes Lernen** bedeutet: Lernen endet nicht mit der Abschlussprüfung. In der **IT** ist das zwingend – Technologien, Frameworks und Best Practices ändern sich kontinuierlich.
+**HTTPS** verschlüsselt die Verbindung zwischen Browser und Server per **TLS**. Ohne HTTPS werden Logins, Formulardaten und Cookies **im Klartext** übertragen und können mitgelesen werden.
 
-| Treiber | Beispiel IT |
+| Aspekt | Bedeutung |
 |---|---|
-| Technologiewandel | Cloud, KI, neue Programmiersprachen |
-| Regulatorik | DSGVO, IT-Sicherheitsgesetze |
-| Karriereziele | Spezialisierung, Führung, Selbstständigkeit |
-| Persönliche Entwicklung | Soft Skills, Projektmanagement |
+| **Zertifikat** | Wird z. B. kostenlos über **Let's Encrypt** ausgestellt |
+| **Weiterleitung** | Alle `http://`-Aufrufe per Server-Regel auf `https://` umleiten |
+| **HSTS** | Header `Strict-Transport-Security` erzwingt HTTPS im Browser |
+| **Mixed Content vermeiden** | Alle Ressourcen (Bilder, CSS) ebenfalls über `https` laden |
+
+```apache
+# .htaccess: alles auf HTTPS umleiten
+RewriteEngine On
+RewriteCond %{HTTPS} off
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+```
+
+!!! warning "Ohne HTTPS keine Formulare/Logins"
+    Spätestens sobald deine Seite ein **Login** (Backend!) oder **Formulare** (Kapitel 9) hat, ist HTTPS **zwingend** – auch aus Datenschutzsicht (DSGVO). Setze das **vor** dem Live-Gang um.
+
+---
+
+## 10.3 Starke Passwörter & Konten
+
+| Maßnahme | Umsetzung |
+|---|---|
+| **Passwortlänge/-komplexität** | Lang (12+ Zeichen), zufällig; Passwort-Manager nutzen |
+| **Keine Mehrfachnutzung** | Für jedes System ein eigenes Passwort |
+| **2-Faktor-Authentifizierung** | Wo verfügbar aktivieren (zusätzliche Sicherung des Backends) |
+| **Individuelle Konten** | Jede Person ein eigenes Konto – keine geteilten Logins (Nachvollziehbarkeit, Kapitel 4) |
+| **Admin sparsam** | Admin-Rechte nur für wenige (Kapitel 4) |
+| **Offboarding** | Konten ausgeschiedener Personen deaktivieren |
+
+!!! tip "Login-Absicherung in REDAXO"
+    REDAXO sperrt nach mehreren Fehlversuchen den Login (Brute-Force-Schutz). Ergänze das durch **starke Passwörter** und – wo möglich – eine **zusätzliche Zugriffsbeschränkung** auf das Backend (Abschnitt 10.5).
+
+---
+
+## 10.4 Datei- und Datenbankrechte prüfen
+
+Wiederholung aus Kapitel 2 & 3, jetzt als **Prüf-Routine**:
+
+**Dateirechte (Linux):**
+
+```bash
+# Ordner 755, Dateien 644 als sichere Basis
+sudo find /var/www/html -type d -exec chmod 755 {} \;
+sudo find /var/www/html -type f -exec chmod 644 {} \;
+# Eigentümer = Webserver-Benutzer
+sudo chown -R www-data:www-data /var/www/html
+```
+
+| Prüfpunkt | Soll-Zustand |
+|---|---|
+| Keine `777`-Rechte | Nirgends „für alle beschreibbar" |
+| `redaxo/data/` nicht öffentlich | Kein direkter Zugriff aus dem Web (enthält `config.yml`!) |
+| DB-Benutzer mit Minimalrechten | Nur `redaxo.*`, kein `root` im Betrieb (Kapitel 3) |
+| `config.yml` geschützt | Nicht im Web erreichbar, nicht in öffentlichem Git |
+
+!!! warning "Die häufigsten Fehler"
+    `777`-Rechte „weil es dann läuft", der **root**-DB-Benutzer im Live-Betrieb und eine öffentlich erreichbare `config.yml` gehören zu den **häufigsten Sicherheitslücken**. Prüfe diese drei Punkte bei jedem Live-Gang.
+
+---
+
+## 10.5 Backend absichern
+
+Das Backend (`/redaxo/`) ist das lohnendste Angriffsziel. Absicherung in mehreren Schichten:
+
+| Maßnahme | Wirkung |
+|---|---|
+| **HTTPS** | Login verschlüsselt (10.2) |
+| **Starke Passwörter / 2FA** | Erschwert Konten-Übernahme (10.3) |
+| **IP-Beschränkung / HTTP-Auth** | Zugriff auf `/redaxo/` nur aus bekannten Netzen bzw. mit zusätzlichem Passwort |
+| **Live-/Produktivmodus** | Deaktiviert Debug-Ausgaben, versteckt interne Details |
+| **`setup: false`** | Setup-Routine nach Installation gesperrt |
+| **Aktualität** | Core & AddOns aktuell (Kapitel 8) |
+
+**Beispiel: zusätzliche HTTP-Authentifizierung für das Backend (`.htaccess` im `redaxo/`-Ordner):**
+
+```apache
+AuthType Basic
+AuthName "Geschuetzter Bereich"
+AuthUserFile /pfad/zu/.htpasswd
+Require valid-user
+```
+
+!!! info "Live-Modus statt Debug"
+    Im **Debug-Modus** zeigt REDAXO detaillierte Fehlermeldungen – hilfreich lokal, **gefährlich** live (verrät Pfade, Versionen). Auf dem Live-Server: **Debug aus**, produktiver Betriebsmodus an. Fehlerdetails findest du dann im **Log** (Abschnitt 10.7), nicht im Browser der Besucher.
+
+!!! warning "Erweiterungen aktuell halten"
+    Ein einziges veraltetes AddOn mit Sicherheitslücke kann die ganze Seite kompromittieren. **Regelmäßig** Updates prüfen und einspielen (Kapitel 8) ist eine der wirksamsten Schutzmaßnahmen überhaupt.
+
+---
+
+## 10.6 Notfall: Backup & Restore
+
+Trotz aller Vorsorge kann es zum Ernstfall kommen (Angriff, defektes Update, Serverausfall). Dann zählt ein **funktionierendes Backup** und ein **geübter Restore**.
 
 ```mermaid
 flowchart TD
-    A([Abschluss\nFachinformatiker]) --> B[Berufspraxis]
-    B --> C[Weiterbildung\nZertifikate]
-    C --> D[Spezialisierung\noder Aufstieg]
-    D --> B
+    N([Notfall erkannt]) --> I[1. Seite offline/Wartungsmodus]
+    I --> U[2. Ursache eingrenzen]
+    U --> R[3. Restore: Dateien + DB aus Backup]
+    R --> T[4. Funktion & Integrität prüfen]
+    T --> P[5. Ursache beheben, dann wieder online]
+    P --> D[6. Vorfall dokumentieren]
 ```
 
+**Restore-Schritte (Wiederholung/Vertiefung zu Kapitel 3 & 8):**
+
+1. **Dateien** aus dem Backup zurückspielen (`redaxo/data/`, Medien, Assets).
+2. **Datenbank** aus dem `.sql`-Dump wiederherstellen – **derselbe Zeitpunkt** wie die Dateien.
+3. **Cache leeren** und Login/Frontend testen.
+4. Erst nach erfolgreichem Test wieder **online** schalten.
+
+!!! warning "Ein ungetestetes Backup ist kein Backup"
+    Teste den **Restore** regelmäßig in einer Kopie. Viele merken erst im Ernstfall, dass das Backup unvollständig oder nicht einspielbar ist. Halte die **3-2-1-Regel** ein (Kapitel 3) und automatisiere Backups per **Cronjob** (Kapitel 8).
+
 ---
 
-## 10.2 Chancen und Anforderungen
+## 10.7 Fehleranalyse
 
-| Chancen | Anforderungen |
+Systematische Fehlersuche folgt einem klaren Vorgehen statt „wildem Probieren":
+
+```mermaid
+flowchart LR
+    A[Symptom beschreiben] --> B[Logs prüfen]
+    B --> C[Ursache eingrenzen]
+    C --> D[Hypothese testen]
+    D --> E{Behoben?}
+    E -->|Nein| C
+    E -->|Ja| F[Fix dokumentieren]
+```
+
+| Quelle | Was du dort findest |
 |---|---|
-| Hohe Nachfrage an IT-Fachkräften | Kontinuierliches Lernen |
-| Vielfältige Karrierewege | Selbstorganisation, Neugier |
-| Remote und internationale Jobs | Sprachen, Kommunikation |
-| Gute Verdienstmöglichkeiten | Spezialisierung, Erfahrung |
-| Selbstständigkeit möglich | Unternehmerisches Denken |
+| **REDAXO-System-Log** (`System → Log` bzw. `redaxo/data/log/`) | Interne Fehler, Warnungen, AddOn-Meldungen |
+| **PHP-Fehlerlog** | Fatale Fehler, Speicher-/Timeout-Probleme |
+| **Webserver-Log** (Apache/Nginx) | 500er-Fehler, Rewrite-Probleme, Zugriffe |
+| **Browser-Konsole** | Frontend-/JavaScript-/Mixed-Content-Fehler |
 
-!!! warning "Obsoleszenz"
-    Wissen in der IT **veraltet** schnell. Was heute Standard ist, kann in 5 Jahren überholt sein. **Lernroutine** ist Teil des Berufs.
-
----
-
-## 10.3 Karrierewege nach Fachrichtung
-
-Alle vier Fachrichtungen teilen den fachrichtungsübergreifenden Kern – die **Spezialisierung** prägt deinen typischen Karrierestart und Weiterbildungsweg.
-
-### Anwendungsentwicklung (AE)
-
-| Stufe | Rolle | Schwerpunkt |
-|---|---|---|
-| Einstieg | Junior Developer | Programmierung, Bugfixes, kleine Features |
-| Fortgeschritten | Software Engineer | Architektur, komplexe Systeme |
-| Spezialist | Senior Developer, Tech Lead | Technische Führung, Code-Qualität |
-| Alternative | Product Owner, Scrum Master | Schnittstelle Business/IT |
-| Aufstieg | IT-Projektleiter, Software Architect | Gesamtplanung, Strategie |
-
-**Weiterbildung:** Cloud-Zertifikate (AWS, Azure), Frameworks, Clean Code, Security, Studium (Informatik, Wirtschaftsinformatik).
-
-### Systemintegration (SI)
-
-| Stufe | Rolle | Schwerpunkt |
-|---|---|---|
-| Einstieg | IT-Support, Systemadministrator | Helpdesk, Clients, Basis-Netzwerk |
-| Fortgeschritten | System Engineer | Server, Virtualisierung, Cloud |
-| Spezialist | Netzwerk-Spezialist, Security Engineer | Firewalls, VPN, Hardening |
-| Alternative | DevOps Engineer | Automatisierung, CI/CD |
-| Aufstieg | IT-Leiter, Infrastructure Architect | Gesamt-IT-Landschaft |
-
-**Weiterbildung:** Cisco/Microsoft/Linux-Zertifikate, ITIL, Cloud, Cybersecurity.
-
-### Daten- und Prozessanalyse (DPA)
-
-| Stufe | Rolle | Schwerpunkt |
-|---|---|---|
-| Einstieg | Data Analyst, Prozessberater | Daten auswerten, Prozesse dokumentieren |
-| Fortgeschritten | Business Analyst, Data Engineer | Datenpipelines, Prozessoptimierung |
-| Spezialist | Data Scientist, Process Owner | ML/Analytics, digitale Geschäftsmodelle |
-| Alternative | Datenschutzbeauftragter (mit Zusatzqualifikation) | DSGVO, Schutzziele |
-| Aufstieg | Head of Analytics, Digital Transformation Manager | Datenstrategie, Optimierung |
-
-**Weiterbildung:** SQL/Python für Analytics, Power BI/Tableau, Prozessmanagement (BPMN), Data-Science-Kurse, Datenschutz-Zertifikate.
-
-### Digitale Vernetzung (DV)
-
-| Stufe | Rolle | Schwerpunkt |
-|---|---|---|
-| Einstieg | IoT-Techniker, Automatisierungstechniker | Vernetzte Geräte, Sensorik, Basis-PLC |
-| Fortgeschritten | IoT Engineer, OT-Spezialist | Industrie 4.0, Edge Computing |
-| Spezialist | Vernetzungsarchitekt | Produktions- und Logistiksysteme |
-| Alternative | Smart-Factory Consultant | Vernetzung von Prozessen und Produkten |
-| Aufstieg | Leiter technische Digitalisierung | Systemverfügbarkeit, Vernetzungsstrategie |
-
-**Weiterbildung:** IoT-Plattformen, industrielle Netzwerke, OPC UA, Automatisierung, IT-Security in OT-Umgebungen.
+!!! tip "Ein Backup vor jeder größeren Änderung"
+    Vor jedem Reparaturversuch: **Backup** machen. So kannst du gefahrlos experimentieren und im Zweifel auf den Ausgangszustand zurück. Dokumentiere **Symptom, Ursache und Lösung** – das beschleunigt die nächste Analyse und ist Teil professioneller Betriebsführung.
 
 ---
 
-## 10.4 Formen der Weiterbildung
+## 10.8 Sicherheits-Checkliste (Zusammenfassung)
 
-| Form | Beispiel | Dauer / Aufwand |
-|---|---|---|
-| Kurzseminare | Agile, Scrum | 1–3 Tage |
-| Zertifikatslehrgänge | CCNA, AZ-104, LPIC | Wochen bis Monate |
-| Fachwirt / Techniker | Gepr. IT-Berufe | 1–2 Jahre neben Beruf |
-| Studium | Bachelor Informatik | 3 Jahre (mit Vorkenntnissen verkürzt) |
-| Online-Kurse | Udemy, Coursera, Plattform des Arbeitgebers | Flexibel |
-| Konferenzen | DevOpsDays, JavaLand | Networking + Trends |
-
-**Finanzierung:** Arbeitgeberzuschuss, Bildungsscheck, Aufstiegs-BAföG, selbst finanziert.
-
----
-
-## 10.5 Persönlicher Entwicklungsplan
-
-**Reflexionsfragen:**
-
-1. Welche **Stärken** bringe ich aus Vorberuf und Umschulung mit?
-2. Welche **Fachrichtung** (AE, SI, DPA, DV) – wo sehe ich mich in 3 Jahren?
-3. Welche **3 Skills** brauche ich für den nächsten Schritt?
-4. Wer kann mich **mentoren** (Ausbilder, Senior, Community)?
-5. Wie messe ich meinen **Fortschritt** (Portfolio, GitHub, Zertifikate)?
-
-| Zeitrahmen | Ziel | Maßnahme |
-|---|---|---|
-| 6 Monate | Praktikum erfolgreich | Berichtsheft, Projekte dokumentieren |
-| 1 Jahr | Abschlussprüfung | Prüfungsvorbereitung, Probeklausuren |
-| 2–3 Jahre | Junior-Position | Spezialisierung starten, Zertifikat |
-| 5 Jahre | Senior / Spezialist | Führung oder Tiefe |
+- [ ] HTTPS aktiv, `http`→`https`-Weiterleitung, kein Mixed Content
+- [ ] Starke, einzigartige Passwörter; Admin-Konten minimal; Offboarding erledigt
+- [ ] Keine `777`-Rechte; `redaxo/data/`/`config.yml` nicht öffentlich
+- [ ] DB-Benutzer mit Minimalrechten (kein `root` im Betrieb)
+- [ ] Backend zusätzlich geschützt (IP/HTTP-Auth), Live-Modus an, Setup gesperrt
+- [ ] Core & AddOns aktuell, ungenutzte AddOns entfernt
+- [ ] Automatische Backups (DB + Dateien), Restore getestet
+- [ ] Notfallplan & Log-Zugriff dokumentiert
 
 ---
 
 ## Kurzübungen
 
-{{ task(file="tasks/tag10_01.yaml") }}
+{{ task(file="tasks/kapitel10_01.yaml") }}
 
-{{ task(file="tasks/tag10_02.yaml") }}
+{{ task(file="tasks/kapitel10_02.yaml") }}
 
-{{ task(file="tasks/tag10_03.yaml") }}
+{{ task(file="tasks/kapitel10_03.yaml") }}
 
 ---
 

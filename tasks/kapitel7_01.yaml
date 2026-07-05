@@ -1,0 +1,12 @@
+title: Wo wohnt das Design?
+difficulty: 1
+question: |
+  1. Aus welchen drei Bausteinen entsteht in REDAXO das Design einer Seite?
+  2. Wo bindest du CSS- und JS-Dateien ein?
+  3. Was ist ein **Core-Hack** und warum ist er zu vermeiden?
+tip: |
+  Template + Modul-Ausgabe + CSS/JS. CSS wird im Template verlinkt.
+solution: |
+  1. **Template** (Gerüst), **Modul-Ausgabe** (HTML der Bausteine) und **CSS/JS** (Aussehen/Verhalten).
+  2. Im **Template** (z. B. `<link rel="stylesheet" href="/assets/css/style.css">` im `<head>`, `<script>` am Ende des `<body>`).
+  3. Ein Core-Hack ist eine direkte Änderung an Kern-/AddOn-Dateien. Zu vermeiden, weil sie beim nächsten **Update überschrieben** wird bzw. das Update bricht. Anpassungen gehören in Template/Module/eigenes CSS.

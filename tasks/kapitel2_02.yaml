@@ -1,0 +1,14 @@
+title: Systemvoraussetzungen prüfen
+difficulty: 2
+question: |
+  Du sollst REDAXO 5 auf einem Server installieren. Bevor du startest, willst du die **Systemvoraussetzungen** prüfen.
+
+  1. Welche **PHP-** und **Datenbank-Versionen** setzt die aktuelle REDAXO-5-Version voraus?
+  2. Mit welchen **Befehlen** prüfst du auf der Kommandozeile die PHP-Version und die geladenen Extensions?
+  3. Nenne drei der von REDAXO benötigten PHP-Extensions.
+tip: |
+  `php -v` und `php -m`. Die Setup-Routine macht zusätzlich einen automatischen Systemcheck.
+solution: |
+  1. **PHP 8.3+** (aktuelle Version; mind. 8.1 für ältere 5.x-Releases), **MySQL ab 5.6** oder **MariaDB ab 10.1** (empfohlen 5.7.7 / 10.2 für utf8mb4).
+  2. `php -v` (Version), `php -m` (geladene Module/Extensions); im XAMPP-Dashboard auch über `phpinfo`.
+  3. Z. B. `gd`, `intl`, `mbstring`, `pdo_mysql`, `fileinfo` (weitere: `ctype`, `iconv`, `pcre`, `session`, `tokenizer`).

@@ -1,0 +1,14 @@
+title: AddOn prüfen vor der Installation
+difficulty: 2
+question: |
+  Du findest ein AddOn, das genau deine gewünschte Funktion bietet. Bevor du es auf der Live-Seite installierst, prüfst du es.
+
+  1. Welche **drei** Dinge prüfst du (mit je einem Satz Begründung)?
+  2. Wo findest du Hinweise zur **Kompatibilität** mit deiner REDAXO-Version?
+  3. Warum ist „viele AddOns = gut" ein Trugschluss?
+tip: |
+  Kompatibilität, Herkunft, Changelog. package.yml enthält die requires-Angabe.
+solution: |
+  1. **Kompatibilität** (läuft es mit meiner REDAXO-/PHP-Version?), **Herkunft** (vertrauenswürdige Quelle wie offizielles Verzeichnis/FriendsOfREDAXO?), **Changelog/Pflege** (wird es aktuell gehalten?).
+  2. In der **`package.yml`** (`requires: redaxo: ^5.x`) bzw. auf der AddOn-Seite/GitHub-Releases.
+  3. Jedes AddOn vergrößert **Angriffsfläche** und **Pflegeaufwand**. Ungenutzte/veraltete AddOns sind ein Sicherheitsrisiko – nur installieren, was man braucht.

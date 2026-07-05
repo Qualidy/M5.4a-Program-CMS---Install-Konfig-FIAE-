@@ -1,0 +1,19 @@
+title: Dateirechte richtig setzen
+difficulty: 3
+question: |
+  Nach der Installation auf einem Linux-Server (Apache, Benutzer `www-data`) meldet REDAXO, dass es den **Cache nicht schreiben** kann. Gleichzeitig hat ein Kollege „zur Sicherheit" alle Ordner auf `777` gesetzt.
+
+  1. Erkläre, warum `777` **keine** gute Lösung ist.
+  2. Welche Rechte (Zahlenwerte) sind für **Ordner** und **Dateien** eine sinnvolle sichere Basis?
+  3. Gib die Befehle an, um Eigentümer auf `www-data` zu setzen und Ordner auf 755 / Dateien auf 644 zu bringen.
+tip: |
+  `777` = jeder darf schreiben = Sicherheitsrisiko. Ziel: so viel wie nötig, so wenig wie möglich.
+solution: |
+  1. `777` erlaubt **jedem** Prozess/Benutzer auf dem Server das Schreiben – ein erhebliches Sicherheitsrisiko. Der Webserver braucht Schreibrechte nur an wenigen Stellen (z. B. `redaxo/data/`, Cache).
+  2. **Ordner 755**, **Dateien 644** (bei Bedarf 775/664 für gezielt beschreibbare Ordner).
+  3.
+  ```bash
+  sudo chown -R www-data:www-data /var/www/html
+  sudo find /var/www/html -type d -exec chmod 755 {} \;
+  sudo find /var/www/html -type f -exec chmod 644 {} \;
+  ```

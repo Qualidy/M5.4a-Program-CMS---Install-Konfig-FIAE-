@@ -1,0 +1,18 @@
+title: CMS-Varianten nach Einsatzzweck
+difficulty: 2
+question: |
+  Für die folgenden vier Projekte soll je ein passendes CMS vorgeschlagen werden. Wähle aus **WordPress, TYPO3, Drupal, REDAXO** und **begründe** deine Wahl in 1–2 Sätzen.
+
+  1. Ein privater Reiseblog, der schnell online gehen soll.
+  2. Das mehrsprachige Portal einer großen Behörde mit vielen Redakteuren und feiner Rechteverwaltung.
+  3. Eine individuell gestaltete Kampagnen-Website, bei der die Agentur volle Kontrolle über das HTML möchte.
+  4. Ein komplexes, datengetriebenes Community-Portal mit vielen individuellen Inhaltstypen.
+tip: |
+  Denke an: schnell/einfach vs. Enterprise/mehrsprachig vs. volle HTML-Kontrolle vs. komplexes Datenmodell.
+solution: |
+  1. **WordPress** – riesiges Ökosystem, schnell startklar, ideal für Blogs.
+  2. **TYPO3** – Enterprise-CMS, mehrsprachig ab Werk, granulare Rechte, große Redaktionsteams.
+  3. **REDAXO** – kein vorgegebenes Design, volle Kontrolle über die HTML-Ausgabe über eigene Templates/Module.
+  4. **Drupal** – sehr flexibles Datenmodell, stark bei individuellen Strukturen und Portalen.
+
+  (Andere Begründungen sind möglich, wenn sie zum Einsatzzweck passen.)

@@ -1,0 +1,26 @@
+title: Modul mit Eingabe und Ausgabe
+difficulty: 2
+question: |
+  Du sollst ein einfaches Modul „Zitat" bauen: Der Redakteur gibt einen **Zitattext** und einen **Autor** ein; im Frontend erscheint ein `<blockquote>` mit Autor.
+
+  1. Erkläre, was in den **Eingabe-** und was in den **Ausgabe-**Teil eines REDAXO-Moduls gehört.
+  2. Skizziere den Eingabe- und den Ausgabe-Code (mit `REX_INPUT_VALUE[...]` bzw. `REX_VALUE[...]`).
+tip: |
+  Eingabe = Formular fürs Backend (`REX_INPUT_VALUE`). Ausgabe = Frontend-HTML (`REX_VALUE`).
+solution: |
+  1. **Eingabe:** das Backend-Formular, das Redakteure ausfüllen. **Ausgabe:** das HTML, das daraus im Frontend entsteht.
+  2.
+  *Eingabe:*
+  ```html
+  <label>Zitat</label>
+  <textarea name="REX_INPUT_VALUE[1]">REX_VALUE[1]</textarea>
+  <label>Autor</label>
+  <input type="text" name="REX_INPUT_VALUE[2]" value="REX_VALUE[2]">
+  ```
+  *Ausgabe:*
+  ```html
+  <blockquote>
+    <p>REX_VALUE[1]</p>
+    <cite>REX_VALUE[2]</cite>
+  </blockquote>
+  ```

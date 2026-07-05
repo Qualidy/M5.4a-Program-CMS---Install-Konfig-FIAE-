@@ -1,17 +1,17 @@
-site_name: "M1.1 WISO: Berufsbildung, Arbeits- u. Tarifrecht"
+site_name: "M5.4a: CMS – Installation & Konfiguration (REDAXO)"
 
 nav:
   - Übersicht: index.md
-  - "Kapitel 1 – Berufsbildung und Umschulung": content/kapitel1.md
-  - "Kapitel 2 – Ausbildungsvertrag": content/kapitel2.md
-  - "Kapitel 3 – Ausbildungsplan und Ausbildungsordnung": content/kapitel3.md
-  - "Kapitel 4 – Arbeitsrecht Grundlagen": content/kapitel4.md
-  - "Kapitel 5 – Sozialversicherung und Sozialrecht": content/kapitel5.md
-  - "Kapitel 6 – Mitbestimmungsrecht": content/kapitel6.md
-  - "Kapitel 7 – Tarifrecht und Arbeitszeit": content/kapitel7.md
-  - "Kapitel 8 – Entgeltabrechnung": content/kapitel8.md
-  - "Kapitel 9 – Lern- und Arbeitstechniken": content/kapitel9.md
-  - "Kapitel 10 – Lebenslanges Lernen und IT-Karriere": content/kapitel10.md
+  - "Kapitel 1 – Was ist ein CMS?": content/kapitel1.md
+  - "Kapitel 2 – Installation & Einrichtung": content/kapitel2.md
+  - "Kapitel 3 – Datenbank & Konfiguration": content/kapitel3.md
+  - "Kapitel 4 – Benutzer, Rollen & Rechte": content/kapitel4.md
+  - "Kapitel 5 – Frontend, Backend & Workflows": content/kapitel5.md
+  - "Kapitel 6 – Content, Medien & Mehrsprachigkeit": content/kapitel6.md
+  - "Kapitel 7 – Layout & Design": content/kapitel7.md
+  - "Kapitel 8 – AddOns, Updates & Staging": content/kapitel8.md
+  - "Kapitel 9 – Mailing, Newsletter & Datenschutz": content/kapitel9.md
+  - "Kapitel 10 – Sicherheit & Notfallmaßnahmen": content/kapitel10.md
 
 theme:
   name: material

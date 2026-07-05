@@ -1,20 +1,25 @@
-title: BAP und Ausbildungsordnung vergleichen
+title: Datenbank absichern & Backup-Konzept
 difficulty: 4
 question: |
-  **Szenario:** Du beginnst in 2 Monaten deine Ausbildung zum Fachinformatiker AE. Dein Ausbildungsbetrieb hat dir den betrieblichen Ausbildungsplan (BAP) geschickt – 4 Seiten, viele Helpdesk-Einträge, wenig Entwicklung.
+  **Szenario:** Deine REDAXO-Installation aus Kapitel 2 läuft noch mit dem `root`-DB-Zugang. Das soll sich ändern, und du brauchst ein Backup-Konzept.
 
   ---
 
-  **Aufgabe:**
+  **Aufgabe (praktisch + konzeptionell):**
 
-  1. Besorge (online) die **Struktur** der Ausbildungsordnung Fachinformatiker AE – liste 6 zentrale Qualifikationsbereiche.
+  1. **Eigener DB-Benutzer:** Lege in phpMyAdmin/Adminer oder per SQL einen Benutzer `redaxo_user` mit **Minimalrechten** auf die Datenbank `redaxo` an.
+  2. **Umstellen:** Trage den neuen Benutzer in der `config.yml` ein und prüfe, dass REDAXO weiterhin läuft (Cache leeren, Frontend + Backend testen).
+  3. **Absichern:** Prüfe, ob `redaxo/data/` von außen erreichbar ist, und dokumentiere, wie du es schützt.
+  4. **Backup-Konzept:** Erstelle ein schriftliches Konzept: Was wird gesichert (DB + Dateien), wie oft, wohin, wie wird ein **Restore** getestet? Führe **einen** DB-Dump praktisch durch.
 
-  2. Erstelle eine **Matrix**: Ordnungsinhalt | im BAP vorhanden? | geplante Maßnahme falls nicht.
-
-  3. Formuliere **5 Punkte** für ein Gespräch mit dem Ausbilder zur Verbesserung des BAP.
-
-  4. Beschreibe, wie **Berufsschule** und **Betrieb** zusammenwirken sollen.
-
-  **Deliverables:** Matrix + Gesprächsagenda
+  **Deliverable:** Laufende Installation mit eigenem DB-Benutzer + Backup-Konzept (1 Seite) + ein erzeugter `.sql`-Dump.
+tip: |
+  Vor dem Umstellen der config.yml ein Backup machen! Wenn danach ein Fehler kommt, prüfe Benutzername, Passwort und Rechte. Denke daran: Dump-Datei enthält alle Inhalte – sicher aufbewahren.
 solution: |
-  Matrix zeigt Lücken; Gesprächspunkte konkret und lösungsorientiert; Zusammenwirken: Theorie in der Berufsschule, Praxis im Betrieb, Berichtsheft verknüpft beides.
+  Bewertungskriterien:
+
+  - `redaxo_user` existiert mit passenden Rechten **nur** auf `redaxo.*` (kein root im Betrieb).
+  - `config.yml` nutzt den neuen Benutzer; Seite läuft weiterhin.
+  - Schutz von `redaxo/data/` beschrieben (nicht öffentlich erreichbar, keine Klartext-Secrets im Git).
+  - Backup-Konzept nennt DB **und** Dateien, Rhythmus, Ablageort (3-2-1) und Restore-Test.
+  - Ein funktionierender `mysqldump` wurde erzeugt.

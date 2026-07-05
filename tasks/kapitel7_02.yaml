@@ -1,0 +1,20 @@
+title: Responsive CSS mit Media Query
+difficulty: 2
+question: |
+  Ein Inhaltsbereich `.spalten` soll auf dem Smartphone **einspaltig** und ab 768px Breite **zweispaltig** sein.
+
+  1. Schreibe das passende CSS mit **Mobile-first**-Ansatz (Basis mobil, `@media` für größer).
+  2. Erkläre in einem Satz, was „Mobile-first" bedeutet.
+  3. Warum sollte man Farben/Abstände als **CSS-Variablen** definieren?
+tip: |
+  Mobile-first: Basis = kleinste Ansicht, dann per min-width erweitern.
+solution: |
+  1.
+  ```css
+  .spalten { display: grid; grid-template-columns: 1fr; }
+  @media (min-width: 768px) {
+      .spalten { grid-template-columns: 1fr 1fr; }
+  }
+  ```
+  2. **Mobile-first** heißt: Man gestaltet zuerst für kleine Bildschirme und erweitert das Layout per `min-width`-Media-Queries für größere.
+  3. Zentrale Werte (Farben/Abstände) lassen sich an **einer** Stelle ändern und wirken überall – wartbar und konsistent.

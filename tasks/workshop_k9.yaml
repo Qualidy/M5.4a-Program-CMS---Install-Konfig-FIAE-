@@ -1,22 +1,26 @@
-title: Lernsystem aufbauen
+title: Kontaktformular, Consent & Datenschutz
 difficulty: 4
 question: |
-  **Szenario:** Vollzeit-Online-Umschulung, 8 Monate bis Praktikum. Du neigst zu Prokrastination.
+  **Szenario:** Die Handwerker-Website braucht ein Kontaktformular und soll datenschutzrechtlich sauber sein. Später ist ein Newsletter geplant.
 
   ---
 
-  **Aufgabe:**
+  **Aufgabe (praktisch in REDAXO):**
 
-  1. Erstelle einen **Wochenplan** (Vorlage): Lernzeiten WISO, Fachinformatik, Bewerbung Betrieb.
+  1. **Formular bauen:** Erstelle mit **YForm** ein Kontaktformular (Name, E-Mail, Nachricht) mit Validierung (Pflichtfelder, E-Mail-Format) und Spam-Schutz (z. B. Honeypot).
+  2. **Mailversand:** Konfiguriere PHPMailer (SMTP, eigene Absenderadresse, Besucheradresse als Reply-To) und teste den Versand an dich selbst.
+  3. **Consent:** Installiere den **consent_manager**, lege die Gruppen „Notwendig"/„Marketing" an und binde ein externes Embed (z. B. Karte/Video) so ein, dass es erst nach Zustimmung lädt.
+  4. **Newsletter-Konzept:** Skizziere schriftlich, wie du eine Newsletter-Anmeldung mit **Double-Opt-in** über YForm umsetzen würdest (Statusfeld, Bestätigungsmail, Token-Link).
+  5. **Pflichtseiten:** Lege Platzhalter-Artikel für **Impressum** und **Datenschutzerklärung** an.
 
-  2. Definiere **3 Lernmethoden** mit konkreter Anwendung pro Modul.
-
-  3. Liste **digitale Tools** mit Workflow (z. B. Notizen → GitHub → Berichtsheft).
-
-  4. **Selbstreflexion:** 5 Fragen am Ende jeder Woche.
-
-  5. Nenne **2 Risiken** ohne Struktur und **Gegenmaßnahmen**.
-
-  **Deliverables:** Wochenplan-Vorlage + Reflexionsfragen
+  **Deliverable:** Funktionierendes Kontaktformular + Consent-Banner + Newsletter-/Double-Opt-in-Konzept + Pflichtseiten.
+tip: |
+  Teste das Formular mit ungültigen Eingaben – die Validierung muss greifen. Für das Embed den Inline-Consent des consent_manager nutzen. Denke an Datensparsamkeit: nur wirklich nötige Felder als Pflicht.
 solution: |
-  Plan realistisch mit Pausen; Methoden passend; Workflow dokumentiert; Risiken z. B. Ablenkung, Stoffüberlastung mit Gegenmaßnahmen.
+  Bewertungskriterien:
+
+  - YForm-Formular funktioniert, validiert korrekt, hat Spam-Schutz.
+  - Mailversand über SMTP mit eigener Absenderadresse + Reply-To; Testmail kommt an.
+  - consent_manager aktiv; externes Embed lädt erst nach Einwilligung; „Notwendig"-Gruppe nicht abwählbar.
+  - Double-Opt-in-Konzept beschreibt Status „unbestätigt→bestätigt", Bestätigungsmail und Token-Link.
+  - Impressum + Datenschutzerklärung als Artikel vorhanden; Datensparsamkeit beachtet.

@@ -1,22 +1,24 @@
-title: Dein Weg in der Umschulung
+title: CMS-Auswahl & Konzept für ein Kundenprojekt
 difficulty: 4
 question: |
-  **Szenario:** Du bist in der ersten Phase deiner Umschulung zum Fachinformatiker (Fachrichtung SI). Der Praktikumsbetrieb beginnt in 8 Monaten. Du hast noch keinen Betrieb.
+  **Szenario:** Ein regionaler Handwerksbetrieb möchte eine neue Website: rund 15 Seiten, ein Bereich für Referenzen (mit Bildern), ein Kontaktformular und später evtl. eine englische Version. Das Budget ist begrenzt, die Inhalte pflegt eine Mitarbeiterin ohne HTML-Kenntnisse.
 
   ---
 
   **Aufgabe (allein oder in der Lerngruppe):**
 
-  1. Beschreibe deine **eigene Rolle** in der Umschulung in ca. 10 Sätzen (Lernorte, Verantwortung, Unterschied zur regulären Ausbildung).
+  1. **CMS-Vergleich:** Stelle **WordPress, TYPO3 und REDAXO** in einer Tabelle gegenüber (Stärken, Schwächen, Eignung für dieses Projekt).
+  2. **Empfehlung:** Begründe, warum dieser Kurs mit **REDAXO** arbeitet und wann du in der Praxis ein anderes CMS empfehlen würdest.
+  3. **Grobkonzept:** Skizziere für die Handwerker-Website die geplante **Struktur** (Kategorien/Artikel) als Baum.
+  4. **Begriffe zuordnen:** Markiere in deinem Konzept, was später **Template**, **Modul/Slice** und **Medienpool** sein wird.
 
-  2. Erstelle eine **Checkliste** mit mindestens 8 Punkten: Was muss ein geeigneter Praktikumsbetrieb für SI erfüllen?
-
-  3. Plane einen **Zeitstrahl** von heute bis Praktikumsstart: Welche Schritte (Recherche, Bewerbung, Gespräche, Praktikumsvertrag, Abstimmung mit dem Bildungsträger) in welchem Monat?
-
-  4. Formuliere **3 Fragen**, die du in einem Gespräch mit einem IT-Betrieb stellen würdest – bezogen auf Betreuung, Aufgaben und Praxisbezug.
-
-  **Deliverables:** Kurzes Dokument (1–2 Seiten) oder strukturierte Stichpunktliste
+  **Deliverable:** Ein 1–2-seitiges Konzeptdokument mit Vergleichstabelle und Struktur-Baum.
 tip: |
-  Teilt Aufgaben: eine Person Rolle, eine Checkliste, eine Zeitplanung, eine Gesprächsfragen. Das Praktikum ist unbezahlt – achte auf fachliche Passung und Betreuung, nicht auf Vergütung.
+  Es gibt kein „bestes" CMS – argumentiere über den Einsatzzweck (Umfang, Team, Budget, Mehrsprachigkeit, HTML-Kontrolle). Der Struktur-Baum darf eine einfache Liste mit Einrückungen sein.
 solution: |
-  Bewertungskriterien: Rolle differenziert beschrieben (Umschüler, unbezahltes Praktikum, kein Ausbildungsvertrag); Checkliste enthält fachliche Eignung, Betreuung/Mentor, passende SI-Aufgaben, Ausstattung, Praktikumsdauer, Abstimmung mit Träger; Zeitstrahl realistisch; Gesprächsfragen zielen auf Betreuung, Aufgaben und Technologien ab.
+  Bewertungskriterien:
+
+  - Vergleichstabelle nennt je CMS mindestens 2 Stärken/Schwächen und einen Projektbezug.
+  - Empfehlung ist **begründet** (nicht „REDAXO ist am besten", sondern warum: volle HTML-Kontrolle, gut zum Lernen, mehrsprachig; WordPress bei sehr knappem Zeit-/Pflegebudget denkbar).
+  - Struktur-Baum enthält sinnvolle Kategorien (z. B. Start, Leistungen, Referenzen, Über uns, Kontakt) mit Artikeln.
+  - Begriffe korrekt zugeordnet: Seitengerüst = Template, Referenz-/Textblöcke = Module/Slices, Bilder = Medienpool.

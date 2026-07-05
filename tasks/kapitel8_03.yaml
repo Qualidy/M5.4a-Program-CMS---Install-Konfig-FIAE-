@@ -1,0 +1,14 @@
+title: Update-Prozess mit Rollback
+difficulty: 3
+question: |
+  Für eine Live-Website steht ein REDAXO-Sicherheitsupdate an.
+
+  1. Bringe die Schritte eines sicheren Update-Prozesses in die richtige Reihenfolge: *auf Live einspielen, Backup erstellen, auf Staging testen, Changelog prüfen, Live erneut testen*.
+  2. Was ist der Unterschied zwischen **Update** und **Upgrade**?
+  3. Erkläre, warum ein **Rollback** nur mit vorherigem Backup funktioniert und warum DB **und** Dateien zusammengehören.
+tip: |
+  Erst prüfen und sichern, dann testen (Staging), dann live.
+solution: |
+  1. Changelog prüfen → **Backup** erstellen → auf **Staging** testen → auf **Live** einspielen → Live erneut testen.
+  2. **Update** = kleine Aktualisierung innerhalb einer Hauptversion (z. B. 5.20.1→5.20.2); **Upgrade** = Sprung auf eine neue Hauptversion (z. B. 5.x→6.x) mit möglichem Anpassungsbedarf.
+  3. Ein Rollback stellt den letzten stabilen Stand aus dem **Backup** wieder her – ohne Backup gibt es nichts zurückzuholen. DB und Dateien müssen aus **demselben Zeitpunkt** stammen, sonst entsteht ein inkonsistenter Zustand.

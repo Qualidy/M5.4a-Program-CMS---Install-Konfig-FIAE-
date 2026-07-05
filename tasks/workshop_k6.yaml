@@ -1,20 +1,26 @@
-title: Mitbestimmung erkunden
+title: Content, Medien & zweite Sprache
 difficulty: 4
 question: |
-  **Szenario:** Du bist im 3. Monat deines Praktikums in einem IT-Dienstleister (120 MA). Du kennst weder Betriebsrat noch JAV.
+  **Szenario:** Die Handwerker-Website soll mit echten Inhalten, aufbereiteten Bildern und einer **englischen** Startseite ausgebaut werden.
 
   ---
 
-  **Aufgabe:**
+  **Aufgabe (praktisch in REDAXO):**
 
-  1. Erstelle einen **Erkundungsplan** für die ersten 2 Wochen: Wo informieren, wen ansprechen?
+  1. **Medienpool:** Lege Medienkategorien an, lade 3–4 Bilder mit sprechenden Namen hoch und pflege Titel + Alt-Text.
+  2. **Media Manager:** Lege einen Medientyp (z. B. „content_800") an und binde ein Bild damit im Frontend ein.
+  3. **Responsive prüfen:** Öffne die Seite in der mobilen Ansicht des Browsers und dokumentiere, was gut/schlecht umbricht.
+  4. **Zweite Sprache:** Aktiviere unter System → Sprachen **Englisch** und übersetze die Slices der Startseite. Optional: eine feste Beschriftung über **Sprog** übersetzbar machen.
+  5. **Content-Qualität:** Achte auf saubere Überschriften-Hierarchie (ein H1, dann H2/H3) und aussagekräftige Alt-Texte.
 
-  2. Liste **5 Betriebsvereinbarungen**, die für IT-Azubis relevant sein können.
-
-  3. Schreibe **3 Sätze** für die JAV-Sprechstunde (ein Anliegen).
-
-  4. Skizziere ein **Infoblatt** „Mitbestimmung für Azubis" (Stichpunkte, max. 10).
-
-  **Deliverables:** Plan + Infoblatt-Stichpunkte
+  **Deliverable:** Startseite mit aufbereiteten Bildern, mobiler Check-Notiz und einer englischen Sprachversion.
+tip: |
+  Baue Übersetzungen in der Arbeitsversion auf. Nutze für das Bild eine Media-Manager-URL statt des Originals. Prüfe die mobile Ansicht mit den Entwicklertools des Browsers (Responsive-Modus).
 solution: |
-  Plan: Intranet, BR-Liste, Ausbilder fragen; Vereinbarungen: Arbeitszeit, Homeoffice, IT-Nutzung, Urlaub, Weiterbildung; Anliegen konkret und sachlich.
+  Bewertungskriterien:
+
+  - Medienpool sinnvoll strukturiert; Bilder mit Metadaten (Titel/Alt) gepflegt.
+  - Bild wird über einen **Media-Manager-Medientyp** ausgegeben (nicht das rohe Original).
+  - Mobile Ansicht wurde geprüft und dokumentiert.
+  - Englische Sprachversion der Startseite existiert und ist gepflegt; ggf. Sprog genutzt.
+  - Überschriften-Hierarchie und Alt-Texte sauber.

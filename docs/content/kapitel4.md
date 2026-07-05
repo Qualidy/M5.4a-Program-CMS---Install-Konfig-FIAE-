@@ -1,4 +1,4 @@
-# Kapitel 4 – Arbeitsrecht Grundlagen
+# Kapitel 4 – Benutzer, Rollen & Rechte
 
 <div class="kurs-progress">
   <div class="step done"></div>
@@ -16,125 +16,150 @@
 <div class="lernziele" markdown>
 <h3>Was du in diesem Kapitel lernst</h3>
 
-- Welche Grundlagen des Arbeitsrechts für Auszubildende und Umschüler relevant sind
-- Was ein Arbeitsvertrag regelt und wie er sich vom Ausbildungsvertrag unterscheidet
-- Welche Regelungen zu Kündigung, Urlaub und Jugendarbeitsschutz gelten
+- Warum ein CMS **Benutzer, Rollen und Rechte** trennt und was das mit Sicherheit zu tun hat
+- Wie REDAXO zwischen **Administrator** und **rollenbasierten Benutzern** unterscheidet
+- Wie du in REDAXO **Rollen** anlegst und Rechte auf Struktur, Medienpool und Module vergibst
+- Was der Unterschied zwischen **Redaktion** und **Administration** ist
+- Wie du eine **Rollenrichtlinie** für die Content-Pflege formulierst und umsetzt
 </div>
 
 ---
 
-## So gehst du vor
+## 4.1 Warum Benutzer, Rollen und Rechte trennen?
 
-1. Lies die Kapitelinhalte und unterscheide Ausbildungs- und Arbeitsrecht.
-2. Bearbeite die **Kurzübungen** der Reihe nach – von Grundlagen bis Experte.
-3. Arbeite die **Workshop-Aufgabe** durch. Sie vertieft das Gelernte an einem zusammenhängenden Szenario.
+In Kapitel 1 gab es das Beispiel „ohne CMS kann jeder mit FTP-Zugang alles überschreiben". Ein CMS löst das über ein **Berechtigungssystem**. Drei Begriffe musst du sauber unterscheiden:
 
----
-
-## 4.1 Arbeitsrecht – Überblick
-
-Das **Arbeitsrecht** regelt das Rechtsverhältnis zwischen **Arbeitgeber** und **Arbeitnehmer**. Für Auszubildende gilt zusätzlich das **Berufsbildungsgesetz (BBiG)** – es hat in Ausbildungsfragen oft Vorrang.
-
-**Wichtige Gesetze:**
-
-| Gesetz | Thema |
-|---|---|
-| BBiG | Berufsausbildung, Ausbildungsvertrag |
-| BGB (Buch 5) | Arbeitsvertrag, Kündigung |
-| Kündigungsschutzgesetz (KSchG) | Schutz bei Kündigung (nach Wartezeit) |
-| Bundesurlaubsgesetz (BUrlG) | Erholungsurlaub |
-| Jugendarbeitsschutzgesetz (JArbSchG) | Schutz junger Arbeitnehmer und Azubis unter 18 |
-| Arbeitsschutzgesetz (ArbSchG) | Gesundheit und Sicherheit am Arbeitsplatz |
-
----
-
-## 4.2 Arbeitsvertrag vs. Ausbildungsvertrag
-
-| Merkmal | Ausbildungsvertrag | Arbeitsvertrag |
+| Begriff | Bedeutung | Beispiel |
 |---|---|---|
-| Zweck | Berufliche Ausbildung | Erwerbstätigkeit |
-| Rechtsgrundlage | BBiG + BGB | BGB, KSchG, weitere Gesetze |
-| Vergütung | Ausbildungsvergütung (Mindestbetrag BBiG) | Gehalt / Lohn |
-| Kündigung | Besondere BBiG-Regeln | KSchG, Vertrag, Kündigungsfristen |
-| Lernpflicht | Ja, ausdrücklich geregelt | Keine Lernpflicht (außer Weiterbildungsklauseln) |
+| **Benutzer** | Eine konkrete Person mit Login | `anna.mueller` |
+| **Rolle** | Ein Bündel von Rechten, das man Benutzern zuweist | „Redakteur", „Administrator" |
+| **Recht** | Eine einzelne erlaubte Aktion | „darf Artikel in Kategorie X bearbeiten" |
 
-Nach erfolgreicher **Abschlussprüfung** und Übernahme wechselst du oft in ein **Arbeitsverhältnis** – dann gelten primär arbeitsrechtliche Regeln.
+```mermaid
+flowchart LR
+    U1([Benutzer Anna]) --> R1([Rolle Redakteur])
+    U2([Benutzer Ben]) --> R1
+    U3([Benutzer Chris]) --> R2([Rolle Administrator])
+    R1 --> P1[Rechte: Artikel bearbeiten,<br/>Medien hochladen]
+    R2 --> P2[Rechte: alles inkl.<br/>Templates, Benutzer, AddOns]
+```
 
----
-
-## 4.3 Probezeit und Kündigung in der Ausbildung
-
-Das BBiG regelt **Probezeit** und **Kündigung** in § 20 und § 22.
-
-### Probezeit (§ 20 BBiG)
-
-Jede Ausbildung beginnt mit einer **Probezeit**. Sie muss im Ausbildungsvertrag vereinbart werden:
-
-| Regel | Inhalt |
-|---|---|
-| Mindestdauer | **1 Monat** |
-| Höchstdauer | **4 Monate** |
-| Längere Vereinbarung | **Unwirksam** – z. B. eine Probezeit von 6 Monaten ist nicht zulässig |
-
-!!! warning "Prüfungstipp"
-    Die **Probezeit bei Auszubildenden** darf gesetzlich **höchstens vier Monate** betragen (§ 20 BBiG). Das unterscheidet sich von manchen **Arbeitsverträgen**, in denen längere Probezeiten vorkommen können.
-
-### Kündigung (§ 22 BBiG)
-
-| Situation | Regel (vereinfacht) |
-|---|---|
-| **Während der Probezeit** | Beide Seiten können **jederzeit ohne Kündigungsfrist** kündigen |
-| **Nach der Probezeit – Betrieb** | Nur noch aus **wichtigem Grund** (fristlos); ordentliche Kündigung durch den Betrieb ist ausgeschlossen |
-| **Nach der Probezeit – Azubi** | Mit **4 Wochen Frist** zum Monatsende oder Ausbildungsende, wenn die Ausbildung aufgegeben oder eine andere Berufsausbildung angestrebt wird |
-| **Form** | Kündigung **schriftlich** (elektronische Form ausgeschlossen) |
-
-!!! info "Wichtiger Grund"
-    Ein **wichtiger Grund** für eine Kündigung durch den Betrieb kann z. B. sein: wiederholte Verletzung von Pflichten, Diebstahl, massive Leistungsverweigerung. Der Betriebsrat ist bei Kündigungen zu beteiligen.
+!!! info "Warum nicht jedem alles erlauben?"
+    Das **Least-Privilege-Prinzip** (aus Kapitel 3) gilt auch für Menschen: Wer nur Texte pflegt, braucht **keinen** Zugriff auf Templates, AddOns oder Benutzerverwaltung. Weniger Rechte bedeuten **weniger Schaden** durch Versehen **und** durch ein gekapertes Konto.
 
 ---
 
-## 4.4 Urlaub
+## 4.2 Das REDAXO-Rechtekonzept
 
-Auszubildende haben Anspruch auf **Erholungsurlaub**:
+REDAXO unterscheidet grundsätzlich zwei Arten von Backend-Benutzern:
 
-- **Gesetzlicher Mindesturlaub** nach dem Bundesurlaubsgesetz: 24 Werktage bei 6-Tage-Woche (= 20 Arbeitstage bei 5-Tage-Woche); für Minderjährige gelten die höheren Sätze des JArbSchG
-- Urlaub darf nicht auf die **Berufsschulzeit** angerechnet werden
-- Resturlaub bei Vertragsende oft auszahlen oder nehmen
+| Typ | Beschreibung |
+|---|---|
+| **Administrator** (Admin-Flag) | Hat **uneingeschränkten** Zugriff auf **alles** – Struktur, Templates, Module, AddOns, Benutzerverwaltung, Systemeinstellungen. Rollen werden ignoriert. |
+| **Benutzer mit Rolle(n)** | Sieht und darf **nur**, was die zugewiesene(n) **Rolle(n)** erlauben. |
+
+Eine **Rolle** in REDAXO bündelt Rechte in mehreren Bereichen:
+
+- **Allgemeine Rechte / Module (Perm):** Welche Backend-Menüpunkte/AddOns sichtbar sind (z. B. Struktur, Medienpool, MetaInfo).
+- **Struktur-Rechte:** Auf **welche Kategorien** (Seitenbaum) der Benutzer zugreifen darf.
+- **Medienpool-Rechte:** Auf welche **Medienkategorien** und ob er hochladen/löschen darf.
+- **Sprach-Rechte (clang):** In welchen Sprachversionen er arbeiten darf (siehe Kapitel 6).
+
+!!! warning "Admin-Konten sparsam einsetzen"
+    Das **Admin-Flag** überschreibt alle Rollen und Einschränkungen. Es sollte nur **wenigen, technisch verantwortlichen** Personen gehören. Für die tägliche Redaktion nutzt man **niemals** ein Admin-Konto – das ist wie „immer als root arbeiten".
 
 ---
 
-## 4.5 Jugendarbeitsschutz
+## 4.3 Rollen in REDAXO anlegen
 
-Für Auszubildende **unter 18 Jahren** gelten zusätzliche Schutzvorschriften:
+Der Weg im Backend: **System → Benutzer → Rollen** (Reiter *Rollen*).
 
-| Bereich | Regel (Auswahl) |
-|---|---|
-| Arbeitszeit | Max. 8 Std./Tag, 40 Std./Woche |
-| Nachtarbeit | In der Regel verboten (22–6 Uhr) |
-| Pausen | Mindestpausen nach Dauer der Arbeit |
-| Gefährliche Arbeiten | Beschränkt oder verboten |
+=== "Rolle anlegen"
 
-Auch im **IT-Bereich** relevant: lange Schichten, Stress, ergonomische Arbeitsplätze – Arbeitsschutz gilt für alle.
+    1. Neue Rolle erstellen, z. B. „Redaktion".
+    2. **Allgemeine Rechte / Module** auswählen: nur die AddOns, die die Rolle sehen soll (z. B. `structure`, `mediapool`).
+    3. **Struktur:** die Kategorien markieren, die diese Rolle bearbeiten darf (oder „alle").
+    4. **Medienpool:** erlaubte Medienkategorien + Upload-/Löschrechte.
+    5. **Sprachen (clang):** erlaubte Sprachversionen.
+    6. Speichern.
+
+=== "Benutzer zuweisen"
+
+    1. **System → Benutzer** → Benutzer anlegen/bearbeiten.
+    2. Benutzername, sicheres Passwort, ggf. E-Mail.
+    3. **Rolle(n)** zuweisen (mehrere möglich – die Rechte addieren sich).
+    4. Das **Admin-Flag** bewusst **nicht** setzen.
+    5. Speichern.
+
+!!! tip "Rechte kumulieren"
+    Ein Benutzer kann **mehrere Rollen** haben; die Rechte werden **addiert**. So kannst du kleine, klar benannte Rollen bauen (z. B. „Redaktion News", „Medien-Upload") und sie kombinieren, statt eine große unübersichtliche Rolle zu pflegen.
 
 ---
 
-## 4.6 Arbeitsschutz im IT-Beruf
+## 4.4 Redaktion vs. Administration
 
-| Thema | Beispiel |
-|---|---|
-| Bildschirmarbeit | Augen, Haltung, Pausen (Bildschirmarbeitsverordnung) |
-| Psychische Belastung | Deadline-Druck, On-Call – Gefährdungsbeurteilung |
-| Homeoffice | Regelungen zu Ausstattung, Arbeitszeiten, Datenschutz |
+In der Praxis reichen meist wenige, klar geschnittene Rollen. Ein bewährtes Grundmodell:
+
+| Rolle | Darf | Darf nicht |
+|---|---|---|
+| **Redaktion** | Artikel/Seiten in zugewiesenen Kategorien erstellen & bearbeiten, Medien hochladen, veröffentlichen | Templates/Module ändern, Benutzer verwalten, AddOns installieren |
+| **Chefredaktion / Freigabe** | wie Redaktion + Inhalte anderer prüfen & freigeben, Struktur anlegen | System-/Sicherheitseinstellungen |
+| **Administration** | Alles: Templates, Module, AddOns, Benutzer, System | – (volle Verantwortung) |
+
+```mermaid
+flowchart TB
+    subgraph Redaktionsebene
+      R1([Redaktion]) --> C1[Content pflegen]
+      R2([Chefredaktion]) --> C2[Content freigeben]
+    end
+    subgraph Technische Ebene
+      A([Administration]) --> T1[Templates/Module]
+      A --> T2[AddOns/Updates]
+      A --> T3[Benutzer/Rechte]
+    end
+```
+
+!!! info "Trennung von Inhalt und Technik"
+    Diese Rollentrennung spiegelt die **Trennung von Inhalt und Darstellung** aus Kapitel 1 auf der **Personen-Ebene** wider: Redakteure kümmern sich um Inhalte, Administratoren um Technik/Design. Das reduziert Fehler und macht Verantwortlichkeiten klar.
+
+---
+
+## 4.5 Eine Rollenrichtlinie formulieren
+
+Eine **Rollenrichtlinie** (Policy) hält schriftlich fest, **welche Rollen** es gibt, **wer** sie bekommt und **was** sie dürfen. Sie ist die Grundlage für nachvollziehbare, prüfbare Rechtevergabe.
+
+**Bestandteile einer Rollenrichtlinie:**
+
+1. **Rollenkatalog** – Liste aller Rollen mit Kurzbeschreibung.
+2. **Rechtematrix** – Tabelle: Rolle × Berechtigung (darf / darf nicht).
+3. **Vergabeprozess** – Wer beantragt, wer genehmigt, wer legt an?
+4. **Onboarding/Offboarding** – Konten anlegen bei Eintritt, **deaktivieren/löschen** bei Austritt.
+5. **Regelmäßige Prüfung** – Rechte periodisch kontrollieren („brauchst du das noch?").
+
+**Beispiel-Rechtematrix (Ausschnitt):**
+
+| Berechtigung | Redaktion | Chefredaktion | Administration |
+|---|:---:|:---:|:---:|
+| Artikel bearbeiten (eigene Kategorie) | ✅ | ✅ | ✅ |
+| Artikel veröffentlichen | ✅ | ✅ | ✅ |
+| Struktur/Kategorien ändern | ❌ | ✅ | ✅ |
+| Medien hochladen | ✅ | ✅ | ✅ |
+| Templates/Module bearbeiten | ❌ | ❌ | ✅ |
+| Benutzer/Rollen verwalten | ❌ | ❌ | ✅ |
+| AddOns installieren/updaten | ❌ | ❌ | ✅ |
+
+!!! warning "Offboarding nicht vergessen"
+    Verwaiste Konten ausgeschiedener Mitarbeiter sind ein **Sicherheitsrisiko**. Deaktiviere Konten sofort bei Austritt. In REDAXO kannst du Benutzer **deaktivieren** (Login gesperrt), ohne ihre Inhalte/Zuordnungen zu verlieren.
 
 ---
 
 ## Kurzübungen
 
-{{ task(file="tasks/tag4_01.yaml") }}
+{{ task(file="tasks/kapitel4_01.yaml") }}
 
-{{ task(file="tasks/tag4_02.yaml") }}
+{{ task(file="tasks/kapitel4_02.yaml") }}
 
-{{ task(file="tasks/tag4_03.yaml") }}
+{{ task(file="tasks/kapitel4_03.yaml") }}
 
 ---
 

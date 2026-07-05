@@ -1,0 +1,27 @@
+title: Komponente anpassen ohne Core-Hack
+difficulty: 3
+question: |
+  Das Modul „Bild mit Text" zeigt das Bild links. Für eine bestimmte Verwendung soll das Bild **rechts** stehen – ohne den Core oder ein AddOn direkt zu verändern.
+
+  1. Wo genau nimmst du die Änderung vor?
+  2. Skizziere die angepasste **Modul-Ausgabe** (mit einer zusätzlichen CSS-Klasse) und das ergänzende **CSS**.
+  3. Nenne zwei UX-Grundsätze, die du bei der Gestaltung beachtest.
+tip: |
+  Ändere die Modul-Ausgabe + eigenes CSS, nicht den Core. Reihenfolge per CSS `order` steuern.
+solution: |
+  1. In der **Modul-Ausgabe** (HTML des Moduls) und im **eigenen CSS** – nicht im Core/AddOn.
+  2.
+  ```html
+  <section class="bild-text bild-text--rechts">
+    <div class="bild-text__media">REX_MEDIA[id=1]</div>
+    <div class="bild-text__inhalt">REX_VALUE[1]</div>
+  </section>
+  ```
+  ```css
+  .bild-text { display: grid; gap: 1rem; grid-template-columns: 1fr; }
+  @media (min-width: 768px) {
+    .bild-text { grid-template-columns: 1fr 1fr; }
+    .bild-text--rechts .bild-text__media { order: 2; }
+  }
+  ```
+  3. Z. B. **Konsistenz** (gleiche Elemente gleich), **Lesbarkeit/Kontrast**, klare Navigation, sichtbares Feedback.

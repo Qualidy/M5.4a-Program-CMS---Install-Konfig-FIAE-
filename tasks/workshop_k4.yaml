@@ -1,20 +1,25 @@
-title: Arbeitsrecht – Fallanalyse
+title: Rollenrichtlinie erstellen und umsetzen
 difficulty: 4
 question: |
-  **Szenario:** Azubi im IT-Betrieb, 8. Monat. Betrieb kündigt wegen „schlechter Leistung in der Berufsschule". Keine schriftliche Abmahnung vorher. Betriebsrat wurde nicht informiert.
+  **Szenario:** Für die Website eines Vereins arbeiten drei Personengruppen: **Redakteure** (pflegen News & Termine), eine **Chefredakteurin** (gibt frei, verwaltet die Struktur) und ein **Administrator** (Technik). Bisher haben alle ein Admin-Konto – das soll sich ändern.
 
   ---
 
-  **Aufgabe:**
+  **Aufgabe (konzeptionell + praktisch):**
 
-  1. Prüfe: Ist die Kündigung **rechtlich haltbar**? Begründe mit BBiG und BetrVG.
+  1. **Rollenkatalog:** Beschreibe die drei Rollen mit je 1–2 Sätzen.
+  2. **Rechtematrix:** Erstelle eine Matrix (Rollen × mind. 7 Berechtigungen).
+  3. **Prozess:** Beschreibe kurz den Vergabeprozess sowie **Onboarding/Offboarding** (was passiert bei Ein-/Austritt?).
+  4. **Umsetzung in REDAXO:** Lege die Rollen im Backend an, erstelle je einen Testbenutzer und weise die Rollen zu (Admin-Flag nur für die Administration). Prüfe durch Test-Login, dass ein Redakteur wirklich keine Templates sieht.
 
-  2. Welche **Rechte** hat der Azubi?
-
-  3. Erstelle eine **Handlungsempfehlung** in 5 Schritten.
-
-  4. Vergleiche: Was ändert sich rechtlich nach **bestandener Abschlussprüfung** und Übernahme als Junior Developer?
-
-  **Deliverables:** Kurze Gutachten-Stichpunkte (1 Seite)
+  **Deliverable:** Rollenrichtlinie (1–2 Seiten) + in REDAXO angelegte Rollen und Testbenutzer.
+tip: |
+  Teilt die Arbeit: eine Person Katalog, eine Matrix, eine Prozess, eine setzt in REDAXO um. Denkt an das Offboarding – verwaiste Konten sind ein Sicherheitsrisiko.
 solution: |
-  Nach der Probezeit ist wichtiger Grund nötig; schlechte Berufsschule allein oft nicht ausreichend; Betriebsrat muss bei Kündigung beteiligt sein; Schritte: Beratung Kammer, Betriebsrat, Anwalt; nach Übernahme KSchG nach Wartezeit, normaler Arbeitsvertrag.
+  Bewertungskriterien:
+
+  - Rollenkatalog klar und aufgabenbezogen; keine „Alles-Rolle" außer Administration.
+  - Rechtematrix vollständig, konsistent mit dem Katalog, Least Privilege erkennbar.
+  - Prozess beschreibt Beantragung/Genehmigung und **Offboarding** (Konten bei Austritt deaktivieren).
+  - In REDAXO: Rollen mit passenden Struktur-/Medien-/Modulrechten angelegt, Testbenutzer zugewiesen, Admin-Flag nur bei Administration.
+  - Test-Login belegt die Einschränkung (Redakteur sieht keine Templates/Benutzerverwaltung).

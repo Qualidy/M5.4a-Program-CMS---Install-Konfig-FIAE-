@@ -1,4 +1,4 @@
-# Kapitel 9 – Lern- und Arbeitstechniken
+# Kapitel 9 – Mailing, Newsletter & Datenschutz
 
 <div class="kurs-progress">
   <div class="step done"></div>
@@ -16,107 +16,149 @@
 <div class="lernziele" markdown>
 <h3>Was du in diesem Kapitel lernst</h3>
 
-- Welche modernen Lern- und Arbeitstechniken für die Umschulung geeignet sind
-- Wie selbstgesteuertes Lernen im Online-Unterricht funktioniert
-- Welche digitale Werkzeuge und Informationsquellen du beruflich sinnvoll nutzen kannst
+- Wie du mit **YForm** ein **Kontakt- oder Anmeldeformular** baust
+- Wie REDAXO **E-Mails** versendet (PHPMailer) und was du beim Mailversand beachtest
+- Was **Newsletter** und das **Double-Opt-in-Verfahren** sind und warum es Pflicht ist
+- Wie du **Cookie-Hinweise** mit dem **consent_manager** DSGVO-konform umsetzt
+- Welche **Datenschutz-Grundlagen** (DSGVO) im CMS-Kontext gelten
 </div>
 
 ---
 
-## So gehst du vor
+## 9.1 Formulare mit YForm
 
-1. Lies die Kapitelinhalte und probiere mindestens eine neue Methode aus.
-2. Bearbeite die **Kurzübungen** der Reihe nach – von Grundlagen bis Experte.
-3. Arbeite die **Workshop-Aufgabe** durch. Sie vertieft das Gelernte an einem zusammenhängenden Szenario.
+**YForm** ist das zentrale AddOn für Formulare und Datenverwaltung in REDAXO. Es kann zweierlei:
 
----
+- **Formulare** im Frontend erzeugen und verarbeiten (Validierung, E-Mail-Versand, Speichern).
+- Eigene **Datenbank-Tabellen** im Backend verwalten (Tabellen-Manager).
 
-## 9.1 Selbstgesteuertes Lernen
-
-In der **Umschulung** – besonders in der **Online-Unterrichtsphase** – trägst du die Hauptverantwortung für deinen Lernfortschritt. **Selbstgesteuertes Lernen** bedeutet:
-
-| Element | Praxis |
-|---|---|
-| Zielsetzung | Was muss ich diese Woche / diesen Monat erreichen? |
-| Planung | Lernzeiten blocken, Puffer einplanen |
-| Durchführung | Material lesen, Übungen, Videos, Peer-Learning |
-| Überwachung | Bin ich im Plan? Was fehlt noch? |
-| Anpassung | Methode oder Tempo ändern, wenn nötig |
+Ein Formular besteht aus **Feldern** (Value-Fields), **Validierungen** und **Aktionen**:
 
 ```mermaid
 flowchart LR
-    Z([Ziele]) --> P([Planung])
-    P --> D([Durchführung])
-    D --> U([Überwachung])
-    U --> A([Anpassung])
-    A --> P
+    F([Formularfelder<br/>Name, E-Mail, Nachricht]) --> V[Validierung<br/>Pflichtfeld, E-Mail gültig?]
+    V --> A{Aktionen}
+    A --> M[E-Mail versenden]
+    A --> DB[In Tabelle speichern]
+    A --> T[Danke-Seite anzeigen]
 ```
 
----
-
-## 9.2 Lernmethoden für Fachinhalte und WISO
-
-| Methode | Beschreibung | Geeignet für |
-|---|---|---|
-| Pomodoro | 25 Min. fokussiert, 5 Min. Pause | Konzentriertes Lesen, Übungen |
-| Active Recall | Selbst abfragen statt nur lesen | Prüfungsvorbereitung |
-| Cornell-Methode | Notizen mit Kernfragen-Spalte | WISO, Fachtheorie |
-| Lerngruppen | Discord, Teams, Präsenz | Erklären, diskutieren, motivieren |
-| Spaced Repetition | Wiederholung in Abständen | Vokabeln, Definitionen, Paragraphen |
-| Praxisprojekte | Kleine IT-Projekte parallel | Programmierung, Netzwerk |
-
-!!! tip "Online-Unterricht"
-    Kamera an (wenn möglich), feste Lernzeiten, Ablenkungen minimieren. **Lernumgebung** wie Arbeitsplatz einrichten – nicht vom Sofa lernen.
-
----
-
-## 9.3 Digitale Werkzeuge
-
-| Kategorie | Beispiele | Nutzen |
-|---|---|---|
-| Lernplattform | Moodle, LMS des Trägers | Material, Abgaben, Tests |
-| Notizen | Notion, Obsidian, OneNote | Strukturierte Wissensbasis |
-| Kalender | Google Calendar, Outlook | Lern- und Prüfungsplanung |
-| Code & IT | GitHub, VS Code, Docker | Fachpraxis, Portfolio |
-| Kommunikation | Teams, Slack, Discord | Lerngruppe, Betrieb |
-| Zeiterfassung | Toggl, simple Listen | Selbstreflexion Lernzeit |
-
----
-
-## 9.4 Beruflich relevante Informationsquellen
-
-| Quelle | Inhalt |
+| Bestandteil | Beispiel |
 |---|---|
-| IHK / HWK | Ausbildung, Prüfung, Verträge |
-| BIBB | Ausbildungsordnungen, Berufsinfos |
-| Gesetze im Internet (gesetze-im-internet.de) | BBiG, ArbZG, BetrVG |
-| Stack Overflow, DevDocs | Technische Fragen |
-| Heise, Golem, t3n | IT-News, Trends |
-| Fachbücher / Open Textbooks | Tieferes Verständnis |
+| **Feld (value)** | `text`, `email`, `textarea`, `checkbox` |
+| **Validierung** | `empty` (Pflichtfeld), `type` (E-Mail-Format), `customfunction` |
+| **Aktion** | `action email` (Mail senden), `action db` (speichern), `showtext` |
 
-**Quellen kritisch prüfen:** Aktualität, Autorität, Zweck (Werbung vs. Information).
+!!! info "Pipe-Notation oder PHP"
+    YForm-Formulare kannst du in der kompakten **Pipe-Notation** definieren oder in flexiblerer **PHP-Schreibweise**. Für einfache Kontaktformulare genügt die Pipe-Notation; für komplexe Logik nutzt man PHP.
+
+!!! warning "Spam-Schutz einplanen"
+    Öffentliche Formulare ziehen **Spam** an. Baue Schutz ein: ein **Honeypot-Feld** (unsichtbares Feld, das Bots ausfüllen), Zeitprüfung oder ein Captcha. Prüfe und **bereinige** außerdem alle Eingaben serverseitig (Validierung) – niemals ungeprüft weiterverarbeiten.
 
 ---
 
-## 9.5 Arbeitstechniken im Betrieb
+## 9.2 E-Mail-Versand mit PHPMailer
 
-| Technik | Beschreibung |
+REDAXO versendet E-Mails über das Kern-AddOn **PHPMailer**. Dort konfigurierst du **wie** gesendet wird:
+
+| Einstellung | Empfehlung |
 |---|---|
-| Ticket-Systeme | Jira, Redmine – Aufgaben strukturieren |
-| Dokumentation | Confluence, Wikis – Wissen festhalten |
-| Timeboxing | Feste Zeitfenster für Tasks |
-| Priorisierung | MoSCoW, Eisenhower-Matrix |
-| Berichtsheft digital | Apps oder Vorlagen der Kammer |
+| **Versandart** | **SMTP** (authentifiziert) statt der PHP-`mail()`-Funktion |
+| **Absender** | Eine echte Adresse **deiner Domain** (nicht die Besucher-Adresse) |
+| **Verschlüsselung** | TLS/SSL zum Mailserver |
+| **Reply-To** | Hier die Adresse des Absenders (Formular-Ausfüllers) setzen |
+
+!!! tip "Warum SMTP und eigene Absenderadresse?"
+    Mails, die als Absender die **fremde** Besucheradresse tragen oder ohne Authentifizierung verschickt werden, landen oft im **Spam** oder werden vom Empfängerserver abgelehnt (SPF/DKIM/DMARC). Nutze eine **eigene, authentifizierte** Absenderadresse und trage die Besucheradresse als **Reply-To** ein.
+
+---
+
+## 9.3 Newsletter und Double-Opt-in
+
+Ein **Newsletter** verschickt regelmäßig E-Mails an Abonnenten. Der rechtlich entscheidende Punkt ist die **Einwilligung**: Ohne Zustimmung darfst du **keine** Werbe-Mails verschicken.
+
+Das vorgeschriebene Verfahren ist das **Double-Opt-in**:
+
+```mermaid
+flowchart TD
+    A[1. Besucher trägt E-Mail ins Formular ein] --> B[2. System speichert Adresse als 'unbestätigt']
+    B --> C[3. Bestätigungsmail mit einmaligem Link]
+    C --> D{4. Besucher klickt Link?}
+    D -->|Ja| E[5. Status 'bestätigt' - Anmeldung gültig]
+    D -->|Nein| F[Adresse bleibt unbestätigt / wird gelöscht]
+```
+
+| Schritt | Warum |
+|---|---|
+| **Opt-in** (Formular) | Aktive Anmeldung durch den Nutzer |
+| **Bestätigungsmail** | Beweist, dass die Adresse dem Anmeldenden gehört |
+| **Bestätigungsklick** | **Double**-Opt-in: schützt vor fremden Anmeldungen & ist rechtlich verlangt |
+| **Abmeldung (Opt-out)** | In **jeder** Newsletter-Mail muss ein Abmeldelink stehen |
+
+!!! warning "Double-Opt-in ist rechtlich Pflicht"
+    Nach DSGVO/UWG brauchst du eine **nachweisbare Einwilligung**. Das **Double-Opt-in** liefert diesen Nachweis (Zeitpunkt, IP, Bestätigung). Ein **einfaches** Opt-in (ohne Bestätigungsklick) ist nicht ausreichend. Mit **YForm** setzt du das um: Adresse speichern → Status „unbestätigt" → Bestätigungsmail mit Token-Link → beim Klick Status auf „bestätigt".
+
+!!! info "Werbe-Mails nur mit Einwilligung"
+    Auch die **Anmeldung selbst** darf nicht mit anderen Zwecken „gekoppelt" werden (z. B. „nur mit Newsletter bestellbar"). Einwilligung muss **freiwillig, informiert und getrennt** erfolgen.
+
+---
+
+## 9.4 Cookie-Hinweise mit dem consent_manager
+
+Sobald deine Website **nicht zwingend notwendige** Cookies oder externe Dienste (YouTube, Google Maps, Analytics) einsetzt, brauchst du eine **Einwilligung** – das klassische **Cookie-Banner**. In REDAXO ist der **consent_manager** (FriendsOfREDAXO) das Standard-AddOn dafür.
+
+| Funktion | Nutzen |
+|---|---|
+| **Opt-in-Banner** | Besucher stimmt Diensten/Cookies **aktiv** zu |
+| **Gruppen** | Dienste in Kategorien bündeln (z. B. „Notwendig", „Statistik", „Marketing") |
+| **Gruppe „Notwendig"** | Kann **nicht** deaktiviert werden (technisch erforderlich) |
+| **Nachträglich änderbar** | Auswahl später erneut aufrufbar (z. B. Link im Impressum) |
+| **Inline-Consent** | Externe Embeds (YouTube etc.) erst nach Zustimmung laden |
+| **Mehrsprachig / Multi-Domain** | Passt zu Kapitel 6 |
+
+```mermaid
+flowchart TD
+    V([Besucher kommt auf Seite]) --> B[Consent-Banner erscheint]
+    B --> C{Auswahl}
+    C -->|Nur notwendige| N[Keine Marketing-Cookies gesetzt]
+    C -->|Alle akzeptieren| A[Alle Dienste geladen]
+    C -->|Einstellungen| E[Gruppen einzeln wählen]
+```
+
+!!! warning "Erst Einwilligung, dann laden"
+    Ein Banner allein genügt nicht: Nicht-notwendige Skripte/Cookies dürfen **erst nach** der Einwilligung geladen werden. Deshalb bindet man externe Dienste über den **Inline-Consent** des consent_manager ein – so wird z. B. ein YouTube-Video erst nach Zustimmung geladen. Ein Banner, das trackt „egal was der Nutzer klickt", ist **nicht** DSGVO-konform.
+
+---
+
+## 9.5 Datenschutz-Grundlagen im CMS
+
+Die **DSGVO** (Datenschutz-Grundverordnung) regelt den Umgang mit **personenbezogenen Daten**. Für eine CMS-Website heißt das konkret:
+
+| Pflicht | Umsetzung im CMS |
+|---|---|
+| **Datenschutzerklärung** | Eigene, gut erreichbare Seite; erklärt, welche Daten wozu erhoben werden |
+| **Impressum** | Anbieterkennzeichnung (rechtlich verpflichtend) |
+| **Datensparsamkeit** | Nur erheben, was nötig ist (z. B. keine Telefonnummer als Pflichtfeld ohne Grund) |
+| **Einwilligung** | Formulare/Newsletter mit klarer Zustimmung (Double-Opt-in, Consent) |
+| **Verschlüsselung** | **HTTPS** für alle Formulare (Kapitel 10) |
+| **Auskunft & Löschung** | Betroffene können ihre Daten einsehen/löschen lassen |
+| **Speicherbegrenzung** | Alte Formulardaten regelmäßig löschen (z. B. per Cronjob) |
+
+!!! info "Zusammenspiel der Bausteine"
+    Datenschutz ist kein einzelnes AddOn, sondern ein **Zusammenspiel**: **HTTPS** (K10) verschlüsselt die Übertragung, der **consent_manager** holt Einwilligungen, **YForm** verarbeitet Daten sparsam und mit Double-Opt-in, und die **Rollen** (K4) begrenzen, wer die gesammelten Daten sehen darf.
+
+!!! warning "Kein Rechts-, sondern Umsetzungswissen"
+    Dieses Kapitel vermittelt die **technische Umsetzung** im CMS. Die konkrete rechtliche Ausgestaltung (Texte, Verfahrensverzeichnis, Auftragsverarbeitung) gehört in fachkundige Hände – als Fachinformatiker/in sorgst du dafür, dass die **technischen Voraussetzungen** stimmen.
 
 ---
 
 ## Kurzübungen
 
-{{ task(file="tasks/tag9_01.yaml") }}
+{{ task(file="tasks/kapitel9_01.yaml") }}
 
-{{ task(file="tasks/tag9_02.yaml") }}
+{{ task(file="tasks/kapitel9_02.yaml") }}
 
-{{ task(file="tasks/tag9_03.yaml") }}
+{{ task(file="tasks/kapitel9_03.yaml") }}
 
 ---
 

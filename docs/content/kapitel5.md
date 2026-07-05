@@ -1,4 +1,4 @@
-# Kapitel 5 – Sozialversicherung und Sozialrecht
+# Kapitel 5 – Frontend, Backend & Workflows
 
 <div class="kurs-progress">
   <div class="step done"></div>
@@ -16,95 +16,209 @@
 <div class="lernziele" markdown>
 <h3>Was du in diesem Kapitel lernst</h3>
 
-- Wie das deutsche Sozialversicherungssystem aufgebaut ist und welche Versicherungen existieren
-- Welche Beiträge und Leistungen für Beschäftigte und Auszubildende relevant sind
-- Welche Besonderheiten in der Umschulung (Unterricht vs. Praktikum) zu beachten sind
+- Wie REDAXO die **Struktur** einer Website aus **Kategorien** und **Artikeln** aufbaut
+- Was **Templates**, **Module** (Eingabe/Ausgabe) und **Slices** sind und wie sie zusammenspielen
+- Wie du mit **REX-Variablen** Inhalte in Templates und Modulen ausgibst
+- Wie der Workflow **Erstellen → Veröffentlichen** über den **Online/Offline-Status** funktioniert
+- Wie du mit **Arbeitsversion/Live-Version** und dem **History-AddOn** versionierst
+- Was gute **Editor-Workflows** in der Redaktion ausmachen
 </div>
 
 ---
 
-## So gehst du vor
+## 5.1 Struktur: Kategorien und Artikel
 
-1. Lies die Kapitelinhalte und merke dir die fünf Sozialversicherungen.
-2. Bearbeite die **Kurzübungen** der Reihe nach – von Grundlagen bis Experte.
-3. Arbeite die **Workshop-Aufgabe** durch. Sie vertieft das Gelernte an einem zusammenhängenden Szenario.
+Die **Struktur** ist der Seitenbaum deiner Website. REDAXO kennt zwei Bausteine:
 
----
+| Element | Rolle | Vergleich |
+|---|---|---|
+| **Kategorie** | Gruppiert Artikel und Unterkategorien (Ordner im Baum) | Ordner |
+| **Artikel** | Die einzelne Seite mit Inhalt | Datei/Seite |
 
-## 5.1 Das Sozialversicherungssystem
-
-Deutschland hat ein **paritätisches System**: Arbeitnehmer und Arbeitgeber zahlen in der Regel **je die Hälfte** der Sozialversicherungsbeiträge. Die Beiträge werden vom **Bruttoentgelt** berechnet.
+Jede Kategorie hat einen **Startartikel**; weitere Artikel liegen darunter. Aus diesem Baum entsteht später auch die **Navigation** der Website.
 
 ```mermaid
 flowchart TD
-    B([Bruttoentgelt]) --> K[Krankenversicherung]
-    B --> P[Pflegeversicherung]
-    B --> R[Rentenversicherung]
-    B --> A[Arbeitslosenversicherung]
-    B --> U[Unfallversicherung\nnur AG-Beitrag]
+    Root([Startseite]) --> K1[Kategorie: Über uns]
+    Root --> K2[Kategorie: Leistungen]
+    Root --> K3[Kategorie: Kontakt]
+    K1 --> A1[Artikel: Team]
+    K1 --> A2[Artikel: Geschichte]
+    K2 --> A3[Artikel: Beratung]
+    K2 --> A4[Artikel: Support]
 ```
 
----
+Im Backend findest du das unter **Struktur**. Jeder Artikel und jede Kategorie hat eine **ID** (z. B. Artikel 5). Über diese ID verlinkt und referenziert REDAXO Inhalte intern.
 
-## 5.2 Die fünf Sozialversicherungen
-
-| Versicherung | Zweck | Beitrag (typisch, vereinfacht) |
-|---|---|---|
-| Krankenversicherung (KV) | Medizinische Behandlung | ca. 14,6 % + Zusatzbeitrag, geteilt |
-| Pflegeversicherung (PV) | Pflegebedürftigkeit | ca. 3,4 % (+ Zuschlag Kinderlose), geteilt |
-| Rentenversicherung (RV) | Altersrente, Erwerbsminderung | ca. 18,6 %, geteilt |
-| Arbeitslosenversicherung (AV) | Arbeitslosengeld | ca. 2,6 %, geteilt |
-| Unfallversicherung (UV) | Arbeitsunfälle, Berufskrankheiten | Nur Arbeitgeber |
-
-!!! info "Auszubildende sind eigenständig pflichtversichert"
-    Auszubildende gelten sozialversicherungsrechtlich als **Beschäftigte** und sind daher **ab dem ersten Euro eigenständig pflichtversichert** – unabhängig von der Höhe der Ausbildungsvergütung. Eine beitragsfreie **Familienversicherung** über Eltern oder Ehepartner ist während der Ausbildung deshalb **nicht** möglich. Liegt die Vergütung unter der **Geringverdienergrenze** (§ 20 SGB IV), trägt der Arbeitgeber die Beiträge allein.
+!!! info "Artikel = Seite, Beitrag oder Datensatz"
+    In REDAXO ist der **Artikel** das universelle Seiten-Objekt – egal ob Startseite, „Über uns", ein News-Beitrag oder eine Landingpage. Was ein Artikel **anzeigen** kann, bestimmt sein **Template** und seine **Slices**.
 
 ---
 
-## 5.3 Auszubildende in der Sozialversicherung
+## 5.2 Templates – das HTML-Gerüst
 
-| Thema | Regelung |
+Ein **Template** ist das **HTML-Grundgerüst** einer Seite: `<head>`, Kopfbereich, Navigation, der Platz für den Inhalt und die Fußzeile. Jedem Artikel wird **ein Template** zugewiesen.
+
+Im Template stehen **REX-Variablen** als Platzhalter, die REDAXO beim Aufruf durch echte Inhalte ersetzt:
+
+```html
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>REX_ARTICLE_NAME</title>
+    <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+    <header>Mein Firmenlogo</header>
+
+    <nav>
+        <!-- Navigation z. B. per rex_navigation -->
+    </nav>
+
+    <main>
+        REX_ARTICLE[]   <!-- hier erscheint der Inhalt (die Slices) -->
+    </main>
+
+    <footer>&copy; 2026 Meine Firma</footer>
+</body>
+</html>
+```
+
+| REX-Variable | Bedeutung |
 |---|---|
-| Pflichtversicherung | Auszubildende sind als Beschäftigte in allen fünf Zweigen pflichtversichert |
-| Geringverdienergrenze | Liegt die Ausbildungsvergütung unter der Grenze (§ 20 SGB IV), trägt der Arbeitgeber die SV-Beiträge allein |
-| Berufsschule | Versicherungsschutz während der Ausbildung, auch in Berufsschulzeiten |
-| Unfallversicherung | Gilt auch in Berufsschule und auf dem Weg dorthin |
+| `REX_ARTICLE[]` | Fügt den Inhalt des Artikels (alle Slices) ein |
+| `REX_ARTICLE_NAME` | Name des aktuellen Artikels |
+| `REX_TEMPLATE[id=1]` | Bindet ein anderes Template ein (z. B. gemeinsamer Kopf) |
+| `REX_MEDIA[...]` | Gibt eine Datei aus dem Medienpool aus |
+| `REX_LINK[...]` | Erzeugt einen internen Link auf einen Artikel |
+| `REX_VALUE[id=1]` | Gibt einen im Modul gespeicherten Wert aus |
+
+!!! tip "Ein Gerüst, viele Seiten"
+    Änderst du das Template (z. B. neues Menü), übernehmen **alle** Artikel mit diesem Template die Änderung sofort. Genau das ist die **Trennung von Inhalt und Darstellung** aus Kapitel 1 – jetzt praktisch in REDAXO.
 
 ---
 
-## 5.4 Sozialversicherung als Umschüler
+## 5.3 Module und Slices – die Inhaltsbausteine
 
-Als **Umschüler** bist du in **beiden Phasen** – Unterricht **und** unbezahltes Betriebspraktikum – **kein** sozialversicherungspflichtig Beschäftigter. Dein Versicherungsstatus richtet sich nach der Leistung der Agentur, nicht nach einer Vergütung.
+Ein Template stellt nur das Gerüst. Der eigentliche Inhalt kommt aus **Modulen** und **Slices**:
 
-| Situation | Versicherung / Finanzierung |
-|---|---|
-| Unterricht beim Bildungsträger | Lebensunterhalt über ALG I oder Bürgergeld, Lehrgangskosten häufig per Bildungsgutschein – kein Beschäftigungsverhältnis |
-| Unbezahltes Betriebspraktikum | Keine Ausbildungsvergütung, keine SV aus Beschäftigung; Leistungsbezug und Versicherung laufen weiter wie in der Unterrichtsphase |
-| Krankenversicherung | Bei ALG-I-Bezug eigenständige Pflichtversicherung über die Agentur (keine Familienversicherung); bei Bürgergeld gesondert klären |
+- **Modul** = eine **Vorlage für einen Inhaltsbaustein**, z. B. „Textblock", „Bild mit Text", „Zitat". Ein Modul hat **zwei Teile**:
+  - **Eingabe** – das Formular, das Redakteure im Backend sehen.
+  - **Ausgabe** – das HTML, das im Frontend erzeugt wird.
+- **Slice** = eine **konkret befüllte Instanz** eines Moduls in einem Artikel.
 
-!!! warning "Umschüler vs. Azubi"
-    Nur ein **regulärer Azubi** ist über seine **Ausbildungsvergütung** sozialversicherungspflichtig (siehe 5.3). Dein **unbezahltes Umschüler-Praktikum** löst **keine** eigene Sozialversicherung aus. Kläre deinen Status immer konkret mit Arbeitsagentur und Krankenkasse.
+```mermaid
+flowchart LR
+    M([Modul 'Text'<br/>Vorlage]) -->|wird im Artikel<br/>eingefügt & befüllt| S1([Slice 1: 'Willkommen …'])
+    M --> S2([Slice 2: 'Unser Team …'])
+    S1 --> A[Artikel 'Startseite']
+    S2 --> A
+```
+
+**Beispiel – Modul „Überschrift + Text":**
+
+*Eingabe (Backend-Formular):*
+
+```html
+<label>Überschrift</label>
+<input type="text" name="REX_INPUT_VALUE[1]" value="REX_VALUE[1]">
+
+<label>Text</label>
+<textarea name="REX_INPUT_VALUE[2]">REX_VALUE[2]</textarea>
+```
+
+*Ausgabe (Frontend-HTML):*
+
+```html
+<section class="textblock">
+    <h2>REX_VALUE[1]</h2>
+    <p>REX_VALUE[2]</p>
+</section>
+```
+
+So trennt REDAXO sauber: Der Redakteur füllt ein **einfaches Formular** (Eingabe), im Frontend entsteht daraus **strukturiertes HTML** (Ausgabe). Der Redakteur muss **kein HTML** können.
+
+!!! info "Wiederverwendbarkeit"
+    Ein **einziges** Modul „Bild mit Text" kann in **hunderten** Artikeln als Slice verwendet werden. Verbesserst du das Modul-HTML, profitieren alle Slices. Deshalb baut man wenige, gut durchdachte Module statt vieler Einzellösungen.
 
 ---
 
-## 5.5 Weitere Sozialleistungen (Überblick)
+## 5.4 Der Veröffentlichungs-Workflow: Online/Offline
 
-| Leistung | Kurzbeschreibung |
+Inhalte entstehen nicht sofort öffentlich. REDAXO steuert die Sichtbarkeit über den **Status** von Artikeln:
+
+```mermaid
+flowchart LR
+    A[Artikel anlegen<br/>Status: offline] --> B[Slices einfügen<br/>& befüllen]
+    B --> C[Vorschau prüfen]
+    C --> D{Fertig?}
+    D -->|Nein| B
+    D -->|Ja| E[Auf online setzen<br/>= veröffentlichen]
+```
+
+- Ein neuer Artikel ist zunächst **offline** (nur im Backend sichtbar).
+- Redakteure fügen **Slices** ein, befüllen sie und prüfen die **Vorschau**.
+- Erst wenn alles passt, wird der Artikel **online** gesetzt = **veröffentlicht**.
+
+!!! tip "Erst offline arbeiten, dann veröffentlichen"
+    Baue neue Seiten immer **offline** auf. So sehen Besucher keine halbfertigen Inhalte. Das entspricht dem klassischen Redaktions-Workflow **Entwurf → Prüfen → Freigeben** aus Kapitel 4 – hier technisch umgesetzt über den Online/Offline-Status.
+
+---
+
+## 5.5 Versionieren
+
+**Versionierung** bedeutet, ältere Stände wiederherstellen zu können. REDAXO bietet dafür zwei Mechanismen:
+
+| Mechanismus | Was er tut |
 |---|---|
-| Arbeitslosengeld I | Nach Arbeitslosigkeit bei vorheriger Beschäftigung |
-| Bürgergeld | Grundsicherung bei Bedürftigkeit |
-| Kindergeld | Für Kinder, unabhängig vom Einkommen (mit Grenzen) |
-| Wohngeld | Zuschuss zu Mietkosten bei Bedürftigkeit |
+| **Arbeitsversion / Live-Version** | Beim Bearbeiten der Artikel-Inhalte kannst du zwischen einer **Arbeitsversion** (Entwurf) und der **Live-Version** (öffentlich) wechseln. So baust du Änderungen im Entwurf auf, ohne die Live-Seite zu verändern, und übernimmst sie erst, wenn sie fertig sind. |
+| **History-AddOn** | Protokolliert Änderungen an Slices und erlaubt, zu einem **früheren Snapshot** zurückzuspringen. |
+
+```mermaid
+flowchart LR
+    Live([Live-Version<br/>öffentlich]) -->|kopieren| Arbeit([Arbeitsversion<br/>Entwurf])
+    Arbeit -->|bearbeiten| Arbeit
+    Arbeit -->|übernehmen| Live
+```
+
+!!! warning "Versionierung ersetzt kein Backup"
+    Die Artikel-Versionierung schützt **einzelne Inhalte**, nicht das Gesamtsystem. Für den Ernstfall (Datenverlust, fehlerhaftes Update) brauchst du echte **Backups von DB + Dateien** (Kapitel 3 & 8).
+
+---
+
+## 5.6 Editor-Workflows in der Praxis
+
+Ein „Editor-Workflow" ist der wiederkehrende Ablauf, mit dem Redakteure Inhalte pflegen. Ein sauberer Workflow verhindert Chaos und Fehler:
+
+1. **Artikel anlegen** in der richtigen Kategorie, sprechenden Namen vergeben.
+2. **Template** zuweisen (falls nicht automatisch gesetzt).
+3. **Slices einfügen** – passende Module wählen, Inhalte in der **Arbeitsversion** befüllen.
+4. **Medien** aus dem Medienpool einbinden (nicht lose hochladen – Kapitel 6).
+5. **Vorschau** und **Responsive-Check** (Kapitel 6).
+6. **Freigabe** durch berechtigte Rolle (Kapitel 4).
+7. **Veröffentlichen** (Status online) und Änderung im **History**-Log dokumentiert.
+
+| Gute Praxis | Warum |
+|---|---|
+| Sprechende Artikel- und Slice-Reihenfolge | Andere finden sich zurecht |
+| Inhalte in der Arbeitsversion aufbauen | Live-Seite bleibt sauber |
+| Vorschau vor Freigabe | Keine kaputten Seiten online |
+| Kleine, häufige Änderungen | Leichter nachvollziehbar & rückrollbar |
+
+!!! info "Rollen und Workflow greifen ineinander"
+    Wer **veröffentlichen** darf, ist eine Frage der **Rolle** (Kapitel 4). Der **Online/Offline-Status** ist das technische Werkzeug dazu. Zusammen ergeben sie einen kontrollierten Redaktionsprozess.
 
 ---
 
 ## Kurzübungen
 
-{{ task(file="tasks/tag5_01.yaml") }}
+{{ task(file="tasks/kapitel5_01.yaml") }}
 
-{{ task(file="tasks/tag5_02.yaml") }}
+{{ task(file="tasks/kapitel5_02.yaml") }}
 
-{{ task(file="tasks/tag5_03.yaml") }}
+{{ task(file="tasks/kapitel5_03.yaml") }}
 
 ---
 

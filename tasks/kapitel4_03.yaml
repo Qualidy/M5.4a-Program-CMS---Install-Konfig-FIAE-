@@ -1,0 +1,22 @@
+title: Rechtematrix entwerfen
+difficulty: 3
+question: |
+  Entwirf eine **Rechtematrix** für drei Rollen (**Redaktion**, **Chefredaktion**, **Administration**) und mindestens **sechs** Berechtigungen (z. B. Artikel bearbeiten, veröffentlichen, Struktur ändern, Medien hochladen, Templates/Module bearbeiten, Benutzer verwalten, AddOns installieren).
+
+  Markiere je Zelle mit ✅ / ❌ und erkläre in 2–3 Sätzen, welche **Grundregel** hinter der Verteilung steht.
+tip: |
+  Redaktion = nur Inhalte. Chefredaktion = Inhalte + Freigabe/Struktur. Administration = Technik/System.
+solution: |
+  Mögliche Lösung:
+
+  | Berechtigung | Redaktion | Chefredaktion | Administration |
+  |---|:---:|:---:|:---:|
+  | Artikel bearbeiten | ✅ | ✅ | ✅ |
+  | Artikel veröffentlichen | ✅ | ✅ | ✅ |
+  | Struktur ändern | ❌ | ✅ | ✅ |
+  | Medien hochladen | ✅ | ✅ | ✅ |
+  | Templates/Module bearbeiten | ❌ | ❌ | ✅ |
+  | Benutzer verwalten | ❌ | ❌ | ✅ |
+  | AddOns installieren | ❌ | ❌ | ✅ |
+
+  Grundregel: **Least Privilege** – jede Rolle erhält nur, was sie für ihre Aufgabe braucht. Technik/System bleibt der Administration vorbehalten; Redaktion arbeitet ausschließlich an Inhalten.

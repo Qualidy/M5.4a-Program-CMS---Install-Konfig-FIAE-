@@ -1,0 +1,19 @@
+title: Frontend, Backend und Grundbegriffe
+difficulty: 1
+question: |
+  Ordne die folgenden Begriffe dem **Frontend** oder dem **Backend** zu und erkläre jeweils in einem Satz, was der Begriff bedeutet.
+
+  **Begriffe:** öffentliche Website, Login-Bereich, Redakteur pflegt Inhalte, Besucher liest Artikel, `/redaxo/`, veröffentlichte Startseite
+
+  Erstelle eine Tabelle mit den Spalten: Begriff · Frontend/Backend · Erklärung
+tip: |
+  Frontend = was Besucher sehen. Backend = der geschützte Verwaltungsbereich mit Login.
+solution: |
+  | Begriff | Bereich | Erklärung |
+  |---|---|---|
+  | öffentliche Website | Frontend | Der für alle Besucher sichtbare Teil |
+  | Login-Bereich | Backend | Geschützter Verwaltungsbereich |
+  | Redakteur pflegt Inhalte | Backend | Bearbeiten geschieht im geschützten Bereich |
+  | Besucher liest Artikel | Frontend | Ansehen der veröffentlichten Inhalte |
+  | `/redaxo/` | Backend | Der Pfad zum REDAXO-Backend |
+  | veröffentlichte Startseite | Frontend | Öffentlich sichtbare Seite |

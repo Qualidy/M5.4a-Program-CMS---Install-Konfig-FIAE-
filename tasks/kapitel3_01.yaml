@@ -1,0 +1,12 @@
+title: Was liegt in der Datenbank?
+difficulty: 1
+question: |
+  1. Nenne drei Arten von Daten, die REDAXO in der **Datenbank** speichert.
+  2. Was ist das **Tabellen-Präfix** (Standard `rex_`) und wozu dient es?
+  3. Warum gehört zu einem vollständigen Backup **mehr** als nur die Datenbank?
+tip: |
+  Bilder liegen als Dateien, nur die Metadaten stehen in der DB.
+solution: |
+  1. Z. B. Struktur (Kategorien/Artikel), Inhaltsblöcke (Slices), Templates/Module, Benutzer/Rechte, Medien-Metadaten, Konfiguration.
+  2. Das Präfix wird jeder Tabelle vorangestellt (`rex_article` …). Es erlaubt mehrere Anwendungen in einer DB und erschwert das Erraten von Tabellennamen.
+  3. **Dateien** (Medien im Medienpool, `redaxo/data/`) liegen **außerhalb** der DB. Ein vollständiges Backup umfasst deshalb **Datenbank + Dateien**.

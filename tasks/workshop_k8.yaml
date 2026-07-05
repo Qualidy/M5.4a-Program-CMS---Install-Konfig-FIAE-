@@ -1,20 +1,24 @@
-title: Entgeltabrechnung – Fallarbeit
+title: AddOns einrichten & Update-Runbook
 difficulty: 4
 question: |
-  **Szenario:** Du beginnst eine Ausbildung zum Fachinformatiker mit **1.050 € brutto** Ausbildungsvergütung. Steuerklasse I, keine Kirchensteuer. Vorher hast du ALG I bezogen.
+  **Szenario:** Die Handwerker-Website braucht sprechende URLs und SEO-Grundlagen, und der Betrieb möchte einen klaren Ablauf für künftige Updates.
 
   ---
 
-  **Aufgabe:**
+  **Aufgabe (praktisch + konzeptionell):**
 
-  1. Vergleiche **vorheriges Einkommen** (ALG I) mit der **Ausbildungsvergütung** (Tabelle: Einnahme, KV, Steuer, Planung).
+  1. **AddOn installieren:** Installiere **YRewrite** über den Installer, richte die Domain ein und aktiviere sprechende URLs. Prüfe, dass Artikel-URLs jetzt lesbar sind.
+  2. **AddOn prüfen:** Wähle ein weiteres AddOn (z. B. **MetaInfo** oder **Backup**) und dokumentiere vor der Installation Kompatibilität, Herkunft und letzten Changelog-Stand.
+  3. **Update-Runbook:** Schreibe eine wiederverwendbare Checkliste für Updates (Changelog → Backup → Staging → Test → Live → Test → Doku), inkl. **Rollback-Anleitung**.
+  4. **Trockenübung Rollback:** Erstelle ein Backup, ändere testweise etwas und spiele den Stand per Restore zurück.
 
-  2. Erkläre **5 Positionen** einer echten Abrechnung und ihre Bedeutung.
-
-  3. Erstelle einen **Haushaltsplan** (monatlich): Miete, Versicherung, Lebenshaltung – passt das Netto?
-
-  4. Nenne **3 Fragen** an den Arbeitgeber/Steuerberater bei der ersten Abrechnung.
-
-  **Deliverables:** Tabelle + Haushaltsplan + Fragenliste
+  **Deliverable:** Funktionierende sprechende URLs (YRewrite) + AddOn-Prüfnotiz + Update-Runbook mit Rollback.
+tip: |
+  Mach vor der YRewrite-Einrichtung ein Backup. Für den Rollback-Test genügt eine kleine, klar erkennbare Änderung (z. B. ein Slice-Text). Notiere jeden Schritt – das Runbook soll auch für Kollegen nutzbar sein.
 solution: |
-  ALG vs. Vergütung unterschiedlich strukturiert; Positionen erklärt; Haushaltsplan realistisch; Fragen zu Steuerklasse, Freibeträgen, Zuschlägen, Mindestvergütung.
+  Bewertungskriterien:
+
+  - YRewrite installiert, Domain eingerichtet, sprechende URLs funktionieren.
+  - AddOn-Prüfnotiz nennt Kompatibilität (Core/PHP), Herkunft (offizielle Quelle) und Pflegestand.
+  - Update-Runbook enthält alle Schritte in richtiger Reihenfolge + Rollback (DB + Dateien).
+  - Rollback praktisch durchgeführt: Änderung eingespielt, dann erfolgreich zurückgerollt.

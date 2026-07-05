@@ -1,0 +1,14 @@
+title: Mehrsprachigkeit richtig planen
+difficulty: 3
+question: |
+  Eine Website soll zweisprachig werden (Deutsch/Englisch). Es gibt feste Button-Beschriftungen im Template („Mehr lesen") und redaktionelle Inhalte.
+
+  1. Wie verwaltet REDAXO mehrsprachige **Inhalte** (Stichwort clang)?
+  2. Warum gehören feste Beschriftungen im Template in **Sprog** und nicht direkt ins HTML?
+  3. Welche Aufgabe übernimmt **YRewrite** bei einer mehrsprachigen Seite?
+tip: |
+  Struktur ist für alle Sprachen gleich, Inhalte werden je Sprache gepflegt. Sprog = übersetzbare Textbausteine.
+solution: |
+  1. Über **Sprachen (clang)**: Jeder Artikel existiert in jeder Sprache mit **eigenen Slices**; die Struktur ist gleich, die Inhalte werden je Sprache übersetzt. Rechte pro Sprache über Rollen.
+  2. Feste Beschriftungen als **Sprog-Wildcard** halten das Template **sprachneutral**; Übersetzer pflegen nur die Sprog-Liste. Hardcodiertes „Mehr lesen" wäre nicht übersetzbar.
+  3. **YRewrite** erzeugt sprechende URLs und weist **Domains/Pfade je Sprache** zu (z. B. `/de/`, `/en/`), inkl. `hreflang`, Sitemap und robots.

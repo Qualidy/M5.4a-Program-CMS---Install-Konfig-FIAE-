@@ -1,0 +1,12 @@
+title: Formular & E-Mail-Grundlagen
+difficulty: 1
+question: |
+  1. Aus welchen drei Bestandteilen besteht ein **YForm**-Formular?
+  2. Über welches Kern-AddOn versendet REDAXO E-Mails?
+  3. Warum sollte man **SMTP** statt der PHP-`mail()`-Funktion und eine **eigene** Absenderadresse nutzen?
+tip: |
+  Felder, Validierungen, Aktionen. Fremde Absenderadressen landen oft im Spam.
+solution: |
+  1. **Felder** (values), **Validierungen** und **Aktionen** (z. B. E-Mail senden, in DB speichern).
+  2. Über **PHPMailer**.
+  3. **SMTP** mit **eigener, authentifizierter** Absenderadresse wird seltener als Spam eingestuft/abgelehnt (SPF/DKIM/DMARC). Die Besucheradresse trägt man als **Reply-To** ein.

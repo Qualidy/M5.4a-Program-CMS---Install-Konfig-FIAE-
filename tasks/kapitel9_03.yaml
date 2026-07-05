@@ -1,0 +1,14 @@
+title: Cookie-Consent DSGVO-konform
+difficulty: 3
+question: |
+  Eine Seite bindet ein YouTube-Video und ein Statistik-Tool ein. Der bisherige „Cookie-Hinweis" ist nur ein Banner, das nichts blockiert.
+
+  1. Warum ist dieses Banner **nicht** DSGVO-konform?
+  2. Wie löst der **consent_manager** das Problem (Stichworte Gruppen, „Notwendig", Inline-Consent)?
+  3. Welche zwei rechtlichen Pflichtseiten dürfen auf keiner Website fehlen?
+tip: |
+  Nicht-notwendige Dienste erst NACH Einwilligung laden.
+solution: |
+  1. Ein bloßes Banner, das trackt/lädt egal was der Nutzer klickt, holt **keine** wirksame Einwilligung. Nicht-notwendige Cookies/Dienste dürfen erst **nach** Zustimmung geladen werden.
+  2. Der **consent_manager** zeigt ein **Opt-in-Banner**, bündelt Dienste in **Gruppen** (die Gruppe „Notwendig" ist nicht abwählbar) und lädt externe Embeds erst nach Zustimmung (**Inline-Consent**, z. B. YouTube). Die Auswahl ist nachträglich änderbar.
+  3. **Impressum** und **Datenschutzerklärung**.

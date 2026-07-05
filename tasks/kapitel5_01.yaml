@@ -1,0 +1,18 @@
+title: Struktur, Template, Modul, Slice
+difficulty: 1
+question: |
+  Ordne die REDAXO-Begriffe **Kategorie, Artikel, Template, Modul, Slice** den folgenden Beschreibungen zu:
+
+  1. Das HTML-Grundgerüst einer Seite.
+  2. Die einzelne Seite mit Inhalt.
+  3. Gruppiert Artikel und Unterkategorien (wie ein Ordner).
+  4. Die Vorlage für einen Inhaltsbaustein (mit Eingabe & Ausgabe).
+  5. Der konkret befüllte Baustein in einem Artikel.
+tip: |
+  Modul = Vorlage, Slice = die befüllte Instanz davon.
+solution: |
+  1. **Template**
+  2. **Artikel**
+  3. **Kategorie**
+  4. **Modul**
+  5. **Slice**

@@ -1,20 +1,26 @@
-title: Ausbildungsvertrag – Fallarbeit
+title: REDAXO installieren und dokumentieren
 difficulty: 4
 question: |
-  **Szenario:** Ein mittelständischer Softwarebetrieb (80 MA) möchte dich zum Fachinformatiker AE ausbilden (Ausbildungsvertrag ab September). Du hast den Vertragsentwurf und ein Gespräch mit dem Ausbilder.
+  **Szenario:** Du richtest deine eigene lokale REDAXO-Umgebung ein – die Grundlage für alle folgenden Kapitel.
 
   ---
 
-  **Aufgabe:**
+  **Aufgabe (praktisch, am eigenen Rechner):**
 
-  1. Liste alle **Pflichtinhalte** und markiere, welche du im Gespräch **explizit klären** würdest.
+  1. **Umgebung aufsetzen:** Installiere entweder **XAMPP (Windows)** oder eine **Linux-VM mit LAMP**. Starte Webserver und Datenbank.
+  2. **Datenbank anlegen:** Erstelle eine leere Datenbank `redaxo` mit Kollation `utf8mb4_general_ci`.
+  3. **REDAXO installieren:** Lade den aktuellen Core (oder nutze den Loader) und durchlaufe die **7 Setup-Schritte**. Lege ein Admin-Konto mit **starkem Passwort** an.
+  4. **Basisdemo (optional):** Installiere über den `Installer` die `demo_base` und sieh dir Templates/Module/Struktur an.
+  5. **Installations-Doku:** Schreibe eine nachvollziehbare Doku mit den Abschnitten Umgebung, Versionen (PHP/DB/REDAXO), Schritte, Datenbank, Dateirechte, Zugänge (ohne Klartext-Passwörter) und Besonderheiten.
 
-  2. Erstelle eine **Vergleichstabelle**: Rechte und Pflichten von **dir** vs. **Betrieb** (mind. 4 je Seite).
-
-  3. Schreibe eine **E-Mail** (max. 15 Zeilen) an den Ausbilder mit höflicher Nachfrage zu fehlenden Vertragsinhalten.
-
-  4. Nenne **3 Situationen**, in denen du die Kammer einbeziehen würdest.
-
-  **Deliverables:** Tabellen + E-Mail-Text
+  **Deliverable:** Laufende lokale REDAXO-Installation + Installations-Doku (1–2 Seiten).
+tip: |
+  Wenn der Systemcheck warnt, zuerst Voraussetzungen beheben. Notiere Fehler und Lösungen direkt – das ist Teil der Doku. Passwörter gehören in einen Passwort-Manager, nicht in die Doku.
 solution: |
-  Vollständige Pflichtinhalte abgehakt; E-Mail professionell und konkret; Kammer bei Unklarheit Vergütung, fehlendem BAP, Kündigungsandrohung ohne Grund.
+  Bewertungskriterien:
+
+  - REDAXO ist erreichbar (Frontend + Backend unter `/redaxo/`), Login funktioniert.
+  - Datenbank ist leer angelegt und korrekt eingebunden (utf8mb4).
+  - Doku enthält alle geforderten Abschnitte, ist **wiederholbar** (jemand anderes könnte damit installieren).
+  - Versionen sind konkret angegeben; aufgetretene Warnungen/Fehler samt Lösung dokumentiert.
+  - Keine Passwörter im Klartext in der Doku; starkes Admin-Passwort verwendet.

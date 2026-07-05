@@ -1,25 +1,26 @@
-title: Sozialversicherung – Gesamtfall
+title: Struktur, Template & Module aufbauen
 difficulty: 4
 question: |
-  **Szenario:** 42 Jahre, verheiratet. Nach mehreren Jahren **Anstellung** ist die Person arbeitslos geworden und bezieht aktuell **ALG I**. Sie **glaubt**, sie könne über ihre gut verdienende Ehepartnerin einfach **familienversichert** bleiben. Ab September beginnt sie eine **reguläre Ausbildung** (Ausbildungsvertrag, 1.050 € Ausbildungsvergütung).
+  **Szenario:** Du baust das Grundgerüst der Handwerker-Website (aus dem Workshop von Kapitel 1) in deiner REDAXO-Installation auf.
 
   ---
 
-  **Aufgabe:**
+  **Aufgabe (praktisch in REDAXO):**
 
-  1. Wie ist die Person **während des ALG-I-Bezugs** krankenversichert? Ist die angenommene Familienversicherung möglich? Wer zahlt die Rentenbeiträge?
+  1. **Struktur anlegen:** Erstelle die Kategorien **Start, Leistungen, Referenzen, Über uns, Kontakt** mit je einem Startartikel.
+  2. **Template bauen:** Erstelle ein Template mit HTML-Gerüst (`<head>` inkl. Viewport, Header, `<nav>`, `REX_ARTICLE[]` im `<main>`, Footer) und weise es den Artikeln zu.
+  3. **Module erstellen:** Baue mindestens zwei Module: „Überschrift + Text" und „Bild mit Text" (jeweils Eingabe + Ausgabe).
+  4. **Content einfügen:** Befülle die Startseite mit Slices dieser Module – zuerst **offline**, dann per Vorschau prüfen und **veröffentlichen**.
+  5. **Dokumentieren:** Notiere deinen Editor-Workflow (Reihenfolge der Schritte).
 
-  2. Welche Versicherungen greifen **mit Beginn der Ausbildung**, wer zahlt die Beiträge?
-
-  3. Warum ist eine **Familienversicherung während der Ausbildung** nicht möglich?
-
-  4. Erstelle eine **Beratungs-Checkliste** für den Übergang (8 Punkte).
-
-  **Deliverables:** Checkliste + kurze Erläuterungen
+  **Deliverable:** Eine im Frontend erreichbare Startseite mit Menüstruktur und mindestens 3 befüllten Slices.
 tip: |
-  ALG-I-Bezug und Ausbildung lösen jeweils eine eigene Versicherungspflicht aus – beides schließt die beitragsfreie Familienversicherung aus.
+  Nutze das Developer-AddOn, um Template/Module bequem im Code-Editor zu bearbeiten. Denke an sprechende Modul- und Artikelnamen. Baue neue Inhalte immer erst offline auf.
 solution: |
-  1. Kein Anspruch auf Familienversicherung: Wer ALG I bezieht, ist eigenständig pflichtversichert in KV/PV über die Agentur; die Agentur zahlt auch die Rentenbeiträge (auf Basis des früheren Entgelts).
-  2. Mit Beginn der Ausbildung Pflichtversicherung in allen fünf Zweigen (KV/PV/RV/AV; UV über den Betrieb); Beiträge von AG und AN geteilt (unter Geringverdienergrenze AG allein).
-  3. Azubis gelten als Beschäftigte und sind ab dem ersten Euro eigenständig pflichtversichert – eine beitragsfreie Familienversicherung ist ausgeschlossen.
-  4. Checkliste (Beispiele): Krankenkasse wählen/ummelden; Statuswechsel der Agentur melden; Annahme „Familienversicherung" mit der Kasse klären; Rentenversicherungsnummer bereithalten; Anmeldung zur SV durch den Arbeitgeber; Steuer-ID/Steuerklasse klären; Beitrags- und Nettohöhe prüfen; Beratungstermin bei Krankenkasse/Agentur.
+  Bewertungskriterien:
+
+  - Struktur mit sinnvollen Kategorien/Artikeln vorhanden.
+  - Template enthält Viewport-Meta, Navigationsbereich und `REX_ARTICLE[]`; ist Artikeln zugewiesen.
+  - Mindestens zwei funktionierende Module mit korrektem Eingabe/Ausgabe-Aufbau (`REX_INPUT_VALUE`/`REX_VALUE`).
+  - Startseite ist mit Slices befüllt und **veröffentlicht** (online), Vorschau wurde genutzt.
+  - Editor-Workflow dokumentiert (offline aufbauen → prüfen → veröffentlichen).

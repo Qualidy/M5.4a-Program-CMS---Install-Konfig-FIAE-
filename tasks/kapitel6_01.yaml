@@ -1,0 +1,12 @@
+title: Medienpool & Alt-Texte
+difficulty: 1
+question: |
+  1. Was ist der **Medienpool** und welchen Vorteil bringt er gegenüber „Bilder direkt in den Artikel laden"?
+  2. Warum braucht jedes inhaltliche Bild einen **Alt-Text**?
+  3. Nenne zwei Regeln für gute Dateinamen im Medienpool.
+tip: |
+  Alt-Texte helfen Screenreadern und SEO. Sprechende Dateinamen statt IMG_1234.jpg.
+solution: |
+  1. Zentrale Dateiverwaltung: Dateien liegen an einem Ort, sind **wiederverwendbar**, haben Metadaten und können per Rolle geschützt werden.
+  2. Der **Alt-Text** beschreibt das Bild für Screenreader (Barrierefreiheit) und Suchmaschinen (SEO); er wird angezeigt, wenn das Bild nicht lädt.
+  3. Z. B.: sprechende Namen (`team-anna-mueller.jpg`), keine Sonderzeichen/Leerzeichen, in Medienkategorien sortieren.

@@ -1,0 +1,14 @@
+title: Benutzer, Rolle, Recht unterscheiden
+difficulty: 1
+question: |
+  Erkläre die Begriffe **Benutzer**, **Rolle** und **Recht** je in einem Satz und gib für jeden ein Beispiel.
+
+  Beantworte außerdem: Was ist in REDAXO der Unterschied zwischen einem **Administrator** und einem Benutzer mit **Rolle**?
+tip: |
+  Benutzer = Person, Rolle = Rechtebündel, Recht = einzelne erlaubte Aktion.
+solution: |
+  - **Benutzer:** eine konkrete Person mit Login, z. B. `anna.mueller`.
+  - **Rolle:** ein Bündel von Rechten, das man Benutzern zuweist, z. B. „Redakteur".
+  - **Recht:** eine einzelne erlaubte Aktion, z. B. „Artikel in Kategorie X bearbeiten".
+
+  Ein **Administrator** hat uneingeschränkten Zugriff auf alles (Rollen werden ignoriert). Ein Benutzer mit **Rolle** darf nur, was seine Rolle(n) erlauben.

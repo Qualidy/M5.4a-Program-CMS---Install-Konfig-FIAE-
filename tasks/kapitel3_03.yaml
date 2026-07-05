@@ -1,0 +1,16 @@
+title: config.yml und Backup-Strategie
+difficulty: 3
+question: |
+  1. Wo speichert REDAXO seine zentrale Konfiguration und welche **sensiblen** Daten stehen dort?
+  2. Nenne zwei Maßnahmen, um diese Datei zu schützen.
+  3. Erkläre die **3-2-1-Backup-Regel** und schreibe die Befehle, um die Datenbank `redaxo` per `mysqldump` zu sichern und wiederherzustellen.
+tip: |
+  `redaxo/data/core/config.yml` enthält u. a. das DB-Passwort im Klartext.
+solution: |
+  1. In `redaxo/data/core/config.yml`; dort stehen u. a. die **Datenbank-Zugangsdaten** (inkl. Passwort im Klartext), Tabellen-Präfix, Servername.
+  2. Ordner `redaxo/data/` nicht öffentlich erreichbar machen (per `.htaccess`/Serverkonfig); Datei **nicht** in ein öffentliches Git-Repo committen (`.gitignore`).
+  3. **3-2-1:** 3 Kopien, auf 2 verschiedenen Medien, 1 davon außer Haus/offsite.
+  ```bash
+  mysqldump -u redaxo_user -p redaxo > backup_redaxo_2026-07-05.sql
+  mysql -u redaxo_user -p redaxo < backup_redaxo_2026-07-05.sql
+  ```

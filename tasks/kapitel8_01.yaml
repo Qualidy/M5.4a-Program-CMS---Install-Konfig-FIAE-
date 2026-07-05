@@ -1,0 +1,12 @@
+title: AddOns und der Installer
+difficulty: 1
+question: |
+  1. Was ist ein **AddOn** in REDAXO (und wie heißt das Pendant bei WordPress bzw. TYPO3)?
+  2. Über welches Werkzeug installierst du AddOns bequem im Backend?
+  3. Was ist der Unterschied zwischen **Deaktivieren** und **Deinstallieren** eines AddOns?
+tip: |
+  Deaktivieren behält die Daten, Deinstallieren entfernt sie.
+solution: |
+  1. Ein **AddOn** ist eine Erweiterung des REDAXO-Kerns. Pendant: **Plugin** (WordPress), **Extension** (TYPO3/Joomla), **Module** (Drupal).
+  2. Über den **Installer** (AddOns → Installer).
+  3. **Deaktivieren** schaltet das AddOn inaktiv, **behält** aber Daten/Tabellen. **Deinstallieren** entfernt auch dessen Daten.

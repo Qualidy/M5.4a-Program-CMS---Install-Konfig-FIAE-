@@ -1,0 +1,23 @@
+title: Media Manager & Responsive Images
+difficulty: 2
+question: |
+  Ein Redakteur lädt ein 4000px breites Foto hoch und bindet es unverändert ein. Auf dem Smartphone lädt die Seite langsam.
+
+  1. Wie löst der **Media Manager** dieses Problem?
+  2. Was ist ein **Medientyp** im Media Manager?
+  3. Schreibe ein `<img>`-Beispiel mit `srcset`, das drei Größen anbietet.
+tip: |
+  Media Manager erzeugt skalierte Varianten on the fly; srcset lässt den Browser die passende wählen.
+solution: |
+  1. Der Media Manager erzeugt **skalierte Varianten** (on the fly) und cached sie – der Browser lädt nur die benötigte Größe, nicht das Original.
+  2. Ein **Medientyp** ist eine benannte Effekt-Kette (z. B. „thumb_300"), die Bilder z. B. auf 300px skaliert.
+  3.
+  ```html
+  <img
+    src="/media/content_800/foto.jpg"
+    srcset="/media/thumb_300/foto.jpg 300w,
+            /media/content_800/foto.jpg 800w,
+            /media/header_1600/foto.jpg 1600w"
+    sizes="(max-width: 600px) 100vw, 800px"
+    alt="Beschreibung des Fotos">
+  ```

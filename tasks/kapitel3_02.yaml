@@ -1,0 +1,21 @@
+title: DB-Benutzer mit Minimalrechten
+difficulty: 2
+question: |
+  Beim Setup hast du dich noch als `root` mit der Datenbank verbunden. Für den Betrieb soll ein **eigener DB-Benutzer** her.
+
+  1. Erkläre das **Least-Privilege-Prinzip** in einem Satz.
+  2. Schreibe die SQL-Befehle, um einen Benutzer `redaxo_user`@`localhost` anzulegen und ihm die passenden Rechte **nur** auf die Datenbank `redaxo` zu geben.
+  3. Welche Rechte solltest du **nicht** vergeben?
+tip: |
+  Rechte nur auf `redaxo.*`, nicht auf `*.*`. Kein GRANT OPTION, kein SUPER, kein FILE.
+solution: |
+  1. Ein Konto bekommt nur die Rechte, die es wirklich braucht – nicht mehr.
+  2.
+  ```sql
+  CREATE USER 'redaxo_user'@'localhost' IDENTIFIED BY 'EinStarkesPasswort!';
+  GRANT SELECT, INSERT, UPDATE, DELETE,
+        CREATE, ALTER, DROP, INDEX, LOCK TABLES
+    ON redaxo.* TO 'redaxo_user'@'localhost';
+  FLUSH PRIVILEGES;
+  ```
+  3. Keine globalen Rechte (`ON *.*`), kein `GRANT OPTION`, kein `SUPER`, kein `FILE`.
