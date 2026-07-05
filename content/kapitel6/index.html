@@ -1,0 +1,1308 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../kapitel5/">
+      
+      
+        <link rel="next" href="../kapitel7/">
+      
+      
+      <link rel="icon" href="../../assets/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.18">
+    
+    
+      
+        <title>Kapitel 6 – Content, Medien & Mehrsprachigkeit - M5.4a: CMS – Installation & Konfiguration (REDAXO)</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=DM+Sans:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"DM Sans";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/theme.css">
+    
+      <link rel="stylesheet" href="../../stylesheets/grid.css">
+    
+      <link rel="stylesheet" href="../../stylesheets/logo.css">
+    
+      <link rel="stylesheet" href="../../stylesheets/video_admonition.css">
+    
+      <link rel="stylesheet" href="../../stylesheets/mermaid.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent="orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#kapitel-6-content-medien-mehrsprachigkeit" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="M5.4a: CMS – Installation &amp; Konfiguration (REDAXO)" class="md-header__button md-logo" aria-label="M5.4a: CMS – Installation & Konfiguration (REDAXO)" data-md-component="logo">
+      
+  <img src="../../assets/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            M5.4a: CMS – Installation & Konfiguration (REDAXO)
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Kapitel 6 – Content, Medien & Mehrsprachigkeit
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Übersicht
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../kapitel1/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Kapitel 1 – Was ist ein CMS?
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../kapitel2/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Kapitel 2 – Installation & Einrichtung
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../kapitel3/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Kapitel 3 – Datenbank & Konfiguration
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../kapitel4/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Kapitel 4 – Benutzer, Rollen & Rechte
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../kapitel5/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Kapitel 5 – Frontend, Backend & Workflows
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="./" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Kapitel 6 – Content, Medien & Mehrsprachigkeit
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../kapitel7/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Kapitel 7 – Layout & Design
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../kapitel8/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Kapitel 8 – AddOns, Updates & Staging
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../kapitel9/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Kapitel 9 – Mailing, Newsletter & Datenschutz
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../kapitel10/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Kapitel 10 – Sicherheit & Notfallmaßnahmen
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="M5.4a: CMS – Installation &amp; Konfiguration (REDAXO)" class="md-nav__button md-logo" aria-label="M5.4a: CMS – Installation & Konfiguration (REDAXO)" data-md-component="logo">
+      
+  <img src="../../assets/logo.png" alt="logo">
+
+    </a>
+    M5.4a: CMS – Installation & Konfiguration (REDAXO)
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Übersicht
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../kapitel1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Kapitel 1 – Was ist ein CMS?
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../kapitel2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Kapitel 2 – Installation & Einrichtung
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../kapitel3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Kapitel 3 – Datenbank & Konfiguration
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../kapitel4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Kapitel 4 – Benutzer, Rollen & Rechte
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../kapitel5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Kapitel 5 – Frontend, Backend & Workflows
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Kapitel 6 – Content, Medien & Mehrsprachigkeit
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Kapitel 6 – Content, Medien & Mehrsprachigkeit
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#was-du-in-diesem-kapitel-lernst" class="md-nav__link">
+    <span class="md-ellipsis">
+      Was du in diesem Kapitel lernst
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#61-content-erstellen-und-uberarbeiten" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.1 Content erstellen und überarbeiten
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#62-der-medienpool" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.2 Der Medienpool
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#63-der-media-manager-bilder-automatisch-aufbereiten" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.3 Der Media Manager – Bilder automatisch aufbereiten
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#64-mehrsprachigkeit-sprachen-clang" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.4 Mehrsprachigkeit: Sprachen (clang)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#65-sprog-und-yrewrite-fur-mehrsprachige-sites" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.5 Sprog und YRewrite für mehrsprachige Sites
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#66-responsive-design-berucksichtigen" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.6 Responsive Design berücksichtigen
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#kurzubungen" class="md-nav__link">
+    <span class="md-ellipsis">
+      Kurzübungen
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#workshop" class="md-nav__link">
+    <span class="md-ellipsis">
+      Workshop
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../kapitel7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Kapitel 7 – Layout & Design
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../kapitel8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Kapitel 8 – AddOns, Updates & Staging
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../kapitel9/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Kapitel 9 – Mailing, Newsletter & Datenschutz
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../kapitel10/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Kapitel 10 – Sicherheit & Notfallmaßnahmen
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="kapitel-6-content-medien-mehrsprachigkeit">Kapitel 6 – Content, Medien &amp; Mehrsprachigkeit<a class="headerlink" href="#kapitel-6-content-medien-mehrsprachigkeit" title="Permanent link">&para;</a></h1>
+<div class="kurs-progress">
+  <div class="step done"></div>
+  <div class="step done"></div>
+  <div class="step done"></div>
+  <div class="step done"></div>
+  <div class="step done"></div>
+  <div class="step active"></div>
+  <div class="step"></div>
+  <div class="step"></div>
+  <div class="step"></div>
+  <div class="step"></div>
+</div>
+
+<div class="lernziele">
+<h3 id="was-du-in-diesem-kapitel-lernst">Was du in diesem Kapitel lernst<a class="headerlink" href="#was-du-in-diesem-kapitel-lernst" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Wie du <strong>Content</strong> (Seiten/Beiträge) strukturiert erstellst und überarbeitest</li>
+<li>Wie der <strong>Medienpool</strong> funktioniert und wie du Bilder &amp; Dateien sauber verwaltest</li>
+<li>Wie der <strong>Media Manager</strong> Bilder automatisch skaliert (Basis für Responsive Images)</li>
+<li>Wie <strong>Mehrsprachigkeit</strong> in REDAXO über <strong>Sprachen (clang)</strong> und das <strong>Sprog</strong>-AddOn funktioniert</li>
+<li>Was <strong>Responsive Design</strong> ist und wie du es bei der Content-Pflege berücksichtigst</li>
+</ul>
+</div>
+<hr />
+<h2 id="61-content-erstellen-und-uberarbeiten">6.1 Content erstellen und überarbeiten<a class="headerlink" href="#61-content-erstellen-und-uberarbeiten" title="Permanent link">&para;</a></h2>
+<p>Guter Content ist mehr als „Text eingeben". Er ist <strong>strukturiert</strong>, <strong>auffindbar</strong> und <strong>wartbar</strong>. In REDAXO entsteht Content durch <strong>Slices</strong> in <strong>Artikeln</strong> (Kapitel 5). Beim Erstellen und Überarbeiten helfen ein paar Grundregeln:</p>
+<table>
+<thead>
+<tr>
+<th>Prinzip</th>
+<th>Bedeutung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Struktur vor Gestaltung</strong></td>
+<td>Erst sinnvolle Überschriften-Hierarchie (H1 → H2 → H3), dann Feinschliff</td>
+</tr>
+<tr>
+<td><strong>Ein H1 pro Seite</strong></td>
+<td>Die Hauptüberschrift; darunter H2/H3 für Abschnitte</td>
+</tr>
+<tr>
+<td><strong>Kurze Absätze</strong></td>
+<td>Bessere Lesbarkeit, besonders mobil</td>
+</tr>
+<tr>
+<td><strong>Sprechende Links</strong></td>
+<td>„Zur Anmeldung" statt „hier klicken"</td>
+</tr>
+<tr>
+<td><strong>Alternativtexte</strong></td>
+<td>Jedes inhaltliche Bild braucht einen <code>alt</code>-Text (Barrierefreiheit &amp; SEO)</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition info">
+<p class="admonition-title">Semantik zählt</p>
+<p>Überschriften sind <strong>keine</strong> Gestaltungsmittel („groß und fett"), sondern <strong>Struktur</strong>. Suchmaschinen und Screenreader nutzen die Hierarchie. Deshalb gibt man die Ebene über das <strong>Modul</strong> vor (H2/H3), nicht über manuelles Vergrößern.</p>
+</div>
+<p><strong>Überarbeiten</strong> heißt: bestehende Slices anpassen, Reihenfolge ändern, veraltete Inhalte offline nehmen. Nutze dafür die <strong>Arbeitsversion</strong> (Kapitel 5), damit die Live-Seite währenddessen stabil bleibt.</p>
+<hr />
+<h2 id="62-der-medienpool">6.2 Der Medienpool<a class="headerlink" href="#62-der-medienpool" title="Permanent link">&para;</a></h2>
+<p>Der <strong>Medienpool</strong> ist die zentrale Dateiverwaltung von REDAXO. Statt Bilder lose in Artikel zu laden, liegen alle Dateien <strong>an einem Ort</strong> und können <strong>mehrfach</strong> verwendet werden.</p>
+<pre class="mermaid"><code>flowchart LR
+    Upload([Datei hochladen]) --&gt; MP[(Medienpool)]
+    MP --&gt; Meta[Metadaten:&lt;br/&gt;Titel, Alt-Text, Kategorie]
+    MP --&gt; A1[Verwendung in Artikel A]
+    MP --&gt; A2[Verwendung in Artikel B]</code></pre>
+<table>
+<thead>
+<tr>
+<th>Funktion</th>
+<th>Nutzen</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Medienkategorien</strong></td>
+<td>Ordnerstruktur für Bilder/Dokumente (z. B. „Team", „Produkte")</td>
+</tr>
+<tr>
+<td><strong>Metadaten (MetaInfo)</strong></td>
+<td>Titel, Copyright, Alt-Text pro Datei pflegen</td>
+</tr>
+<tr>
+<td><strong>Wiederverwendung</strong></td>
+<td>Ein Bild einmal hochladen, überall referenzieren</td>
+</tr>
+<tr>
+<td><strong>Rechtevergabe</strong></td>
+<td>Rollen dürfen nur bestimmte Medienkategorien (Kapitel 4)</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition tip">
+<p class="admonition-title">Dateien sinnvoll benennen und sortieren</p>
+<p>Lade Dateien mit <strong>sprechenden Namen</strong> hoch (<code>team-anna-mueller.jpg</code> statt <code>IMG_2931.jpg</code>) und sortiere sie in <strong>Medienkategorien</strong>. In großen Projekten spart das enorm Zeit und verhindert Dubletten.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Urheberrecht beachten</p>
+<p>Verwende nur Bilder, für die du die <strong>Nutzungsrechte</strong> hast (eigene, lizenzierte oder freie Werke mit passender Lizenz). Halte die <strong>Quelle/Lizenz</strong> in den Metadaten fest. Bildrechteverstöße sind ein häufiger und teurer Fehler.</p>
+</div>
+<hr />
+<h2 id="63-der-media-manager-bilder-automatisch-aufbereiten">6.3 Der Media Manager – Bilder automatisch aufbereiten<a class="headerlink" href="#63-der-media-manager-bilder-automatisch-aufbereiten" title="Permanent link">&para;</a></h2>
+<p>Der <strong>Media Manager</strong> (Kern-AddOn) verarbeitet Bilder <strong>on the fly</strong>: Du definierst <strong>Medientypen</strong> (Effekt-Ketten) wie „Vorschau 300px" oder „Header 1600px", und der Media Manager erzeugt die passende Variante automatisch und cached sie.</p>
+<pre class="mermaid"><code>flowchart LR
+    Orig([Originalbild&lt;br/&gt;4000px]) --&gt; MM{Media Manager}
+    MM --&gt;|Typ 'thumb_300'| T([300px])
+    MM --&gt;|Typ 'content_800'| C([800px])
+    MM --&gt;|Typ 'header_1600'| H([1600px])</code></pre>
+<p>Im Frontend rufst du eine Variante über die URL auf:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>/media/thumb_300/team-anna-mueller.jpg
+</code></pre></div></td></tr></table></div>
+<table>
+<thead>
+<tr>
+<th>Vorteil</th>
+<th>Bedeutung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Performance</strong></td>
+<td>Der Browser lädt nur die benötigte Größe, nicht das 4000px-Original</td>
+</tr>
+<tr>
+<td><strong>Konsistenz</strong></td>
+<td>Alle Vorschaubilder haben dieselbe Größe/Qualität</td>
+</tr>
+<tr>
+<td><strong>Wartbarkeit</strong></td>
+<td>Größe zentral im Medientyp ändern, statt jedes Bild neu hochzuladen</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition info">
+<p class="admonition-title">Grundlage für Responsive Images</p>
+<p>Weil der Media Manager mehrere Größen erzeugt, kannst du im HTML <code>srcset</code> nutzen (Abschnitt 6.6) und dem Browser passende Varianten anbieten. So verbindet sich <strong>Medienverwaltung</strong> mit <strong>Responsive Design</strong>.</p>
+</div>
+<hr />
+<h2 id="64-mehrsprachigkeit-sprachen-clang">6.4 Mehrsprachigkeit: Sprachen (clang)<a class="headerlink" href="#64-mehrsprachigkeit-sprachen-clang" title="Permanent link">&para;</a></h2>
+<p>REDAXO unterstützt Mehrsprachigkeit <strong>ab Werk</strong> über <strong>Sprachen</strong> (intern „clang" = <em>content language</em>). Unter <strong>System → Sprachen</strong> legst du zusätzliche Sprachen an (z. B. Deutsch, Englisch, Französisch).</p>
+<p><strong>Wie es funktioniert:</strong></p>
+<ul>
+<li>Jeder <strong>Artikel</strong> existiert in <strong>jeder Sprache</strong> – mit <strong>eigenen Inhalten</strong> (Slices) pro Sprache.</li>
+<li>Die <strong>Struktur</strong> (Kategoriebaum) ist für alle Sprachen gleich, die <strong>Inhalte</strong> werden je Sprache gepflegt.</li>
+<li>Redakteure wechseln im Backend die Sprache und übersetzen die Slices.</li>
+</ul>
+<pre class="mermaid"><code>flowchart TB
+    A[Artikel 'Über uns' ID 5] --&gt; DE[Sprache DE:&lt;br/&gt;deutsche Slices]
+    A --&gt; EN[Sprache EN:&lt;br/&gt;englische Slices]
+    A --&gt; FR[Sprache FR:&lt;br/&gt;französische Slices]</code></pre>
+<div class="admonition info">
+<p class="admonition-title">Rechte pro Sprache</p>
+<p>Über die <strong>Rollen</strong> (Kapitel 4) kannst du festlegen, <strong>welche Sprachen</strong> ein Benutzer bearbeiten darf – z. B. eine Rolle „Redaktion EN" nur für die englische Version.</p>
+</div>
+<hr />
+<h2 id="65-sprog-und-yrewrite-fur-mehrsprachige-sites">6.5 Sprog und YRewrite für mehrsprachige Sites<a class="headerlink" href="#65-sprog-und-yrewrite-fur-mehrsprachige-sites" title="Permanent link">&para;</a></h2>
+<p>Zwei AddOns ergänzen die Mehrsprachigkeit:</p>
+<table>
+<thead>
+<tr>
+<th>AddOn</th>
+<th>Aufgabe</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Sprog</strong></td>
+<td>Verwaltet <strong>Textbausteine/Platzhalter</strong>, die in Templates/Modulen fest verdrahtet sind (z. B. Button-Beschriftungen „Mehr lesen"/„Read more"). Über <code>wildcards</code> werden sie je Sprache ersetzt. Hilft auch beim <strong>Synchronisieren</strong> von Inhalten zwischen Sprachversionen.</td>
+</tr>
+<tr>
+<td><strong>YRewrite</strong></td>
+<td>Erzeugt <strong>sprechende URLs</strong> und kann <strong>Domains/Pfade je Sprache</strong> zuweisen (z. B. <code>example.com/de/</code> und <code>example.com/en/</code>), inkl. <code>hreflang</code>, <code>sitemap.xml</code> und <code>robots.txt</code>.</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition tip">
+<p class="admonition-title">Feste Texte gehören in Sprog, nicht ins Template</p>
+<p>Übersetzbare Beschriftungen im Template schreibt man als <strong>Sprog-Wildcard</strong> (z. B. <code>+++more+++</code>), nicht direkt als „Mehr lesen". So bleibt das Template <strong>sprachneutral</strong> und Übersetzer pflegen nur die Sprog-Liste – wieder das Prinzip <strong>Trennung von Inhalt und Darstellung</strong>.</p>
+</div>
+<hr />
+<h2 id="66-responsive-design-berucksichtigen">6.6 Responsive Design berücksichtigen<a class="headerlink" href="#66-responsive-design-berucksichtigen" title="Permanent link">&para;</a></h2>
+<p><strong>Responsive Design</strong> bedeutet: Die Website passt sich an <strong>verschiedene Bildschirmgrößen</strong> an (Smartphone, Tablet, Desktop). Das ist heute Pflicht – ein Großteil der Zugriffe kommt mobil.</p>
+<p>Die drei technischen Bausteine:</p>
+<ol>
+<li><strong>Viewport-Meta-Tag</strong> im Template (hast du in Kapitel 5 gesehen):</li>
+</ol>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;viewport&quot;</span> <span class="na">content</span><span class="o">=</span><span class="s">&quot;width=device-width, initial-scale=1&quot;</span><span class="p">&gt;</span>
+</code></pre></div></td></tr></table></div>
+<ol>
+<li><strong>Flexibles CSS</strong> mit <strong>Media Queries</strong> (Details in Kapitel 7):</li>
+</ol>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">.</span><span class="nc">spalten</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">display</span><span class="p">:</span><span class="w"> </span><span class="k">grid</span><span class="p">;</span><span class="w"> </span><span class="k">grid-template-columns</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="n">fr</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+
+<span class="p">@</span><span class="k">media</span><span class="w"> </span><span class="o">(</span><span class="nt">min-width</span><span class="o">:</span><span class="w"> </span><span class="nt">768px</span><span class="o">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="p">.</span><span class="nc">spalten</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">grid-template-columns</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="n">fr</span><span class="w"> </span><span class="mi">1</span><span class="n">fr</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w">  </span><span class="c">/* ab Tablet zweispaltig */</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<ol>
+<li><strong>Responsive Bilder</strong> mit <code>srcset</code> (dank Media Manager, Abschnitt 6.3):</li>
+</ol>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">&lt;</span><span class="nt">img</span>
+  <span class="na">src</span><span class="o">=</span><span class="s">&quot;/media/content_800/bild.jpg&quot;</span>
+  <span class="na">srcset</span><span class="o">=</span><span class="s">&quot;/media/thumb_300/bild.jpg 300w,</span>
+<span class="s">          /media/content_800/bild.jpg 800w,</span>
+<span class="s">          /media/header_1600/bild.jpg 1600w&quot;</span>
+  <span class="na">sizes</span><span class="o">=</span><span class="s">&quot;(max-width: 600px) 100vw, 800px&quot;</span>
+  <span class="na">alt</span><span class="o">=</span><span class="s">&quot;Aussagekräftiger Alt-Text&quot;</span><span class="p">&gt;</span>
+</code></pre></div></td></tr></table></div>
+<table>
+<thead>
+<tr>
+<th>Als Redakteur berücksichtigen</th>
+<th>Warum</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Mobile Vorschau</strong> prüfen</td>
+<td>Zeilenumbrüche/Bilder wirken mobil anders</td>
+</tr>
+<tr>
+<td>Nicht zu lange Überschriften</td>
+<td>Brechen auf kleinen Displays unschön um</td>
+</tr>
+<tr>
+<td>Bilder im <strong>richtigen Seitenverhältnis</strong></td>
+<td>Verhindert Verzerrungen und Layout-Sprünge</td>
+</tr>
+<tr>
+<td>Tabellen sparsam einsetzen</td>
+<td>Sind mobil schwer darstellbar</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition info">
+<p class="admonition-title">Verantwortung teilt sich</p>
+<p>Das <strong>responsive Verhalten</strong> legen Entwickler im <strong>Template/CSS</strong> an (Kapitel 7). Redakteure müssen es <strong>berücksichtigen</strong>: passende Bildgrößen wählen, mobil gegenprüfen, Inhalte nicht „für Desktop optimieren". Beide Seiten arbeiten zusammen.</p>
+</div>
+<hr />
+<h2 id="kurzubungen">Kurzübungen<a class="headerlink" href="#kurzubungen" title="Permanent link">&para;</a></h2>
+<details class="question">
+<summary><span class="task-level task-level--1">Grundlagen</span> Medienpool &amp; Alt-Texte</summary>
+<ol>
+<li>Was ist der <strong>Medienpool</strong> und welchen Vorteil bringt er gegenüber „Bilder direkt in den Artikel laden"?</li>
+<li>Warum braucht jedes inhaltliche Bild einen <strong>Alt-Text</strong>?</li>
+<li>Nenne zwei Regeln für gute Dateinamen im Medienpool.</li>
+</ol>
+<details class="info">
+<summary>Tipp</summary>
+<p>Alt-Texte helfen Screenreadern und SEO. Sprechende Dateinamen statt IMG_1234.jpg.</p>
+</details>
+<details class="success">
+<summary>Lösung</summary>
+<ol>
+<li>Zentrale Dateiverwaltung: Dateien liegen an einem Ort, sind <strong>wiederverwendbar</strong>, haben Metadaten und können per Rolle geschützt werden.</li>
+<li>Der <strong>Alt-Text</strong> beschreibt das Bild für Screenreader (Barrierefreiheit) und Suchmaschinen (SEO); er wird angezeigt, wenn das Bild nicht lädt.</li>
+<li>Z. B.: sprechende Namen (<code>team-anna-mueller.jpg</code>), keine Sonderzeichen/Leerzeichen, in Medienkategorien sortieren.</li>
+</ol>
+</details>
+</details>
+<details class="question">
+<summary><span class="task-level task-level--2">Fortgeschritten</span> Media Manager &amp; Responsive Images</summary>
+<p>Ein Redakteur lädt ein 4000px breites Foto hoch und bindet es unverändert ein. Auf dem Smartphone lädt die Seite langsam.</p>
+<ol>
+<li>Wie löst der <strong>Media Manager</strong> dieses Problem?</li>
+<li>Was ist ein <strong>Medientyp</strong> im Media Manager?</li>
+<li>Schreibe ein <code>&lt;img&gt;</code>-Beispiel mit <code>srcset</code>, das drei Größen anbietet.</li>
+</ol>
+<details class="info">
+<summary>Tipp</summary>
+<p>Media Manager erzeugt skalierte Varianten on the fly; srcset lässt den Browser die passende wählen.</p>
+</details>
+<details class="success">
+<summary>Lösung</summary>
+<ol>
+<li>Der Media Manager erzeugt <strong>skalierte Varianten</strong> (on the fly) und cached sie – der Browser lädt nur die benötigte Größe, nicht das Original.</li>
+<li>Ein <strong>Medientyp</strong> ist eine benannte Effekt-Kette (z. B. „thumb_300"), die Bilder z. B. auf 300px skaliert.
+3.
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">&lt;</span><span class="nt">img</span>
+  <span class="na">src</span><span class="o">=</span><span class="s">&quot;/media/content_800/foto.jpg&quot;</span>
+  <span class="na">srcset</span><span class="o">=</span><span class="s">&quot;/media/thumb_300/foto.jpg 300w,</span>
+<span class="s">          /media/content_800/foto.jpg 800w,</span>
+<span class="s">          /media/header_1600/foto.jpg 1600w&quot;</span>
+  <span class="na">sizes</span><span class="o">=</span><span class="s">&quot;(max-width: 600px) 100vw, 800px&quot;</span>
+  <span class="na">alt</span><span class="o">=</span><span class="s">&quot;Beschreibung des Fotos&quot;</span><span class="p">&gt;</span>
+</code></pre></div></td></tr></table></div></li>
+</ol>
+</details>
+</details>
+<details class="question">
+<summary><span class="task-level task-level--3">Experte</span> Mehrsprachigkeit richtig planen</summary>
+<p>Eine Website soll zweisprachig werden (Deutsch/Englisch). Es gibt feste Button-Beschriftungen im Template („Mehr lesen") und redaktionelle Inhalte.</p>
+<ol>
+<li>Wie verwaltet REDAXO mehrsprachige <strong>Inhalte</strong> (Stichwort clang)?</li>
+<li>Warum gehören feste Beschriftungen im Template in <strong>Sprog</strong> und nicht direkt ins HTML?</li>
+<li>Welche Aufgabe übernimmt <strong>YRewrite</strong> bei einer mehrsprachigen Seite?</li>
+</ol>
+<details class="info">
+<summary>Tipp</summary>
+<p>Struktur ist für alle Sprachen gleich, Inhalte werden je Sprache gepflegt. Sprog = übersetzbare Textbausteine.</p>
+</details>
+<details class="success">
+<summary>Lösung</summary>
+<ol>
+<li>Über <strong>Sprachen (clang)</strong>: Jeder Artikel existiert in jeder Sprache mit <strong>eigenen Slices</strong>; die Struktur ist gleich, die Inhalte werden je Sprache übersetzt. Rechte pro Sprache über Rollen.</li>
+<li>Feste Beschriftungen als <strong>Sprog-Wildcard</strong> halten das Template <strong>sprachneutral</strong>; Übersetzer pflegen nur die Sprog-Liste. Hardcodiertes „Mehr lesen" wäre nicht übersetzbar.</li>
+<li><strong>YRewrite</strong> erzeugt sprechende URLs und weist <strong>Domains/Pfade je Sprache</strong> zu (z. B. <code>/de/</code>, <code>/en/</code>), inkl. <code>hreflang</code>, Sitemap und robots.</li>
+</ol>
+</details>
+</details>
+<hr />
+<h2 id="workshop">Workshop<a class="headerlink" href="#workshop" title="Permanent link">&para;</a></h2>
+<details class="question">
+<summary><span class="task-level task-level--4">Workshop</span> Content, Medien &amp; zweite Sprache</summary>
+<p><strong>Szenario:</strong> Die Handwerker-Website soll mit echten Inhalten, aufbereiteten Bildern und einer <strong>englischen</strong> Startseite ausgebaut werden.</p>
+<hr />
+<p><strong>Aufgabe (praktisch in REDAXO):</strong></p>
+<ol>
+<li><strong>Medienpool:</strong> Lege Medienkategorien an, lade 3–4 Bilder mit sprechenden Namen hoch und pflege Titel + Alt-Text.</li>
+<li><strong>Media Manager:</strong> Lege einen Medientyp (z. B. „content_800") an und binde ein Bild damit im Frontend ein.</li>
+<li><strong>Responsive prüfen:</strong> Öffne die Seite in der mobilen Ansicht des Browsers und dokumentiere, was gut/schlecht umbricht.</li>
+<li><strong>Zweite Sprache:</strong> Aktiviere unter System → Sprachen <strong>Englisch</strong> und übersetze die Slices der Startseite. Optional: eine feste Beschriftung über <strong>Sprog</strong> übersetzbar machen.</li>
+<li><strong>Content-Qualität:</strong> Achte auf saubere Überschriften-Hierarchie (ein H1, dann H2/H3) und aussagekräftige Alt-Texte.</li>
+</ol>
+<p><strong>Deliverable:</strong> Startseite mit aufbereiteten Bildern, mobiler Check-Notiz und einer englischen Sprachversion.</p>
+<details class="info">
+<summary>Tipp</summary>
+<p>Baue Übersetzungen in der Arbeitsversion auf. Nutze für das Bild eine Media-Manager-URL statt des Originals. Prüfe die mobile Ansicht mit den Entwicklertools des Browsers (Responsive-Modus).</p>
+</details>
+<details class="success">
+<summary>Lösung</summary>
+<p>Bewertungskriterien:</p>
+<ul>
+<li>Medienpool sinnvoll strukturiert; Bilder mit Metadaten (Titel/Alt) gepflegt.</li>
+<li>Bild wird über einen <strong>Media-Manager-Medientyp</strong> ausgegeben (nicht das rohe Original).</li>
+<li>Mobile Ansicht wurde geprüft und dokumentiert.</li>
+<li>Englische Sprachversion der Startseite existiert und ist gepflegt; ggf. Sprog genutzt.</li>
+<li>Überschriften-Hierarchie und Alt-Texte sauber.</li>
+</ul>
+</details>
+</details>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../kapitel5/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Kapitel 5 – Frontend, Backend &amp; Workflows">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Kapitel 5 – Frontend, Backend & Workflows
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../kapitel7/" class="md-footer__link md-footer__link--next" aria-label="Next: Kapitel 7 – Layout &amp; Design">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Kapitel 7 – Layout & Design
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2026 Qualidy GmbH
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://de.linkedin.com/company/qualidy" target="_blank" rel="noopener" title="de.linkedin.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3M135.4 416H69V202.2h66.5V416zM102.2 96a38.5 38.5 0 1 1 0 77 38.5 38.5 0 1 1 0-77m282.1 320h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://qualidy.de" target="_blank" rel="noopener" title="qualidy.de" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M351.9 280H161c2.9 64.5 17.2 123.9 37.5 167.4 11.4 24.5 23.7 41.8 35.1 52.4 11.2 10.5 18.9 12.2 22.9 12.2s11.7-1.7 22.9-12.2c11.4-10.6 23.7-28 35.1-52.4 20.3-43.5 34.6-102.9 37.5-167.4zm-191-48h190.9c-2.8-64.5-17.1-123.9-37.4-167.4-11.4-24.4-23.7-41.8-35.1-52.4C268.1 1.7 260.4 0 256.4 0s-11.7 1.7-22.9 12.2c-11.4 10.6-23.7 28-35.1 52.4-20.3 43.5-34.6 102.9-37.5 167.4m-48 0c3.5-85.6 25.6-165.1 57.9-217.3C78.7 47.3 10.9 131.2 1.5 232zM1.5 280c9.4 100.8 77.2 184.7 169.3 217.3-32.3-52.2-54.4-131.7-57.9-217.3zm398.4 0c-3.5 85.6-25.6 165.1-57.9 217.3 92.1-32.7 159.9-116.5 169.3-217.3zm111.4-48C501.9 131.2 434.1 47.3 342 14.7c32.3 52.2 54.4 131.7 57.9 217.3z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.tracking", "navigation.path", "navigation.top", "navigation.footer", "navigation.prune", "toc.follow", "toc.integrate", "content.code.copy", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

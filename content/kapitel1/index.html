@@ -1,0 +1,1405 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../..">
+      
+      
+        <link rel="next" href="../kapitel2/">
+      
+      
+      <link rel="icon" href="../../assets/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.18">
+    
+    
+      
+        <title>Kapitel 1 – Was ist ein CMS? - M5.4a: CMS – Installation & Konfiguration (REDAXO)</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=DM+Sans:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"DM Sans";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/theme.css">
+    
+      <link rel="stylesheet" href="../../stylesheets/grid.css">
+    
+      <link rel="stylesheet" href="../../stylesheets/logo.css">
+    
+      <link rel="stylesheet" href="../../stylesheets/video_admonition.css">
+    
+      <link rel="stylesheet" href="../../stylesheets/mermaid.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent="orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#kapitel-1-was-ist-ein-cms" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="M5.4a: CMS – Installation &amp; Konfiguration (REDAXO)" class="md-header__button md-logo" aria-label="M5.4a: CMS – Installation & Konfiguration (REDAXO)" data-md-component="logo">
+      
+  <img src="../../assets/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            M5.4a: CMS – Installation & Konfiguration (REDAXO)
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Kapitel 1 – Was ist ein CMS?
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Übersicht
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="./" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Kapitel 1 – Was ist ein CMS?
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../kapitel2/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Kapitel 2 – Installation & Einrichtung
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../kapitel3/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Kapitel 3 – Datenbank & Konfiguration
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../kapitel4/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Kapitel 4 – Benutzer, Rollen & Rechte
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../kapitel5/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Kapitel 5 – Frontend, Backend & Workflows
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../kapitel6/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Kapitel 6 – Content, Medien & Mehrsprachigkeit
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../kapitel7/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Kapitel 7 – Layout & Design
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../kapitel8/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Kapitel 8 – AddOns, Updates & Staging
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../kapitel9/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Kapitel 9 – Mailing, Newsletter & Datenschutz
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../kapitel10/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Kapitel 10 – Sicherheit & Notfallmaßnahmen
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="M5.4a: CMS – Installation &amp; Konfiguration (REDAXO)" class="md-nav__button md-logo" aria-label="M5.4a: CMS – Installation & Konfiguration (REDAXO)" data-md-component="logo">
+      
+  <img src="../../assets/logo.png" alt="logo">
+
+    </a>
+    M5.4a: CMS – Installation & Konfiguration (REDAXO)
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Übersicht
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Kapitel 1 – Was ist ein CMS?
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Kapitel 1 – Was ist ein CMS?
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#was-du-in-diesem-kapitel-lernst" class="md-nav__link">
+    <span class="md-ellipsis">
+      Was du in diesem Kapitel lernst
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#so-gehst-du-vor" class="md-nav__link">
+    <span class="md-ellipsis">
+      So gehst du vor
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-das-problem-websites-ohne-cms" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.1 Das Problem: Websites ohne CMS
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12-grundprinzip-trennung-von-inhalt-struktur-und-darstellung" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.2 Grundprinzip: Trennung von Inhalt, Struktur und Darstellung
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#13-frontend-und-backend" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.3 Frontend und Backend
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#14-templatesthemes-und-erweiterungen" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.4 Templates/Themes und Erweiterungen
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#15-cms-varianten-nach-einsatzzweck-einordnen" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.5 CMS-Varianten nach Einsatzzweck einordnen
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#16-warum-redaxo-in-diesem-kurs" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.6 Warum REDAXO in diesem Kurs?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#kurzubungen" class="md-nav__link">
+    <span class="md-ellipsis">
+      Kurzübungen
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#workshop" class="md-nav__link">
+    <span class="md-ellipsis">
+      Workshop
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../kapitel2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Kapitel 2 – Installation & Einrichtung
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../kapitel3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Kapitel 3 – Datenbank & Konfiguration
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../kapitel4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Kapitel 4 – Benutzer, Rollen & Rechte
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../kapitel5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Kapitel 5 – Frontend, Backend & Workflows
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../kapitel6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Kapitel 6 – Content, Medien & Mehrsprachigkeit
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../kapitel7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Kapitel 7 – Layout & Design
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../kapitel8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Kapitel 8 – AddOns, Updates & Staging
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../kapitel9/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Kapitel 9 – Mailing, Newsletter & Datenschutz
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../kapitel10/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Kapitel 10 – Sicherheit & Notfallmaßnahmen
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="kapitel-1-was-ist-ein-cms">Kapitel 1 – Was ist ein CMS?<a class="headerlink" href="#kapitel-1-was-ist-ein-cms" title="Permanent link">&para;</a></h1>
+<div class="kurs-progress">
+  <div class="step active"></div>
+  <div class="step"></div>
+  <div class="step"></div>
+  <div class="step"></div>
+  <div class="step"></div>
+  <div class="step"></div>
+  <div class="step"></div>
+  <div class="step"></div>
+  <div class="step"></div>
+  <div class="step"></div>
+</div>
+
+<div class="lernziele">
+<h3 id="was-du-in-diesem-kapitel-lernst">Was du in diesem Kapitel lernst<a class="headerlink" href="#was-du-in-diesem-kapitel-lernst" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Was ein <strong>Content-Management-System (CMS)</strong> ist und welches <strong>Grundprinzip</strong> dahintersteht</li>
+<li>Warum ein CMS <strong>Inhalt, Struktur und Darstellung trennt</strong> und was <strong>Frontend</strong> und <strong>Backend</strong> unterscheidet</li>
+<li>Was <strong>Templates/Themes</strong> und <strong>Erweiterungen (Plugins/AddOns)</strong> sind und wie sie zusammenwirken</li>
+<li>Wie du die CMS-Varianten <strong>WordPress, Joomla, TYPO3, Drupal</strong> (und <strong>REDAXO</strong>) nach Einsatzzweck einordnest</li>
+<li>Warum wir in diesem Kurs mit <strong>REDAXO 5</strong> arbeiten</li>
+</ul>
+</div>
+<hr />
+<h2 id="so-gehst-du-vor">So gehst du vor<a class="headerlink" href="#so-gehst-du-vor" title="Permanent link">&para;</a></h2>
+<ol>
+<li>Lies die Kapitelinhalte und präge dir die <strong>Trennung von Inhalt und Darstellung</strong> ein – sie ist das Herzstück jedes CMS.</li>
+<li>Bearbeite die <strong>Kurzübungen</strong> der Reihe nach (Vormittag, gemeinsam im Unterricht).</li>
+<li>Arbeite am Nachmittag die <strong>Workshop-Aufgabe</strong> eigenständig durch.</li>
+</ol>
+<hr />
+<h2 id="11-das-problem-websites-ohne-cms">1.1 Das Problem: Websites ohne CMS<a class="headerlink" href="#11-das-problem-websites-ohne-cms" title="Permanent link">&para;</a></h2>
+<p>Eine Website besteht technisch aus <strong>HTML</strong> (Struktur/Inhalt), <strong>CSS</strong> (Aussehen) und oft <strong>JavaScript</strong> (Verhalten). Ohne CMS pflegt man diese Dateien <strong>per Hand</strong> und lädt sie per FTP auf einen Webserver.</p>
+<p>Das funktioniert für eine einzelne Seite. Sobald eine Website aber <strong>viele Seiten</strong>, <strong>mehrere Redakteure</strong> und <strong>regelmäßige Aktualisierungen</strong> hat, entstehen Probleme:</p>
+<table>
+<thead>
+<tr>
+<th>Problem ohne CMS</th>
+<th>Auswirkung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Jede Seite ist eine eigene HTML-Datei</td>
+<td>Menü-Änderung muss in <strong>allen</strong> Dateien nachgezogen werden</td>
+</tr>
+<tr>
+<td>Inhalt und Design stecken in derselben Datei</td>
+<td>Redakteure brauchen HTML-Kenntnisse, um Texte zu ändern</td>
+</tr>
+<tr>
+<td>Keine Benutzerverwaltung</td>
+<td>Jeder mit FTP-Zugang kann alles überschreiben</td>
+</tr>
+<tr>
+<td>Keine Versionierung</td>
+<td>Ein Fehler überschreibt den alten Stand unwiederbringlich</td>
+</tr>
+<tr>
+<td>Kein Workflow</td>
+<td>Kein „Entwurf → Prüfen → Veröffentlichen"</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition info">
+<p class="admonition-title">Statisch vs. dynamisch</p>
+<p>Eine <strong>statische</strong> Website liefert für jede Adresse eine fertige HTML-Datei aus. Ein CMS erzeugt Seiten <strong>dynamisch</strong>: Bei jedem Aufruf setzt es die Seite aus <strong>Bausteinen</strong> (Inhalt aus der Datenbank + Vorlage) zusammen. Dadurch pflegst du eine Vorlage <strong>einmal</strong> und alle Seiten übernehmen die Änderung.</p>
+</div>
+<hr />
+<h2 id="12-grundprinzip-trennung-von-inhalt-struktur-und-darstellung">1.2 Grundprinzip: Trennung von Inhalt, Struktur und Darstellung<a class="headerlink" href="#12-grundprinzip-trennung-von-inhalt-struktur-und-darstellung" title="Permanent link">&para;</a></h2>
+<p>Ein <strong>Content-Management-System</strong> ist eine Software, mit der man <strong>Inhalte erstellen, verwalten und veröffentlichen</strong> kann – ohne jede Seite von Hand zu programmieren. Das zentrale Prinzip ist die <strong>Trennung von Inhalt und Darstellung</strong>:</p>
+<pre class="mermaid"><code>flowchart LR
+    A([Inhalt&lt;br/&gt;Texte, Bilder, Daten]) --&gt; C[CMS-Engine]
+    B([Vorlage&lt;br/&gt;Template/Theme]) --&gt; C
+    C --&gt; D([Fertige Webseite&lt;br/&gt;HTML für den Browser])</code></pre>
+<ul>
+<li><strong>Inhalt</strong> liegt in einer <strong>Datenbank</strong> (z. B. der Text eines Artikels, ein Titel, ein Datum).</li>
+<li><strong>Darstellung</strong> steckt in <strong>Templates/Themes</strong> (wie eine Seite aussieht: Kopfzeile, Menü, Spalten, Farben).</li>
+<li>Bei jedem Seitenaufruf <strong>kombiniert</strong> das CMS beides zu fertigem HTML.</li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">Warum diese Trennung so wichtig ist</p>
+<p>Weil sie Rollen entkoppelt: <strong>Redakteure</strong> pflegen Inhalte, ohne Design zu zerstören. <strong>Designer/Entwickler</strong> ändern das Layout <strong>einmal</strong> im Template – und alle Seiten übernehmen es. Das spart Zeit, reduziert Fehler und macht Teamarbeit erst möglich.</p>
+</div>
+<p><strong>Typische Bausteine, die (fast) jedes CMS kennt:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Baustein</th>
+<th>Bedeutung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Inhalt / Content</td>
+<td>Die eigentlichen Daten: Seiten, Beiträge, Bilder, Dateien</td>
+</tr>
+<tr>
+<td>Struktur</td>
+<td>Hierarchie der Seiten (Menü, Kategorien, Navigationsbaum)</td>
+</tr>
+<tr>
+<td>Template / Theme</td>
+<td>Vorlage für das Aussehen (HTML-Gerüst + CSS)</td>
+</tr>
+<tr>
+<td>Erweiterung</td>
+<td>Zusatzfunktion (Formular, Shop, Newsletter, SEO …)</td>
+</tr>
+<tr>
+<td>Benutzer &amp; Rechte</td>
+<td>Wer darf was sehen und bearbeiten</td>
+</tr>
+<tr>
+<td>Medienverwaltung</td>
+<td>Zentrale Ablage für Bilder, PDFs, Videos</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="13-frontend-und-backend">1.3 Frontend und Backend<a class="headerlink" href="#13-frontend-und-backend" title="Permanent link">&para;</a></h2>
+<p>Jedes CMS hat <strong>zwei Seiten</strong>:</p>
+<pre class="mermaid"><code>flowchart TB
+    subgraph Besucher
+      F([Frontend&lt;br/&gt;öffentliche Website])
+    end
+    subgraph Redaktion
+      B([Backend&lt;br/&gt;geschützter Login-Bereich])
+    end
+    B --&gt;|pflegt Inhalte| DB[(Datenbank)]
+    DB --&gt;|liefert Inhalte| F</code></pre>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Frontend</th>
+<th>Backend</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Wer nutzt es?</td>
+<td>Alle <strong>Besucher</strong> der Website</td>
+<td><strong>Redakteure &amp; Administratoren</strong></td>
+</tr>
+<tr>
+<td>Was ist es?</td>
+<td>Die <strong>öffentliche Website</strong></td>
+<td>Die <strong>Verwaltungsoberfläche</strong> (Login nötig)</td>
+</tr>
+<tr>
+<td>Zweck</td>
+<td>Inhalte <strong>ansehen</strong></td>
+<td>Inhalte <strong>erstellen, ändern, veröffentlichen</strong></td>
+</tr>
+<tr>
+<td>Beispiel REDAXO</td>
+<td><code>https://deine-domain.de/</code></td>
+<td><code>https://deine-domain.de/redaxo/</code></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition info">
+<p class="admonition-title">Backend-Adresse merken</p>
+<p>Bei <strong>REDAXO</strong> erreichst du das Backend über den Pfad <strong><code>/redaxo/</code></strong> hinter der Domain. Bei WordPress ist es <code>/wp-admin/</code>, bei TYPO3 <code>/typo3/</code>. Diese Adresse ist der Login-Bereich – ihn abzusichern ist später ein eigenes Thema (Kapitel 10).</p>
+</div>
+<hr />
+<h2 id="14-templatesthemes-und-erweiterungen">1.4 Templates/Themes und Erweiterungen<a class="headerlink" href="#14-templatesthemes-und-erweiterungen" title="Permanent link">&para;</a></h2>
+<p><strong>Template / Theme</strong> – die Vorlage für das Aussehen. Sie legt fest, wo Logo, Menü, Inhalt und Fußzeile stehen. Ein Theme wird meist mit <strong>HTML + CSS</strong> (und etwas Template-Logik) beschrieben. Wechselt man das Theme, ändert sich das Aussehen der ganzen Website – die Inhalte bleiben gleich.</p>
+<p><strong>Erweiterung</strong> – Zusatzfunktionen, die der Kern („Core") nicht mitbringt. Je nach CMS heißen sie <strong>Plugin, Extension, Modul oder AddOn</strong>. Beispiele: Kontaktformular, Newsletter, Online-Shop, SEO-Werkzeuge, Cookie-Banner, Backup.</p>
+<pre class="mermaid"><code>flowchart TB
+    Core([CMS-Kern / Core]) --- T([Template/Theme&lt;br/&gt;Aussehen])
+    Core --- E1([Erweiterung&lt;br/&gt;Formular])
+    Core --- E2([Erweiterung&lt;br/&gt;SEO/URLs])
+    Core --- E3([Erweiterung&lt;br/&gt;Cookie-Banner])</code></pre>
+<div class="admonition warning">
+<p class="admonition-title">Core-Hacks vermeiden</p>
+<p>Ein <strong>Core-Hack</strong> ist eine direkte Änderung an den Kern-Dateien des CMS. Das ist gefährlich: Beim nächsten <strong>Update</strong> werden diese Dateien überschrieben – deine Änderung ist weg oder verursacht Fehler. Deshalb gilt die Regel: <strong>Anpassungen gehören ins Template oder in Erweiterungen, niemals in den Core.</strong> Dieses Prinzip zieht sich durch den ganzen Kurs (besonders Kapitel 7 &amp; 8).</p>
+</div>
+<p><strong>Namensgebung je CMS (Erweiterungen):</strong></p>
+<table>
+<thead>
+<tr>
+<th>CMS</th>
+<th>Begriff für Erweiterung</th>
+<th>Begriff für Aussehen</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>WordPress</td>
+<td>Plugin</td>
+<td>Theme</td>
+</tr>
+<tr>
+<td>Joomla</td>
+<td>Extension (Component/Module/Plugin)</td>
+<td>Template</td>
+</tr>
+<tr>
+<td>TYPO3</td>
+<td>Extension</td>
+<td>Template (TypoScript/Fluid)</td>
+</tr>
+<tr>
+<td>Drupal</td>
+<td>Module</td>
+<td>Theme</td>
+</tr>
+<tr>
+<td>REDAXO</td>
+<td>AddOn</td>
+<td>Template + Module</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="15-cms-varianten-nach-einsatzzweck-einordnen">1.5 CMS-Varianten nach Einsatzzweck einordnen<a class="headerlink" href="#15-cms-varianten-nach-einsatzzweck-einordnen" title="Permanent link">&para;</a></h2>
+<p>Es gibt hunderte CMS. Für die Prüfung und die Praxis solltest du die <strong>großen vier</strong> einordnen können – plus <strong>REDAXO</strong>, mit dem wir arbeiten. Alle sind <strong>Open Source</strong> und basieren auf <strong>PHP + MySQL/MariaDB</strong>.</p>
+<table>
+<thead>
+<tr>
+<th>CMS</th>
+<th>Typischer Einsatzzweck</th>
+<th>Stärken</th>
+<th>Zu bedenken</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>WordPress</strong></td>
+<td>Blogs, kleine bis mittlere Websites, Marketing-Seiten</td>
+<td>Riesiges Ökosystem, schnell startklar, viele Themes/Plugins</td>
+<td>Sicherheit stark plugin-abhängig; für sehr individuelle Strukturen weniger flexibel</td>
+</tr>
+<tr>
+<td><strong>Joomla</strong></td>
+<td>Mittlere Websites, Communitys, Portale</td>
+<td>Feine Benutzer-/Rechteverwaltung, mehrsprachig „ab Werk"</td>
+<td>Steilere Lernkurve als WordPress</td>
+</tr>
+<tr>
+<td><strong>TYPO3</strong></td>
+<td>Große Unternehmens- &amp; Behörden-Websites (Enterprise)</td>
+<td>Sehr mächtig, mehrsprachig, große Redaktionsteams, granulare Rechte</td>
+<td>Komplex, hoher Einarbeitungs- und Pflegeaufwand</td>
+</tr>
+<tr>
+<td><strong>Drupal</strong></td>
+<td>Komplexe, datengetriebene Portale, individuelle Strukturen</td>
+<td>Extrem flexibles Datenmodell, stark bei Struktur &amp; APIs</td>
+<td>Hohe Komplexität, erfordert Entwickler-Know-how</td>
+</tr>
+<tr>
+<td><strong>REDAXO</strong></td>
+<td>Individuelle Websites/Kampagnen mit voller HTML-Kontrolle</td>
+<td>Schlank, „kein Design vorgegeben", volle Kontrolle über die Ausgabe</td>
+<td>Kleineres Ökosystem; man baut Templates/Module selbst</td>
+</tr>
+</tbody>
+</table>
+<pre class="mermaid"><code>flowchart LR
+    A[Kleiner Blog / schnell online] --&gt; WP[WordPress]
+    B[Behörde / Konzern, viele Redakteure, mehrsprachig] --&gt; T3[TYPO3]
+    C[Komplexes Datenportal / API-lastig] --&gt; DR[Drupal]
+    D[Individuelles Design, volle HTML-Kontrolle] --&gt; RX[REDAXO]
+    E[Community/Portal mit feiner Rechteverwaltung] --&gt; JO[Joomla]</code></pre>
+<div class="admonition info">
+<p class="admonition-title">Es gibt kein „bestes" CMS</p>
+<p>Die richtige Wahl hängt vom <strong>Einsatzzweck</strong> ab: Umfang, Team, Budget, Mehrsprachigkeit, Individualität, vorhandenes Know-how. Ein Blog braucht kein TYPO3; ein Behördenportal ist mit einem Mini-CMS unterfordert.</p>
+</div>
+<hr />
+<h2 id="16-warum-redaxo-in-diesem-kurs">1.6 Warum REDAXO in diesem Kurs?<a class="headerlink" href="#16-warum-redaxo-in-diesem-kurs" title="Permanent link">&para;</a></h2>
+<p><strong>REDAXO</strong> ist ein deutsches, quelloffenes CMS auf PHP-/MySQL-Basis. Es eignet sich hervorragend zum <strong>Lernen</strong>, weil es die CMS-Grundprinzipien besonders <strong>transparent</strong> macht:</p>
+<ul>
+<li>Es gibt <strong>kein vorgegebenes Design</strong>. Du baust das <strong>Template</strong> selbst aus HTML/CSS – dadurch verstehst du die <strong>Trennung von Inhalt und Darstellung</strong> direkt am eigenen Code.</li>
+<li>Die Kernkonzepte sind klar benannt und überschaubar:</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>REDAXO-Begriff</th>
+<th>Bedeutung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Struktur / Kategorien &amp; Artikel</strong></td>
+<td>Der Seitenbaum: Kategorien gruppieren, Artikel sind die einzelnen Seiten</td>
+</tr>
+<tr>
+<td><strong>Template</strong></td>
+<td>Das HTML-Grundgerüst einer Seite (Kopf, Menü, Fuß)</td>
+</tr>
+<tr>
+<td><strong>Modul</strong></td>
+<td>Ein wiederverwendbarer Inhaltsbaustein mit <strong>Eingabe</strong> (Backend-Formular) und <strong>Ausgabe</strong> (Frontend-HTML)</td>
+</tr>
+<tr>
+<td><strong>Slice / Block</strong></td>
+<td>Eine konkrete Instanz eines Moduls in einem Artikel (der befüllte Baustein)</td>
+</tr>
+<tr>
+<td><strong>Medienpool</strong></td>
+<td>Zentrale Verwaltung für Bilder, PDFs &amp; Co.</td>
+</tr>
+<tr>
+<td><strong>AddOn</strong></td>
+<td>Erweiterung (z. B. YForm für Formulare, YRewrite für SEO-URLs)</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition tip">
+<p class="admonition-title">Roter Faden des Kurses</p>
+<p>Wir bauen über fünf Tage schrittweise eine echte REDAXO-Website: <strong>installieren</strong> (K2) → <strong>Datenbank &amp; Konfiguration</strong> (K3) → <strong>Benutzer/Rollen</strong> (K4) → <strong>Struktur &amp; Inhalte</strong> (K5/K6) → <strong>Design</strong> (K7) → <strong>AddOns &amp; Updates</strong> (K8) → <strong>Formulare/Datenschutz</strong> (K9) → <strong>Absichern</strong> (K10).</p>
+</div>
+<hr />
+<h2 id="kurzubungen">Kurzübungen<a class="headerlink" href="#kurzubungen" title="Permanent link">&para;</a></h2>
+<details class="question">
+<summary><span class="task-level task-level--1">Grundlagen</span> Frontend, Backend und Grundbegriffe</summary>
+<p>Ordne die folgenden Begriffe dem <strong>Frontend</strong> oder dem <strong>Backend</strong> zu und erkläre jeweils in einem Satz, was der Begriff bedeutet.</p>
+<p><strong>Begriffe:</strong> öffentliche Website, Login-Bereich, Redakteur pflegt Inhalte, Besucher liest Artikel, <code>/redaxo/</code>, veröffentlichte Startseite</p>
+<p>Erstelle eine Tabelle mit den Spalten: Begriff · Frontend/Backend · Erklärung</p>
+<details class="info">
+<summary>Tipp</summary>
+<p>Frontend = was Besucher sehen. Backend = der geschützte Verwaltungsbereich mit Login.</p>
+</details>
+<details class="success">
+<summary>Lösung</summary>
+<table>
+<thead>
+<tr>
+<th>Begriff</th>
+<th>Bereich</th>
+<th>Erklärung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>öffentliche Website</td>
+<td>Frontend</td>
+<td>Der für alle Besucher sichtbare Teil</td>
+</tr>
+<tr>
+<td>Login-Bereich</td>
+<td>Backend</td>
+<td>Geschützter Verwaltungsbereich</td>
+</tr>
+<tr>
+<td>Redakteur pflegt Inhalte</td>
+<td>Backend</td>
+<td>Bearbeiten geschieht im geschützten Bereich</td>
+</tr>
+<tr>
+<td>Besucher liest Artikel</td>
+<td>Frontend</td>
+<td>Ansehen der veröffentlichten Inhalte</td>
+</tr>
+<tr>
+<td><code>/redaxo/</code></td>
+<td>Backend</td>
+<td>Der Pfad zum REDAXO-Backend</td>
+</tr>
+<tr>
+<td>veröffentlichte Startseite</td>
+<td>Frontend</td>
+<td>Öffentlich sichtbare Seite</td>
+</tr>
+</tbody>
+</table>
+</details>
+</details>
+<details class="question">
+<summary><span class="task-level task-level--2">Fortgeschritten</span> CMS-Varianten nach Einsatzzweck</summary>
+<p>Für die folgenden vier Projekte soll je ein passendes CMS vorgeschlagen werden. Wähle aus <strong>WordPress, TYPO3, Drupal, REDAXO</strong> und <strong>begründe</strong> deine Wahl in 1–2 Sätzen.</p>
+<ol>
+<li>Ein privater Reiseblog, der schnell online gehen soll.</li>
+<li>Das mehrsprachige Portal einer großen Behörde mit vielen Redakteuren und feiner Rechteverwaltung.</li>
+<li>Eine individuell gestaltete Kampagnen-Website, bei der die Agentur volle Kontrolle über das HTML möchte.</li>
+<li>Ein komplexes, datengetriebenes Community-Portal mit vielen individuellen Inhaltstypen.</li>
+</ol>
+<details class="info">
+<summary>Tipp</summary>
+<p>Denke an: schnell/einfach vs. Enterprise/mehrsprachig vs. volle HTML-Kontrolle vs. komplexes Datenmodell.</p>
+</details>
+<details class="success">
+<summary>Lösung</summary>
+<ol>
+<li><strong>WordPress</strong> – riesiges Ökosystem, schnell startklar, ideal für Blogs.</li>
+<li><strong>TYPO3</strong> – Enterprise-CMS, mehrsprachig ab Werk, granulare Rechte, große Redaktionsteams.</li>
+<li><strong>REDAXO</strong> – kein vorgegebenes Design, volle Kontrolle über die HTML-Ausgabe über eigene Templates/Module.</li>
+<li><strong>Drupal</strong> – sehr flexibles Datenmodell, stark bei individuellen Strukturen und Portalen.</li>
+</ol>
+<p>(Andere Begründungen sind möglich, wenn sie zum Einsatzzweck passen.)</p>
+</details>
+</details>
+<details class="question">
+<summary><span class="task-level task-level--3">Experte</span> Trennung von Inhalt und Darstellung</summary>
+<p>Eine Firma pflegt aktuell 40 statische HTML-Dateien. Bei jeder Menü-Änderung müssen alle 40 Dateien angefasst werden.</p>
+<ol>
+<li>Erkläre, wie ein CMS dieses Problem durch die <strong>Trennung von Inhalt und Darstellung</strong> löst.</li>
+<li>Ordne die REDAXO-Begriffe <strong>Template</strong>, <strong>Modul</strong>, <strong>Slice</strong> und <strong>Medienpool</strong> den Fragen zu: „Wo steht das Seitengerüst?", „Was ist die Vorlage für einen Inhaltsbaustein?", „Was ist der befüllte Baustein im Artikel?", „Wo liegen die Bilder?".</li>
+</ol>
+<details class="info">
+<summary>Tipp</summary>
+<p>Template = Gerüst (einmal ändern → überall wirksam). Modul = Vorlage. Slice = befüllte Instanz.</p>
+</details>
+<details class="success">
+<summary>Lösung</summary>
+<ol>
+<li>Inhalt liegt zentral in der Datenbank, das Aussehen im <strong>Template</strong>. Das Menü steht <strong>einmal</strong> im Template; eine Änderung wirkt sofort auf alle Seiten mit diesem Template. Redakteure pflegen nur Inhalte, ohne das Layout zu berühren.
+2.</li>
+<li>„Wo steht das Seitengerüst?" → <strong>Template</strong></li>
+<li>„Was ist die Vorlage für einen Inhaltsbaustein?" → <strong>Modul</strong></li>
+<li>„Was ist der befüllte Baustein im Artikel?" → <strong>Slice</strong></li>
+<li>„Wo liegen die Bilder?" → <strong>Medienpool</strong></li>
+</ol>
+</details>
+</details>
+<hr />
+<h2 id="workshop">Workshop<a class="headerlink" href="#workshop" title="Permanent link">&para;</a></h2>
+<details class="question">
+<summary><span class="task-level task-level--4">Workshop</span> CMS-Auswahl &amp; Konzept für ein Kundenprojekt</summary>
+<p><strong>Szenario:</strong> Ein regionaler Handwerksbetrieb möchte eine neue Website: rund 15 Seiten, ein Bereich für Referenzen (mit Bildern), ein Kontaktformular und später evtl. eine englische Version. Das Budget ist begrenzt, die Inhalte pflegt eine Mitarbeiterin ohne HTML-Kenntnisse.</p>
+<hr />
+<p><strong>Aufgabe (allein oder in der Lerngruppe):</strong></p>
+<ol>
+<li><strong>CMS-Vergleich:</strong> Stelle <strong>WordPress, TYPO3 und REDAXO</strong> in einer Tabelle gegenüber (Stärken, Schwächen, Eignung für dieses Projekt).</li>
+<li><strong>Empfehlung:</strong> Begründe, warum dieser Kurs mit <strong>REDAXO</strong> arbeitet und wann du in der Praxis ein anderes CMS empfehlen würdest.</li>
+<li><strong>Grobkonzept:</strong> Skizziere für die Handwerker-Website die geplante <strong>Struktur</strong> (Kategorien/Artikel) als Baum.</li>
+<li><strong>Begriffe zuordnen:</strong> Markiere in deinem Konzept, was später <strong>Template</strong>, <strong>Modul/Slice</strong> und <strong>Medienpool</strong> sein wird.</li>
+</ol>
+<p><strong>Deliverable:</strong> Ein 1–2-seitiges Konzeptdokument mit Vergleichstabelle und Struktur-Baum.</p>
+<details class="info">
+<summary>Tipp</summary>
+<p>Es gibt kein „bestes" CMS – argumentiere über den Einsatzzweck (Umfang, Team, Budget, Mehrsprachigkeit, HTML-Kontrolle). Der Struktur-Baum darf eine einfache Liste mit Einrückungen sein.</p>
+</details>
+<details class="success">
+<summary>Lösung</summary>
+<p>Bewertungskriterien:</p>
+<ul>
+<li>Vergleichstabelle nennt je CMS mindestens 2 Stärken/Schwächen und einen Projektbezug.</li>
+<li>Empfehlung ist <strong>begründet</strong> (nicht „REDAXO ist am besten", sondern warum: volle HTML-Kontrolle, gut zum Lernen, mehrsprachig; WordPress bei sehr knappem Zeit-/Pflegebudget denkbar).</li>
+<li>Struktur-Baum enthält sinnvolle Kategorien (z. B. Start, Leistungen, Referenzen, Über uns, Kontakt) mit Artikeln.</li>
+<li>Begriffe korrekt zugeordnet: Seitengerüst = Template, Referenz-/Textblöcke = Module/Slices, Bilder = Medienpool.</li>
+</ul>
+</details>
+</details>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../.." class="md-footer__link md-footer__link--prev" aria-label="Previous: Übersicht">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Übersicht
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../kapitel2/" class="md-footer__link md-footer__link--next" aria-label="Next: Kapitel 2 – Installation &amp; Einrichtung">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Kapitel 2 – Installation & Einrichtung
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2026 Qualidy GmbH
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://de.linkedin.com/company/qualidy" target="_blank" rel="noopener" title="de.linkedin.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3M135.4 416H69V202.2h66.5V416zM102.2 96a38.5 38.5 0 1 1 0 77 38.5 38.5 0 1 1 0-77m282.1 320h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://qualidy.de" target="_blank" rel="noopener" title="qualidy.de" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M351.9 280H161c2.9 64.5 17.2 123.9 37.5 167.4 11.4 24.5 23.7 41.8 35.1 52.4 11.2 10.5 18.9 12.2 22.9 12.2s11.7-1.7 22.9-12.2c11.4-10.6 23.7-28 35.1-52.4 20.3-43.5 34.6-102.9 37.5-167.4zm-191-48h190.9c-2.8-64.5-17.1-123.9-37.4-167.4-11.4-24.4-23.7-41.8-35.1-52.4C268.1 1.7 260.4 0 256.4 0s-11.7 1.7-22.9 12.2c-11.4 10.6-23.7 28-35.1 52.4-20.3 43.5-34.6 102.9-37.5 167.4m-48 0c3.5-85.6 25.6-165.1 57.9-217.3C78.7 47.3 10.9 131.2 1.5 232zM1.5 280c9.4 100.8 77.2 184.7 169.3 217.3-32.3-52.2-54.4-131.7-57.9-217.3zm398.4 0c-3.5 85.6-25.6 165.1-57.9 217.3 92.1-32.7 159.9-116.5 169.3-217.3zm111.4-48C501.9 131.2 434.1 47.3 342 14.7c32.3 52.2 54.4 131.7 57.9 217.3z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.tracking", "navigation.path", "navigation.top", "navigation.footer", "navigation.prune", "toc.follow", "toc.integrate", "content.code.copy", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

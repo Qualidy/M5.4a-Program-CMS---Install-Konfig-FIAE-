@@ -1,0 +1,1261 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../kapitel7/">
+      
+      
+        <link rel="next" href="../kapitel9/">
+      
+      
+      <link rel="icon" href="../../assets/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.18">
+    
+    
+      
+        <title>Kapitel 8 – AddOns, Updates & Staging - M5.4a: CMS – Installation & Konfiguration (REDAXO)</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=DM+Sans:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"DM Sans";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/theme.css">
+    
+      <link rel="stylesheet" href="../../stylesheets/grid.css">
+    
+      <link rel="stylesheet" href="../../stylesheets/logo.css">
+    
+      <link rel="stylesheet" href="../../stylesheets/video_admonition.css">
+    
+      <link rel="stylesheet" href="../../stylesheets/mermaid.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent="orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#kapitel-8-addons-updates-staging" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="M5.4a: CMS – Installation &amp; Konfiguration (REDAXO)" class="md-header__button md-logo" aria-label="M5.4a: CMS – Installation & Konfiguration (REDAXO)" data-md-component="logo">
+      
+  <img src="../../assets/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            M5.4a: CMS – Installation & Konfiguration (REDAXO)
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Kapitel 8 – AddOns, Updates & Staging
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Übersicht
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../kapitel1/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Kapitel 1 – Was ist ein CMS?
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../kapitel2/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Kapitel 2 – Installation & Einrichtung
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../kapitel3/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Kapitel 3 – Datenbank & Konfiguration
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../kapitel4/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Kapitel 4 – Benutzer, Rollen & Rechte
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../kapitel5/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Kapitel 5 – Frontend, Backend & Workflows
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../kapitel6/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Kapitel 6 – Content, Medien & Mehrsprachigkeit
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../kapitel7/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Kapitel 7 – Layout & Design
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="./" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Kapitel 8 – AddOns, Updates & Staging
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../kapitel9/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Kapitel 9 – Mailing, Newsletter & Datenschutz
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../kapitel10/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Kapitel 10 – Sicherheit & Notfallmaßnahmen
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="M5.4a: CMS – Installation &amp; Konfiguration (REDAXO)" class="md-nav__button md-logo" aria-label="M5.4a: CMS – Installation & Konfiguration (REDAXO)" data-md-component="logo">
+      
+  <img src="../../assets/logo.png" alt="logo">
+
+    </a>
+    M5.4a: CMS – Installation & Konfiguration (REDAXO)
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Übersicht
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../kapitel1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Kapitel 1 – Was ist ein CMS?
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../kapitel2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Kapitel 2 – Installation & Einrichtung
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../kapitel3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Kapitel 3 – Datenbank & Konfiguration
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../kapitel4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Kapitel 4 – Benutzer, Rollen & Rechte
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../kapitel5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Kapitel 5 – Frontend, Backend & Workflows
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../kapitel6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Kapitel 6 – Content, Medien & Mehrsprachigkeit
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../kapitel7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Kapitel 7 – Layout & Design
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Kapitel 8 – AddOns, Updates & Staging
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Kapitel 8 – AddOns, Updates & Staging
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#was-du-in-diesem-kapitel-lernst" class="md-nav__link">
+    <span class="md-ellipsis">
+      Was du in diesem Kapitel lernst
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#81-addons-erweiterungen-fur-redaxo" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.1 AddOns – Erweiterungen für REDAXO
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#82-addons-prufen-kompatibilitat-herkunft-changelog" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.2 AddOns prüfen: Kompatibilität, Herkunft, Changelog
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#83-updates-vs-upgrades" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.3 Updates vs. Upgrades
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#84-staging-nie-direkt-auf-live-testen" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.4 Staging – nie direkt auf Live testen
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#85-ein-sicherer-update-prozess" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.5 Ein sicherer Update-Prozess
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#86-rollback-zuruck-auf-den-letzten-stabilen-stand" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.6 Rollback – zurück auf den letzten stabilen Stand
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#kurzubungen" class="md-nav__link">
+    <span class="md-ellipsis">
+      Kurzübungen
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#workshop" class="md-nav__link">
+    <span class="md-ellipsis">
+      Workshop
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../kapitel9/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Kapitel 9 – Mailing, Newsletter & Datenschutz
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../kapitel10/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Kapitel 10 – Sicherheit & Notfallmaßnahmen
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="kapitel-8-addons-updates-staging">Kapitel 8 – AddOns, Updates &amp; Staging<a class="headerlink" href="#kapitel-8-addons-updates-staging" title="Permanent link">&para;</a></h1>
+<div class="kurs-progress">
+  <div class="step done"></div>
+  <div class="step done"></div>
+  <div class="step done"></div>
+  <div class="step done"></div>
+  <div class="step done"></div>
+  <div class="step done"></div>
+  <div class="step done"></div>
+  <div class="step active"></div>
+  <div class="step"></div>
+  <div class="step"></div>
+</div>
+
+<div class="lernziele">
+<h3 id="was-du-in-diesem-kapitel-lernst">Was du in diesem Kapitel lernst<a class="headerlink" href="#was-du-in-diesem-kapitel-lernst" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Was <strong>AddOns</strong> sind und wie du sie über den <strong>Installer</strong> installierst</li>
+<li>Wie du AddOns <strong>prüfst</strong>: Kompatibilität, Herkunft und Changelog</li>
+<li>Warum eine <strong>Staging-Umgebung</strong> wichtig ist und wie ein Update-Prozess abläuft</li>
+<li>Wie du <strong>Updates und Upgrades</strong> planst und den Unterschied verstehst</li>
+<li>Wie du im Fehlerfall einen <strong>Rollback</strong> durchführst</li>
+</ul>
+</div>
+<hr />
+<h2 id="81-addons-erweiterungen-fur-redaxo">8.1 AddOns – Erweiterungen für REDAXO<a class="headerlink" href="#81-addons-erweiterungen-fur-redaxo" title="Permanent link">&para;</a></h2>
+<p>Der REDAXO-Kern ist bewusst schlank. Zusatzfunktionen kommen über <strong>AddOns</strong> dazu (Kapitel 1: bei anderen CMS „Plugin/Extension/Module"). Wichtige AddOns aus dem REDAXO-Ökosystem:</p>
+<table>
+<thead>
+<tr>
+<th>AddOn</th>
+<th>Funktion</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>YForm</strong></td>
+<td>Formulare <strong>und</strong> eigene Datenbank-Tabellen verwalten (Kapitel 9)</td>
+</tr>
+<tr>
+<td><strong>YRewrite</strong></td>
+<td>Sprechende URLs, Multi-Domain, SEO, <code>sitemap.xml</code>/<code>robots.txt</code> (Kapitel 6)</td>
+</tr>
+<tr>
+<td><strong>Media Manager</strong></td>
+<td>Bilder skalieren/aufbereiten (Kern-AddOn, Kapitel 6)</td>
+</tr>
+<tr>
+<td><strong>MetaInfo</strong></td>
+<td>Zusätzliche Metafelder für Artikel/Medien/Kategorien</td>
+</tr>
+<tr>
+<td><strong>Sprog</strong></td>
+<td>Übersetzbare Textbausteine (Kapitel 6)</td>
+</tr>
+<tr>
+<td><strong>consent_manager</strong></td>
+<td>DSGVO-Cookie-Banner (Kapitel 9)</td>
+</tr>
+<tr>
+<td><strong>Backup</strong></td>
+<td>Datenbank sichern/wiederherstellen (Kapitel 3)</td>
+</tr>
+<tr>
+<td><strong>Cronjob</strong></td>
+<td>Zeitgesteuerte Aufgaben (z. B. automatische Backups)</td>
+</tr>
+<tr>
+<td><strong>Developer</strong></td>
+<td>Templates/Module ins Dateisystem synchronisieren (Kapitel 7)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Installation über den <code>Installer</code>:</strong> Im Backend unter <strong>AddOns → Installer</strong> durchsuchst du das offizielle Verzeichnis, lädst ein AddOn herunter und aktivierst es. Alternativ lädst du das ZIP manuell in <code>redaxo/data/addons/</code> bzw. <code>redaxo/src/addons/</code> (je nach Typ) hoch.</p>
+<pre class="mermaid"><code>flowchart LR
+    I[Installer öffnen] --&gt; S[AddOn suchen]
+    S --&gt; D[Herunterladen]
+    D --&gt; A[Aktivieren]
+    A --&gt; K[Konfigurieren]</code></pre>
+<div class="admonition info">
+<p class="admonition-title">Herunterladen ≠ Aktivieren</p>
+<p>In REDAXO ist ein AddOn erst <strong>heruntergeladen</strong> (Dateien liegen vor) und muss dann <strong>aktiviert</strong> werden (Tabellen anlegen, einbinden). Deaktivieren macht es inaktiv, ohne Daten zu löschen; <strong>Deinstallieren</strong> entfernt auch die Daten.</p>
+</div>
+<hr />
+<h2 id="82-addons-prufen-kompatibilitat-herkunft-changelog">8.2 AddOns prüfen: Kompatibilität, Herkunft, Changelog<a class="headerlink" href="#82-addons-prufen-kompatibilitat-herkunft-changelog" title="Permanent link">&para;</a></h2>
+<p>Nicht jedes AddOn ist gepflegt oder passt zu deiner REDAXO-Version. <strong>Vor</strong> der Installation prüfst du drei Dinge:</p>
+<table>
+<thead>
+<tr>
+<th>Prüfpunkt</th>
+<th>Frage</th>
+<th>Wo nachsehen</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Kompatibilität</strong></td>
+<td>Läuft das AddOn mit <strong>meiner</strong> REDAXO- und <strong>PHP</strong>-Version?</td>
+<td><code>package.yml</code> (<code>requires: redaxo: ^5.x</code>), AddOn-Seite</td>
+</tr>
+<tr>
+<td><strong>Herkunft</strong></td>
+<td>Kommt es aus einer <strong>vertrauenswürdigen</strong> Quelle?</td>
+<td>redaxo.org-Verzeichnis, <strong>FriendsOfREDAXO</strong> (GitHub)</td>
+</tr>
+<tr>
+<td><strong>Changelog</strong></td>
+<td>Wird es <strong>gepflegt</strong>? Was hat sich zuletzt geändert?</td>
+<td><code>CHANGELOG.md</code>, GitHub-Releases, letzter Update-Zeitpunkt</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition warning">
+<p class="admonition-title">Fremde Quellen sind ein Sicherheitsrisiko</p>
+<p>Ein AddOn führt <strong>eigenen Code</strong> mit den Rechten deines CMS aus. Installiere nur AddOns aus dem <strong>offiziellen Verzeichnis</strong> oder von bekannten Maintainern (z. B. <strong>FriendsOfREDAXO</strong>). Prüfe <strong>Aktualität</strong> (letztes Update), <strong>offene Issues</strong> und ob es zur Core-Version passt. Ein seit Jahren nicht aktualisiertes AddOn kann Sicherheitslücken enthalten.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Weniger ist mehr</p>
+<p>Jedes AddOn vergrößert die <strong>Angriffsfläche</strong> und den <strong>Pflegeaufwand</strong>. Installiere nur, was du wirklich brauchst, und <strong>entferne</strong> ungenutzte AddOns. Das gilt genauso für Plugins in WordPress &amp; Co.</p>
+</div>
+<hr />
+<h2 id="83-updates-vs-upgrades">8.3 Updates vs. Upgrades<a class="headerlink" href="#83-updates-vs-upgrades" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Begriff</th>
+<th>Bedeutung</th>
+<th>Beispiel</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Update</strong></td>
+<td>Kleinere Aktualisierung innerhalb einer Hauptversion (Fehler-/Sicherheitsfixes)</td>
+<td>REDAXO 5.20.1 → 5.20.2</td>
+</tr>
+<tr>
+<td><strong>Upgrade</strong></td>
+<td>Sprung auf eine neue Hauptversion (größere Änderungen, evtl. Anpassungsbedarf)</td>
+<td>REDAXO 5.x → 6.x</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>Updates</strong> sind meist unkritisch, sollten aber <strong>zeitnah</strong> eingespielt werden – besonders <strong>Sicherheitsupdates</strong>.</li>
+<li><strong>Upgrades</strong> brauchen <strong>Planung</strong>: Changelog/Migrationshinweise lesen, AddOn-Kompatibilität prüfen, gründlich testen.</li>
+</ul>
+<div class="admonition info">
+<p class="admonition-title">Sicherheitsupdates zeitnah einspielen</p>
+<p>Veraltete Software ist die <strong>häufigste Einfallstür</strong> für Angriffe. „Aktuell halten" ist eine der wichtigsten Schutzmaßnahmen (Kapitel 10) – für <strong>Core und AddOns</strong>.</p>
+</div>
+<hr />
+<h2 id="84-staging-nie-direkt-auf-live-testen">8.4 Staging – nie direkt auf Live testen<a class="headerlink" href="#84-staging-nie-direkt-auf-live-testen" title="Permanent link">&para;</a></h2>
+<p>Eine <strong>Staging-Umgebung</strong> ist eine <strong>Kopie</strong> der Live-Website, auf der man Änderungen und Updates <strong>gefahrlos testet</strong>, bevor sie live gehen.</p>
+<pre class="mermaid"><code>flowchart LR
+    Dev([Entwicklung&lt;br/&gt;lokal / XAMPP]) --&gt; Stage([Staging&lt;br/&gt;Kopie der Live-Site])
+    Stage --&gt;|getestet &amp; freigegeben| Live([Live / Produktion])
+    Live -.-&gt;|Daten/DB spiegeln| Stage</code></pre>
+<table>
+<thead>
+<tr>
+<th>Umgebung</th>
+<th>Zweck</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Entwicklung</strong></td>
+<td>Neue Features bauen (lokal, Kapitel 2)</td>
+</tr>
+<tr>
+<td><strong>Staging</strong></td>
+<td>Updates/Änderungen unter realen Bedingungen testen</td>
+</tr>
+<tr>
+<td><strong>Produktion (Live)</strong></td>
+<td>Die öffentliche Website – hier wird <strong>nicht</strong> experimentiert</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition warning">
+<p class="admonition-title">Updates niemals ungetestet auf Live</p>
+<p>Ein Update kann mit einem AddOn oder deinem Template kollidieren. Deshalb: <strong>erst auf Staging</strong> einspielen, testen, <strong>dann</strong> auf Live. Wer kein Staging hat, macht <strong>mindestens</strong> vorher ein vollständiges Backup und einen Test in einer lokalen Kopie.</p>
+</div>
+<hr />
+<h2 id="85-ein-sicherer-update-prozess">8.5 Ein sicherer Update-Prozess<a class="headerlink" href="#85-ein-sicherer-update-prozess" title="Permanent link">&para;</a></h2>
+<p>Der bewährte Ablauf für jedes Update – als wiederholbare Checkliste:</p>
+<pre class="mermaid"><code>flowchart TD
+    A[1. Changelog &amp; Kompatibilität prüfen] --&gt; B[2. Vollständiges Backup: DB + Dateien]
+    B --&gt; C[3. Update auf Staging einspielen]
+    C --&gt; D[4. Funktionen testen]
+    D --&gt; E{Alles ok?}
+    E --&gt;|Ja| F[5. Update auf Live einspielen]
+    E --&gt;|Nein| G[Rollback + Ursache klären]
+    F --&gt; H[6. Live erneut testen &amp; dokumentieren]</code></pre>
+<ol>
+<li><strong>Changelog &amp; Kompatibilität</strong> prüfen (Abschnitt 8.2).</li>
+<li><strong>Backup</strong> von <strong>Datenbank + Dateien</strong> erstellen (Kapitel 3) – die Grundlage für den Rollback.</li>
+<li>Update auf <strong>Staging</strong> einspielen.</li>
+<li><strong>Testen</strong> (Frontend + Backend + betroffene AddOns).</li>
+<li>Bei Erfolg auf <strong>Live</strong> einspielen.</li>
+<li>Live <strong>erneut testen</strong> und die Änderung <strong>dokumentieren</strong>.</li>
+</ol>
+<hr />
+<h2 id="86-rollback-zuruck-auf-den-letzten-stabilen-stand">8.6 Rollback – zurück auf den letzten stabilen Stand<a class="headerlink" href="#86-rollback-zuruck-auf-den-letzten-stabilen-stand" title="Permanent link">&para;</a></h2>
+<p>Ein <strong>Rollback</strong> ist die Rückkehr zum letzten funktionierenden Zustand, wenn ein Update fehlschlägt. Er funktioniert <strong>nur</strong>, wenn du <strong>vorher</strong> ein Backup gemacht hast.</p>
+<pre class="mermaid"><code>flowchart LR
+    Fail([Update fehlgeschlagen]) --&gt; R1[Dateien aus Backup zurückspielen]
+    R1 --&gt; R2[Datenbank aus Dump wiederherstellen]
+    R2 --&gt; Stable([Letzter stabiler Stand])</code></pre>
+<p><strong>Rollback-Schritte:</strong></p>
+<ol>
+<li>Betroffene <strong>Dateien</strong> aus dem Datei-Backup zurückkopieren.</li>
+<li><strong>Datenbank</strong> aus dem passenden <code>.sql</code>-Dump wiederherstellen (Kapitel 3).</li>
+<li><strong>Cache leeren</strong> und Funktion prüfen.</li>
+<li><strong>Ursache</strong> des Fehlers analysieren, bevor du das Update erneut versuchst.</li>
+</ol>
+<div class="admonition warning">
+<p class="admonition-title">DB und Dateien gehören zusammen</p>
+<p>Spielst du nur die Dateien zurück, aber nicht die passende Datenbank (oder umgekehrt), entsteht ein <strong>inkonsistenter</strong> Zustand. Ein Rollback umfasst immer <strong>beide</strong> Teile aus <strong>demselben</strong> Backup-Zeitpunkt. Mehr zu Restore und Notfall in <strong>Kapitel 10</strong>.</p>
+</div>
+<hr />
+<h2 id="kurzubungen">Kurzübungen<a class="headerlink" href="#kurzubungen" title="Permanent link">&para;</a></h2>
+<details class="question">
+<summary><span class="task-level task-level--1">Grundlagen</span> AddOns und der Installer</summary>
+<ol>
+<li>Was ist ein <strong>AddOn</strong> in REDAXO (und wie heißt das Pendant bei WordPress bzw. TYPO3)?</li>
+<li>Über welches Werkzeug installierst du AddOns bequem im Backend?</li>
+<li>Was ist der Unterschied zwischen <strong>Deaktivieren</strong> und <strong>Deinstallieren</strong> eines AddOns?</li>
+</ol>
+<details class="info">
+<summary>Tipp</summary>
+<p>Deaktivieren behält die Daten, Deinstallieren entfernt sie.</p>
+</details>
+<details class="success">
+<summary>Lösung</summary>
+<ol>
+<li>Ein <strong>AddOn</strong> ist eine Erweiterung des REDAXO-Kerns. Pendant: <strong>Plugin</strong> (WordPress), <strong>Extension</strong> (TYPO3/Joomla), <strong>Module</strong> (Drupal).</li>
+<li>Über den <strong>Installer</strong> (AddOns → Installer).</li>
+<li><strong>Deaktivieren</strong> schaltet das AddOn inaktiv, <strong>behält</strong> aber Daten/Tabellen. <strong>Deinstallieren</strong> entfernt auch dessen Daten.</li>
+</ol>
+</details>
+</details>
+<details class="question">
+<summary><span class="task-level task-level--2">Fortgeschritten</span> AddOn prüfen vor der Installation</summary>
+<p>Du findest ein AddOn, das genau deine gewünschte Funktion bietet. Bevor du es auf der Live-Seite installierst, prüfst du es.</p>
+<ol>
+<li>Welche <strong>drei</strong> Dinge prüfst du (mit je einem Satz Begründung)?</li>
+<li>Wo findest du Hinweise zur <strong>Kompatibilität</strong> mit deiner REDAXO-Version?</li>
+<li>Warum ist „viele AddOns = gut" ein Trugschluss?</li>
+</ol>
+<details class="info">
+<summary>Tipp</summary>
+<p>Kompatibilität, Herkunft, Changelog. package.yml enthält die requires-Angabe.</p>
+</details>
+<details class="success">
+<summary>Lösung</summary>
+<ol>
+<li><strong>Kompatibilität</strong> (läuft es mit meiner REDAXO-/PHP-Version?), <strong>Herkunft</strong> (vertrauenswürdige Quelle wie offizielles Verzeichnis/FriendsOfREDAXO?), <strong>Changelog/Pflege</strong> (wird es aktuell gehalten?).</li>
+<li>In der <strong><code>package.yml</code></strong> (<code>requires: redaxo: ^5.x</code>) bzw. auf der AddOn-Seite/GitHub-Releases.</li>
+<li>Jedes AddOn vergrößert <strong>Angriffsfläche</strong> und <strong>Pflegeaufwand</strong>. Ungenutzte/veraltete AddOns sind ein Sicherheitsrisiko – nur installieren, was man braucht.</li>
+</ol>
+</details>
+</details>
+<details class="question">
+<summary><span class="task-level task-level--3">Experte</span> Update-Prozess mit Rollback</summary>
+<p>Für eine Live-Website steht ein REDAXO-Sicherheitsupdate an.</p>
+<ol>
+<li>Bringe die Schritte eines sicheren Update-Prozesses in die richtige Reihenfolge: <em>auf Live einspielen, Backup erstellen, auf Staging testen, Changelog prüfen, Live erneut testen</em>.</li>
+<li>Was ist der Unterschied zwischen <strong>Update</strong> und <strong>Upgrade</strong>?</li>
+<li>Erkläre, warum ein <strong>Rollback</strong> nur mit vorherigem Backup funktioniert und warum DB <strong>und</strong> Dateien zusammengehören.</li>
+</ol>
+<details class="info">
+<summary>Tipp</summary>
+<p>Erst prüfen und sichern, dann testen (Staging), dann live.</p>
+</details>
+<details class="success">
+<summary>Lösung</summary>
+<ol>
+<li>Changelog prüfen → <strong>Backup</strong> erstellen → auf <strong>Staging</strong> testen → auf <strong>Live</strong> einspielen → Live erneut testen.</li>
+<li><strong>Update</strong> = kleine Aktualisierung innerhalb einer Hauptversion (z. B. 5.20.1→5.20.2); <strong>Upgrade</strong> = Sprung auf eine neue Hauptversion (z. B. 5.x→6.x) mit möglichem Anpassungsbedarf.</li>
+<li>Ein Rollback stellt den letzten stabilen Stand aus dem <strong>Backup</strong> wieder her – ohne Backup gibt es nichts zurückzuholen. DB und Dateien müssen aus <strong>demselben Zeitpunkt</strong> stammen, sonst entsteht ein inkonsistenter Zustand.</li>
+</ol>
+</details>
+</details>
+<hr />
+<h2 id="workshop">Workshop<a class="headerlink" href="#workshop" title="Permanent link">&para;</a></h2>
+<details class="question">
+<summary><span class="task-level task-level--4">Workshop</span> AddOns einrichten &amp; Update-Runbook</summary>
+<p><strong>Szenario:</strong> Die Handwerker-Website braucht sprechende URLs und SEO-Grundlagen, und der Betrieb möchte einen klaren Ablauf für künftige Updates.</p>
+<hr />
+<p><strong>Aufgabe (praktisch + konzeptionell):</strong></p>
+<ol>
+<li><strong>AddOn installieren:</strong> Installiere <strong>YRewrite</strong> über den Installer, richte die Domain ein und aktiviere sprechende URLs. Prüfe, dass Artikel-URLs jetzt lesbar sind.</li>
+<li><strong>AddOn prüfen:</strong> Wähle ein weiteres AddOn (z. B. <strong>MetaInfo</strong> oder <strong>Backup</strong>) und dokumentiere vor der Installation Kompatibilität, Herkunft und letzten Changelog-Stand.</li>
+<li><strong>Update-Runbook:</strong> Schreibe eine wiederverwendbare Checkliste für Updates (Changelog → Backup → Staging → Test → Live → Test → Doku), inkl. <strong>Rollback-Anleitung</strong>.</li>
+<li><strong>Trockenübung Rollback:</strong> Erstelle ein Backup, ändere testweise etwas und spiele den Stand per Restore zurück.</li>
+</ol>
+<p><strong>Deliverable:</strong> Funktionierende sprechende URLs (YRewrite) + AddOn-Prüfnotiz + Update-Runbook mit Rollback.</p>
+<details class="info">
+<summary>Tipp</summary>
+<p>Mach vor der YRewrite-Einrichtung ein Backup. Für den Rollback-Test genügt eine kleine, klar erkennbare Änderung (z. B. ein Slice-Text). Notiere jeden Schritt – das Runbook soll auch für Kollegen nutzbar sein.</p>
+</details>
+<details class="success">
+<summary>Lösung</summary>
+<p>Bewertungskriterien:</p>
+<ul>
+<li>YRewrite installiert, Domain eingerichtet, sprechende URLs funktionieren.</li>
+<li>AddOn-Prüfnotiz nennt Kompatibilität (Core/PHP), Herkunft (offizielle Quelle) und Pflegestand.</li>
+<li>Update-Runbook enthält alle Schritte in richtiger Reihenfolge + Rollback (DB + Dateien).</li>
+<li>Rollback praktisch durchgeführt: Änderung eingespielt, dann erfolgreich zurückgerollt.</li>
+</ul>
+</details>
+</details>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../kapitel7/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Kapitel 7 – Layout &amp; Design">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Kapitel 7 – Layout & Design
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../kapitel9/" class="md-footer__link md-footer__link--next" aria-label="Next: Kapitel 9 – Mailing, Newsletter &amp; Datenschutz">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Kapitel 9 – Mailing, Newsletter & Datenschutz
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2026 Qualidy GmbH
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://de.linkedin.com/company/qualidy" target="_blank" rel="noopener" title="de.linkedin.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3M135.4 416H69V202.2h66.5V416zM102.2 96a38.5 38.5 0 1 1 0 77 38.5 38.5 0 1 1 0-77m282.1 320h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://qualidy.de" target="_blank" rel="noopener" title="qualidy.de" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M351.9 280H161c2.9 64.5 17.2 123.9 37.5 167.4 11.4 24.5 23.7 41.8 35.1 52.4 11.2 10.5 18.9 12.2 22.9 12.2s11.7-1.7 22.9-12.2c11.4-10.6 23.7-28 35.1-52.4 20.3-43.5 34.6-102.9 37.5-167.4zm-191-48h190.9c-2.8-64.5-17.1-123.9-37.4-167.4-11.4-24.4-23.7-41.8-35.1-52.4C268.1 1.7 260.4 0 256.4 0s-11.7 1.7-22.9 12.2c-11.4 10.6-23.7 28-35.1 52.4-20.3 43.5-34.6 102.9-37.5 167.4m-48 0c3.5-85.6 25.6-165.1 57.9-217.3C78.7 47.3 10.9 131.2 1.5 232zM1.5 280c9.4 100.8 77.2 184.7 169.3 217.3-32.3-52.2-54.4-131.7-57.9-217.3zm398.4 0c-3.5 85.6-25.6 165.1-57.9 217.3 92.1-32.7 159.9-116.5 169.3-217.3zm111.4-48C501.9 131.2 434.1 47.3 342 14.7c32.3 52.2 54.4 131.7 57.9 217.3z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.tracking", "navigation.path", "navigation.top", "navigation.footer", "navigation.prune", "toc.follow", "toc.integrate", "content.code.copy", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

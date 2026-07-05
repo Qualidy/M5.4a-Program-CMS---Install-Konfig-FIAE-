@@ -1,0 +1,1273 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../kapitel2/">
+      
+      
+        <link rel="next" href="../kapitel4/">
+      
+      
+      <link rel="icon" href="../../assets/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.18">
+    
+    
+      
+        <title>Kapitel 3 – Datenbank & Konfiguration - M5.4a: CMS – Installation & Konfiguration (REDAXO)</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=DM+Sans:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"DM Sans";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/theme.css">
+    
+      <link rel="stylesheet" href="../../stylesheets/grid.css">
+    
+      <link rel="stylesheet" href="../../stylesheets/logo.css">
+    
+      <link rel="stylesheet" href="../../stylesheets/video_admonition.css">
+    
+      <link rel="stylesheet" href="../../stylesheets/mermaid.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent="orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#kapitel-3-datenbank-konfiguration" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="M5.4a: CMS – Installation &amp; Konfiguration (REDAXO)" class="md-header__button md-logo" aria-label="M5.4a: CMS – Installation & Konfiguration (REDAXO)" data-md-component="logo">
+      
+  <img src="../../assets/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            M5.4a: CMS – Installation & Konfiguration (REDAXO)
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Kapitel 3 – Datenbank & Konfiguration
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Übersicht
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../kapitel1/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Kapitel 1 – Was ist ein CMS?
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../kapitel2/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Kapitel 2 – Installation & Einrichtung
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="./" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Kapitel 3 – Datenbank & Konfiguration
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../kapitel4/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Kapitel 4 – Benutzer, Rollen & Rechte
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../kapitel5/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Kapitel 5 – Frontend, Backend & Workflows
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../kapitel6/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Kapitel 6 – Content, Medien & Mehrsprachigkeit
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../kapitel7/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Kapitel 7 – Layout & Design
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../kapitel8/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Kapitel 8 – AddOns, Updates & Staging
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../kapitel9/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Kapitel 9 – Mailing, Newsletter & Datenschutz
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../kapitel10/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Kapitel 10 – Sicherheit & Notfallmaßnahmen
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="M5.4a: CMS – Installation &amp; Konfiguration (REDAXO)" class="md-nav__button md-logo" aria-label="M5.4a: CMS – Installation & Konfiguration (REDAXO)" data-md-component="logo">
+      
+  <img src="../../assets/logo.png" alt="logo">
+
+    </a>
+    M5.4a: CMS – Installation & Konfiguration (REDAXO)
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Übersicht
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../kapitel1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Kapitel 1 – Was ist ein CMS?
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../kapitel2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Kapitel 2 – Installation & Einrichtung
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Kapitel 3 – Datenbank & Konfiguration
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Kapitel 3 – Datenbank & Konfiguration
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#was-du-in-diesem-kapitel-lernst" class="md-nav__link">
+    <span class="md-ellipsis">
+      Was du in diesem Kapitel lernst
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#31-die-datenbank-als-herz-des-cms" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.1 Die Datenbank als Herz des CMS
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#32-schema-und-benutzer-trennen" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.2 Schema und Benutzer trennen
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#33-minimalrechte-vergeben-least-privilege" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.3 Minimalrechte vergeben (Least Privilege)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#34-wo-redaxo-seine-konfiguration-speichert" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.4 Wo REDAXO seine Konfiguration speichert
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#35-backups-planen" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.5 Backups planen
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#kurzubungen" class="md-nav__link">
+    <span class="md-ellipsis">
+      Kurzübungen
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#workshop" class="md-nav__link">
+    <span class="md-ellipsis">
+      Workshop
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../kapitel4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Kapitel 4 – Benutzer, Rollen & Rechte
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../kapitel5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Kapitel 5 – Frontend, Backend & Workflows
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../kapitel6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Kapitel 6 – Content, Medien & Mehrsprachigkeit
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../kapitel7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Kapitel 7 – Layout & Design
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../kapitel8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Kapitel 8 – AddOns, Updates & Staging
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../kapitel9/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Kapitel 9 – Mailing, Newsletter & Datenschutz
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../kapitel10/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Kapitel 10 – Sicherheit & Notfallmaßnahmen
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="kapitel-3-datenbank-konfiguration">Kapitel 3 – Datenbank &amp; Konfiguration<a class="headerlink" href="#kapitel-3-datenbank-konfiguration" title="Permanent link">&para;</a></h1>
+<div class="kurs-progress">
+  <div class="step done"></div>
+  <div class="step done"></div>
+  <div class="step active"></div>
+  <div class="step"></div>
+  <div class="step"></div>
+  <div class="step"></div>
+  <div class="step"></div>
+  <div class="step"></div>
+  <div class="step"></div>
+  <div class="step"></div>
+</div>
+
+<div class="lernziele">
+<h3 id="was-du-in-diesem-kapitel-lernst">Was du in diesem Kapitel lernst<a class="headerlink" href="#was-du-in-diesem-kapitel-lernst" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Welche Rolle die <strong>Datenbank</strong> in einem CMS spielt und wie REDAXO sie nutzt</li>
+<li>Wie du ein <strong>Datenbank-Schema</strong> und einen <strong>eigenen DB-Benutzer mit Minimalrechten</strong> anlegst</li>
+<li>Warum das <strong>Least-Privilege-Prinzip</strong> die Sicherheit erhöht</li>
+<li>Wo REDAXO seine <strong>Konfiguration</strong> speichert (<code>config.yml</code>, Tabellen-Präfix) und wie du sie nachvollziehbar pflegst</li>
+<li>Wie du <strong>Backups</strong> der Datenbank planst und wiederherstellst</li>
+</ul>
+</div>
+<hr />
+<h2 id="31-die-datenbank-als-herz-des-cms">3.1 Die Datenbank als Herz des CMS<a class="headerlink" href="#31-die-datenbank-als-herz-des-cms" title="Permanent link">&para;</a></h2>
+<p>In Kapitel 1 hast du gelernt: Ein CMS trennt <strong>Inhalt</strong> von <strong>Darstellung</strong>. Der <strong>Inhalt</strong> liegt in der <strong>Datenbank</strong>. REDAXO speichert dort u. a.:</p>
+<table>
+<thead>
+<tr>
+<th>Was</th>
+<th>Beispiel-Tabelle (Präfix <code>rex_</code>)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Struktur (Kategorien/Artikel)</td>
+<td><code>rex_article</code></td>
+</tr>
+<tr>
+<td>Inhaltsblöcke (Slices)</td>
+<td><code>rex_article_slice</code></td>
+</tr>
+<tr>
+<td>Templates &amp; Module</td>
+<td><code>rex_template</code>, <code>rex_module</code></td>
+</tr>
+<tr>
+<td>Medienpool-Metadaten</td>
+<td><code>rex_media</code>, <code>rex_media_category</code></td>
+</tr>
+<tr>
+<td>Benutzer &amp; Rechte</td>
+<td><code>rex_user</code>, <code>rex_user_role</code></td>
+</tr>
+<tr>
+<td>Konfiguration/AddOns</td>
+<td><code>rex_config</code></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition info">
+<p class="admonition-title">Datei vs. Datenbank</p>
+<p>Nicht alles liegt in der DB: <strong>Medien-Dateien</strong> (Bilder, PDFs) liegen als Dateien im Ordner <code>redaxo/data/addons/media_manager/</code> bzw. im Medienpool-Verzeichnis; die <strong>Datenbank</strong> speichert nur die <strong>Metadaten</strong> (Dateiname, Titel, Kategorie). Ein vollständiges Backup umfasst deshalb <strong>DB + Dateien</strong> (dazu Abschnitt 3.5 und Kapitel 8).</p>
+</div>
+<p><strong>Das Tabellen-Präfix</strong> (Standard <code>rex_</code>) wird jeder Tabelle vorangestellt. Es erlaubt, <strong>mehrere Anwendungen in einer Datenbank</strong> zu betreiben, und erschwert automatisierten Angriffen das Raten von Tabellennamen.</p>
+<hr />
+<h2 id="32-schema-und-benutzer-trennen">3.2 Schema und Benutzer trennen<a class="headerlink" href="#32-schema-und-benutzer-trennen" title="Permanent link">&para;</a></h2>
+<p>Bei der Installation (Kapitel 2) haben wir uns oft noch mit dem <strong>root</strong>-Benutzer verbunden. Für den <strong>Betrieb</strong> ist das ein Fehler: Das CMS sollte einen <strong>eigenen Datenbank-Benutzer</strong> verwenden, der <strong>nur auf seine eine Datenbank</strong> und <strong>nur mit den nötigen Rechten</strong> zugreifen darf.</p>
+<pre class="mermaid"><code>flowchart LR
+    RX[REDAXO] --&gt;|verbindet sich als| U([DB-Benutzer 'redaxo_user'])
+    U --&gt;|darf NUR auf| DB[(Datenbank 'redaxo')]
+    U -.-&gt;|KEIN Zugriff| Other[(andere Datenbanken)]</code></pre>
+<p><strong>Trennung von:</strong></p>
+<ul>
+<li><strong>Schema</strong> (die Datenbank <code>redaxo</code> – der „Behälter" für die Tabellen)</li>
+<li><strong>Benutzer</strong> (<code>redaxo_user</code> – das Konto, mit dem sich REDAXO verbindet)</li>
+</ul>
+<p>So kann ein kompromittiertes CMS <strong>nicht</strong> auf andere Datenbanken zugreifen, und <code>root</code> bleibt aus der Anwendung heraus unerreichbar.</p>
+<hr />
+<h2 id="33-minimalrechte-vergeben-least-privilege">3.3 Minimalrechte vergeben (Least Privilege)<a class="headerlink" href="#33-minimalrechte-vergeben-least-privilege" title="Permanent link">&para;</a></h2>
+<p>Das <strong>Least-Privilege-Prinzip</strong> bedeutet: Ein Konto bekommt <strong>nur die Rechte, die es wirklich braucht</strong> – nicht mehr. REDAXO braucht im Normalbetrieb Rechte, um Daten zu <strong>lesen, schreiben, ändern, löschen</strong> und (bei Installationen/Updates) <strong>Tabellen anzulegen/zu ändern</strong>.</p>
+<p><strong>Beispiel: eigener Benutzer mit passenden Rechten (MySQL/MariaDB):</strong></p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span>
+<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">-- Eigenen Benutzer anlegen (nur von localhost erreichbar)</span>
+<span class="k">CREATE</span><span class="w"> </span><span class="k">USER</span><span class="w"> </span><span class="s1">&#39;redaxo_user&#39;</span><span class="o">@</span><span class="s1">&#39;localhost&#39;</span><span class="w"> </span><span class="n">IDENTIFIED</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="s1">&#39;EinStarkesPasswort!&#39;</span><span class="p">;</span>
+
+<span class="c1">-- Nur Rechte auf die EINE Datenbank &#39;redaxo&#39; vergeben</span>
+<span class="k">GRANT</span><span class="w"> </span><span class="k">SELECT</span><span class="p">,</span><span class="w"> </span><span class="k">INSERT</span><span class="p">,</span><span class="w"> </span><span class="k">UPDATE</span><span class="p">,</span><span class="w"> </span><span class="k">DELETE</span><span class="p">,</span>
+<span class="w">      </span><span class="k">CREATE</span><span class="p">,</span><span class="w"> </span><span class="k">ALTER</span><span class="p">,</span><span class="w"> </span><span class="k">DROP</span><span class="p">,</span><span class="w"> </span><span class="k">INDEX</span><span class="p">,</span><span class="w"> </span><span class="k">LOCK</span><span class="w"> </span><span class="n">TABLES</span>
+<span class="w">  </span><span class="k">ON</span><span class="w"> </span><span class="n">redaxo</span><span class="p">.</span><span class="o">*</span><span class="w"> </span><span class="k">TO</span><span class="w"> </span><span class="s1">&#39;redaxo_user&#39;</span><span class="o">@</span><span class="s1">&#39;localhost&#39;</span><span class="p">;</span>
+
+<span class="n">FLUSH</span><span class="w"> </span><span class="k">PRIVILEGES</span><span class="p">;</span>
+</code></pre></div></td></tr></table></div>
+<table>
+<thead>
+<tr>
+<th>Recht</th>
+<th>Wofür REDAXO es braucht</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>SELECT</code></td>
+<td>Inhalte lesen (jeder Seitenaufruf)</td>
+</tr>
+<tr>
+<td><code>INSERT</code>, <code>UPDATE</code>, <code>DELETE</code></td>
+<td>Inhalte pflegen (Redaktion)</td>
+</tr>
+<tr>
+<td><code>CREATE</code>, <code>ALTER</code>, <code>DROP</code>, <code>INDEX</code></td>
+<td>AddOn-Installation &amp; Updates (Tabellen anlegen/ändern)</td>
+</tr>
+<tr>
+<td><code>LOCK TABLES</code></td>
+<td>Backup/Import konsistent durchführen</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition warning">
+<p class="admonition-title">Was NICHT vergeben wird</p>
+<p><strong>Keine</strong> globalen Rechte (<code>ON *.*</code>), <strong>kein</strong> <code>GRANT OPTION</code>, <strong>kein</strong> <code>SUPER</code>, <strong>kein</strong> <code>FILE</code>. Der Benutzer darf ausschließlich <code>redaxo.*</code> – nicht andere Datenbanken. So bleibt der Schaden bei einer Kompromittierung auf diese eine Datenbank begrenzt.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Zwei Rechtestufen in der Praxis</p>
+<p>Manche Teams vergeben für den <strong>Betrieb</strong> nur <code>SELECT, INSERT, UPDATE, DELETE</code> und schalten <code>CREATE/ALTER/DROP</code> <strong>nur temporär</strong> für Updates frei. Das ist sicherer, aber aufwändiger. Für den Kurs genügt das obige Rechteset.</p>
+</div>
+<hr />
+<h2 id="34-wo-redaxo-seine-konfiguration-speichert">3.4 Wo REDAXO seine Konfiguration speichert<a class="headerlink" href="#34-wo-redaxo-seine-konfiguration-speichert" title="Permanent link">&para;</a></h2>
+<p>REDAXO legt die zentralen Einstellungen in einer <strong>YAML-Datei</strong> ab:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>redaxo/data/core/config.yml
+</code></pre></div></td></tr></table></div>
+<p>Darin stehen u. a. die <strong>Datenbank-Zugangsdaten</strong>, das <strong>Tabellen-Präfix</strong> und der <strong>Instanzname</strong>:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nt">instname</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">rex...</span>
+<span class="nt">server</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;http://localhost/meinprojekt/&#39;</span>
+<span class="nt">servername</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;Meine</span><span class="nv"> </span><span class="s">REDAXO-Seite&#39;</span>
+<span class="nt">lang</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">de_de</span>
+<span class="nt">timezone</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Europe/Berlin</span>
+<span class="nt">setup</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
+<span class="nt">db</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">1</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">host</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">127.0.0.1</span>
+<span class="w">    </span><span class="nt">login</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">redaxo_user</span>
+<span class="w">    </span><span class="nt">password</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;********&#39;</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">redaxo</span>
+<span class="w">    </span><span class="nt">persistent</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
+<span class="nt">table_prefix</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">rex_</span>
+</code></pre></div></td></tr></table></div>
+<div class="admonition warning">
+<p class="admonition-title">config.yml enthält Zugangsdaten – schützen!</p>
+<p>Diese Datei enthält das <strong>DB-Passwort im Klartext</strong>. Sie liegt im Ordner <code>redaxo/data/</code>, der <strong>nicht öffentlich erreichbar</strong> sein darf. REDAXO schützt <code>redaxo/data/</code> per <code>.htaccess</code>; auf Nginx musst du das in der Serverkonfiguration selbst absichern (Kapitel 10). <strong>Niemals</strong> <code>config.yml</code> in ein öffentliches Git-Repository committen.</p>
+</div>
+<p><strong>Weitere Konfiguration</strong> (z. B. AddOn-Einstellungen) speichert REDAXO in der Tabelle <code>rex_config</code> bzw. den <code>config.yml</code>-Dateien der jeweiligen AddOns. Das AddOn <strong>phpMyAdmin</strong> oder <strong>Adminer</strong> (als AddOn verfügbar) hilft, direkt in die Datenbank zu schauen.</p>
+<p><strong>Nachvollziehbar pflegen</strong> heißt:</p>
+<ul>
+<li>Änderungen an Konfiguration <strong>dokumentieren</strong> (was, warum, wann).</li>
+<li>Zwischen <strong>Entwicklungs-</strong> und <strong>Live-Konfiguration</strong> unterscheiden (andere DB-Zugänge, <code>debug</code>-Modus nur lokal an).</li>
+<li>Konfigurationsdateien versionieren – aber <strong>Secrets</strong> (Passwörter) auslassen (<code>.gitignore</code>).</li>
+</ul>
+<hr />
+<h2 id="35-backups-planen">3.5 Backups planen<a class="headerlink" href="#35-backups-planen" title="Permanent link">&para;</a></h2>
+<p>Ein Backup ist nur dann etwas wert, wenn man es <strong>regelmäßig</strong> erstellt <strong>und</strong> die <strong>Wiederherstellung</strong> getestet hat. Zu einem vollständigen REDAXO-Backup gehören <strong>zwei Teile</strong>:</p>
+<pre class="mermaid"><code>flowchart LR
+    B([Vollständiges Backup]) --&gt; DB[(Datenbank-Dump&lt;br/&gt;.sql)]
+    B --&gt; F([Dateien&lt;br/&gt;redaxo/data/ + Medien])</code></pre>
+<p><strong>Datenbank-Dump per Kommandozeile:</strong></p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># Sichern</span>
+mysqldump<span class="w"> </span>-u<span class="w"> </span>redaxo_user<span class="w"> </span>-p<span class="w"> </span>redaxo<span class="w"> </span>&gt;<span class="w"> </span>backup_redaxo_2026-07-05.sql
+
+<span class="c1"># Wiederherstellen (in eine leere DB)</span>
+mysql<span class="w"> </span>-u<span class="w"> </span>redaxo_user<span class="w"> </span>-p<span class="w"> </span>redaxo<span class="w"> </span>&lt;<span class="w"> </span>backup_redaxo_2026-07-05.sql
+</code></pre></div></td></tr></table></div>
+<p><strong>Innerhalb von REDAXO</strong> gibt es das AddOn <strong><code>Backup</code></strong> (früher „phpMyBackupPro"/Kern-Werkzeug), mit dem sich Datenbank-Exporte und -Importe bequem im Backend erstellen lassen – auch <strong>zeitgesteuert</strong> über das <strong><code>cronjob</code></strong>-AddOn.</p>
+<table>
+<thead>
+<tr>
+<th>Backup-Regel</th>
+<th>Warum</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>3-2-1-Regel</strong>: 3 Kopien, 2 Medien, 1 außer Haus</td>
+<td>Schutz vor Hardware- und Standort-Ausfall</td>
+</tr>
+<tr>
+<td><strong>Vor jedem Update</strong> ein Backup</td>
+<td>Rollback möglich, falls das Update scheitert (Kapitel 8)</td>
+</tr>
+<tr>
+<td><strong>Restore testen</strong></td>
+<td>Ein nie getestetes Backup ist kein Backup</td>
+</tr>
+<tr>
+<td><strong>Dateien + DB gemeinsam</strong> sichern</td>
+<td>Beide gehören zu einem konsistenten Stand</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition tip">
+<p class="admonition-title">Namenskonvention für Backups</p>
+<p>Nutze sprechende Dateinamen mit <strong>Datum</strong> (<code>backup_projekt_JJJJ-MM-TT.sql</code>). So findest du im Notfall schnell den richtigen Stand. Mehr zum Thema <strong>Restore &amp; Notfall</strong> in Kapitel 10.</p>
+</div>
+<hr />
+<h2 id="kurzubungen">Kurzübungen<a class="headerlink" href="#kurzubungen" title="Permanent link">&para;</a></h2>
+<details class="question">
+<summary><span class="task-level task-level--1">Grundlagen</span> Was liegt in der Datenbank?</summary>
+<ol>
+<li>Nenne drei Arten von Daten, die REDAXO in der <strong>Datenbank</strong> speichert.</li>
+<li>Was ist das <strong>Tabellen-Präfix</strong> (Standard <code>rex_</code>) und wozu dient es?</li>
+<li>Warum gehört zu einem vollständigen Backup <strong>mehr</strong> als nur die Datenbank?</li>
+</ol>
+<details class="info">
+<summary>Tipp</summary>
+<p>Bilder liegen als Dateien, nur die Metadaten stehen in der DB.</p>
+</details>
+<details class="success">
+<summary>Lösung</summary>
+<ol>
+<li>Z. B. Struktur (Kategorien/Artikel), Inhaltsblöcke (Slices), Templates/Module, Benutzer/Rechte, Medien-Metadaten, Konfiguration.</li>
+<li>Das Präfix wird jeder Tabelle vorangestellt (<code>rex_article</code> …). Es erlaubt mehrere Anwendungen in einer DB und erschwert das Erraten von Tabellennamen.</li>
+<li><strong>Dateien</strong> (Medien im Medienpool, <code>redaxo/data/</code>) liegen <strong>außerhalb</strong> der DB. Ein vollständiges Backup umfasst deshalb <strong>Datenbank + Dateien</strong>.</li>
+</ol>
+</details>
+</details>
+<details class="question">
+<summary><span class="task-level task-level--2">Fortgeschritten</span> DB-Benutzer mit Minimalrechten</summary>
+<p>Beim Setup hast du dich noch als <code>root</code> mit der Datenbank verbunden. Für den Betrieb soll ein <strong>eigener DB-Benutzer</strong> her.</p>
+<ol>
+<li>Erkläre das <strong>Least-Privilege-Prinzip</strong> in einem Satz.</li>
+<li>Schreibe die SQL-Befehle, um einen Benutzer <code>redaxo_user</code>@<code>localhost</code> anzulegen und ihm die passenden Rechte <strong>nur</strong> auf die Datenbank <code>redaxo</code> zu geben.</li>
+<li>Welche Rechte solltest du <strong>nicht</strong> vergeben?</li>
+</ol>
+<details class="info">
+<summary>Tipp</summary>
+<p>Rechte nur auf <code>redaxo.*</code>, nicht auf <code>*.*</code>. Kein GRANT OPTION, kein SUPER, kein FILE.</p>
+</details>
+<details class="success">
+<summary>Lösung</summary>
+<ol>
+<li>Ein Konto bekommt nur die Rechte, die es wirklich braucht – nicht mehr.
+2.
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">CREATE</span><span class="w"> </span><span class="k">USER</span><span class="w"> </span><span class="s1">&#39;redaxo_user&#39;</span><span class="o">@</span><span class="s1">&#39;localhost&#39;</span><span class="w"> </span><span class="n">IDENTIFIED</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="s1">&#39;EinStarkesPasswort!&#39;</span><span class="p">;</span>
+<span class="k">GRANT</span><span class="w"> </span><span class="k">SELECT</span><span class="p">,</span><span class="w"> </span><span class="k">INSERT</span><span class="p">,</span><span class="w"> </span><span class="k">UPDATE</span><span class="p">,</span><span class="w"> </span><span class="k">DELETE</span><span class="p">,</span>
+<span class="w">      </span><span class="k">CREATE</span><span class="p">,</span><span class="w"> </span><span class="k">ALTER</span><span class="p">,</span><span class="w"> </span><span class="k">DROP</span><span class="p">,</span><span class="w"> </span><span class="k">INDEX</span><span class="p">,</span><span class="w"> </span><span class="k">LOCK</span><span class="w"> </span><span class="n">TABLES</span>
+<span class="w">  </span><span class="k">ON</span><span class="w"> </span><span class="n">redaxo</span><span class="p">.</span><span class="o">*</span><span class="w"> </span><span class="k">TO</span><span class="w"> </span><span class="s1">&#39;redaxo_user&#39;</span><span class="o">@</span><span class="s1">&#39;localhost&#39;</span><span class="p">;</span>
+<span class="n">FLUSH</span><span class="w"> </span><span class="k">PRIVILEGES</span><span class="p">;</span>
+</code></pre></div></td></tr></table></div></li>
+<li>Keine globalen Rechte (<code>ON *.*</code>), kein <code>GRANT OPTION</code>, kein <code>SUPER</code>, kein <code>FILE</code>.</li>
+</ol>
+</details>
+</details>
+<details class="question">
+<summary><span class="task-level task-level--3">Experte</span> config.yml und Backup-Strategie</summary>
+<ol>
+<li>Wo speichert REDAXO seine zentrale Konfiguration und welche <strong>sensiblen</strong> Daten stehen dort?</li>
+<li>Nenne zwei Maßnahmen, um diese Datei zu schützen.</li>
+<li>Erkläre die <strong>3-2-1-Backup-Regel</strong> und schreibe die Befehle, um die Datenbank <code>redaxo</code> per <code>mysqldump</code> zu sichern und wiederherzustellen.</li>
+</ol>
+<details class="info">
+<summary>Tipp</summary>
+<p><code>redaxo/data/core/config.yml</code> enthält u. a. das DB-Passwort im Klartext.</p>
+</details>
+<details class="success">
+<summary>Lösung</summary>
+<ol>
+<li>In <code>redaxo/data/core/config.yml</code>; dort stehen u. a. die <strong>Datenbank-Zugangsdaten</strong> (inkl. Passwort im Klartext), Tabellen-Präfix, Servername.</li>
+<li>Ordner <code>redaxo/data/</code> nicht öffentlich erreichbar machen (per <code>.htaccess</code>/Serverkonfig); Datei <strong>nicht</strong> in ein öffentliches Git-Repo committen (<code>.gitignore</code>).</li>
+<li><strong>3-2-1:</strong> 3 Kopien, auf 2 verschiedenen Medien, 1 davon außer Haus/offsite.
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>mysqldump<span class="w"> </span>-u<span class="w"> </span>redaxo_user<span class="w"> </span>-p<span class="w"> </span>redaxo<span class="w"> </span>&gt;<span class="w"> </span>backup_redaxo_2026-07-05.sql
+mysql<span class="w"> </span>-u<span class="w"> </span>redaxo_user<span class="w"> </span>-p<span class="w"> </span>redaxo<span class="w"> </span>&lt;<span class="w"> </span>backup_redaxo_2026-07-05.sql
+</code></pre></div></td></tr></table></div></li>
+</ol>
+</details>
+</details>
+<hr />
+<h2 id="workshop">Workshop<a class="headerlink" href="#workshop" title="Permanent link">&para;</a></h2>
+<details class="question">
+<summary><span class="task-level task-level--4">Workshop</span> Datenbank absichern &amp; Backup-Konzept</summary>
+<p><strong>Szenario:</strong> Deine REDAXO-Installation aus Kapitel 2 läuft noch mit dem <code>root</code>-DB-Zugang. Das soll sich ändern, und du brauchst ein Backup-Konzept.</p>
+<hr />
+<p><strong>Aufgabe (praktisch + konzeptionell):</strong></p>
+<ol>
+<li><strong>Eigener DB-Benutzer:</strong> Lege in phpMyAdmin/Adminer oder per SQL einen Benutzer <code>redaxo_user</code> mit <strong>Minimalrechten</strong> auf die Datenbank <code>redaxo</code> an.</li>
+<li><strong>Umstellen:</strong> Trage den neuen Benutzer in der <code>config.yml</code> ein und prüfe, dass REDAXO weiterhin läuft (Cache leeren, Frontend + Backend testen).</li>
+<li><strong>Absichern:</strong> Prüfe, ob <code>redaxo/data/</code> von außen erreichbar ist, und dokumentiere, wie du es schützt.</li>
+<li><strong>Backup-Konzept:</strong> Erstelle ein schriftliches Konzept: Was wird gesichert (DB + Dateien), wie oft, wohin, wie wird ein <strong>Restore</strong> getestet? Führe <strong>einen</strong> DB-Dump praktisch durch.</li>
+</ol>
+<p><strong>Deliverable:</strong> Laufende Installation mit eigenem DB-Benutzer + Backup-Konzept (1 Seite) + ein erzeugter <code>.sql</code>-Dump.</p>
+<details class="info">
+<summary>Tipp</summary>
+<p>Vor dem Umstellen der config.yml ein Backup machen! Wenn danach ein Fehler kommt, prüfe Benutzername, Passwort und Rechte. Denke daran: Dump-Datei enthält alle Inhalte – sicher aufbewahren.</p>
+</details>
+<details class="success">
+<summary>Lösung</summary>
+<p>Bewertungskriterien:</p>
+<ul>
+<li><code>redaxo_user</code> existiert mit passenden Rechten <strong>nur</strong> auf <code>redaxo.*</code> (kein root im Betrieb).</li>
+<li><code>config.yml</code> nutzt den neuen Benutzer; Seite läuft weiterhin.</li>
+<li>Schutz von <code>redaxo/data/</code> beschrieben (nicht öffentlich erreichbar, keine Klartext-Secrets im Git).</li>
+<li>Backup-Konzept nennt DB <strong>und</strong> Dateien, Rhythmus, Ablageort (3-2-1) und Restore-Test.</li>
+<li>Ein funktionierender <code>mysqldump</code> wurde erzeugt.</li>
+</ul>
+</details>
+</details>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../kapitel2/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Kapitel 2 – Installation &amp; Einrichtung">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Kapitel 2 – Installation & Einrichtung
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../kapitel4/" class="md-footer__link md-footer__link--next" aria-label="Next: Kapitel 4 – Benutzer, Rollen &amp; Rechte">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Kapitel 4 – Benutzer, Rollen & Rechte
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2026 Qualidy GmbH
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://de.linkedin.com/company/qualidy" target="_blank" rel="noopener" title="de.linkedin.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3M135.4 416H69V202.2h66.5V416zM102.2 96a38.5 38.5 0 1 1 0 77 38.5 38.5 0 1 1 0-77m282.1 320h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://qualidy.de" target="_blank" rel="noopener" title="qualidy.de" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M351.9 280H161c2.9 64.5 17.2 123.9 37.5 167.4 11.4 24.5 23.7 41.8 35.1 52.4 11.2 10.5 18.9 12.2 22.9 12.2s11.7-1.7 22.9-12.2c11.4-10.6 23.7-28 35.1-52.4 20.3-43.5 34.6-102.9 37.5-167.4zm-191-48h190.9c-2.8-64.5-17.1-123.9-37.4-167.4-11.4-24.4-23.7-41.8-35.1-52.4C268.1 1.7 260.4 0 256.4 0s-11.7 1.7-22.9 12.2c-11.4 10.6-23.7 28-35.1 52.4-20.3 43.5-34.6 102.9-37.5 167.4m-48 0c3.5-85.6 25.6-165.1 57.9-217.3C78.7 47.3 10.9 131.2 1.5 232zM1.5 280c9.4 100.8 77.2 184.7 169.3 217.3-32.3-52.2-54.4-131.7-57.9-217.3zm398.4 0c-3.5 85.6-25.6 165.1-57.9 217.3 92.1-32.7 159.9-116.5 169.3-217.3zm111.4-48C501.9 131.2 434.1 47.3 342 14.7c32.3 52.2 54.4 131.7 57.9 217.3z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.tracking", "navigation.path", "navigation.top", "navigation.footer", "navigation.prune", "toc.follow", "toc.integrate", "content.code.copy", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

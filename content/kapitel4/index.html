@@ -1,0 +1,1315 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../kapitel3/">
+      
+      
+        <link rel="next" href="../kapitel5/">
+      
+      
+      <link rel="icon" href="../../assets/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.18">
+    
+    
+      
+        <title>Kapitel 4 – Benutzer, Rollen & Rechte - M5.4a: CMS – Installation & Konfiguration (REDAXO)</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=DM+Sans:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"DM Sans";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/theme.css">
+    
+      <link rel="stylesheet" href="../../stylesheets/grid.css">
+    
+      <link rel="stylesheet" href="../../stylesheets/logo.css">
+    
+      <link rel="stylesheet" href="../../stylesheets/video_admonition.css">
+    
+      <link rel="stylesheet" href="../../stylesheets/mermaid.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent="orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#kapitel-4-benutzer-rollen-rechte" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="M5.4a: CMS – Installation &amp; Konfiguration (REDAXO)" class="md-header__button md-logo" aria-label="M5.4a: CMS – Installation & Konfiguration (REDAXO)" data-md-component="logo">
+      
+  <img src="../../assets/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            M5.4a: CMS – Installation & Konfiguration (REDAXO)
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Kapitel 4 – Benutzer, Rollen & Rechte
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Übersicht
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../kapitel1/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Kapitel 1 – Was ist ein CMS?
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../kapitel2/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Kapitel 2 – Installation & Einrichtung
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../kapitel3/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Kapitel 3 – Datenbank & Konfiguration
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="./" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Kapitel 4 – Benutzer, Rollen & Rechte
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../kapitel5/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Kapitel 5 – Frontend, Backend & Workflows
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../kapitel6/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Kapitel 6 – Content, Medien & Mehrsprachigkeit
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../kapitel7/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Kapitel 7 – Layout & Design
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../kapitel8/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Kapitel 8 – AddOns, Updates & Staging
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../kapitel9/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Kapitel 9 – Mailing, Newsletter & Datenschutz
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../kapitel10/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Kapitel 10 – Sicherheit & Notfallmaßnahmen
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="M5.4a: CMS – Installation &amp; Konfiguration (REDAXO)" class="md-nav__button md-logo" aria-label="M5.4a: CMS – Installation & Konfiguration (REDAXO)" data-md-component="logo">
+      
+  <img src="../../assets/logo.png" alt="logo">
+
+    </a>
+    M5.4a: CMS – Installation & Konfiguration (REDAXO)
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Übersicht
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../kapitel1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Kapitel 1 – Was ist ein CMS?
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../kapitel2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Kapitel 2 – Installation & Einrichtung
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../kapitel3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Kapitel 3 – Datenbank & Konfiguration
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Kapitel 4 – Benutzer, Rollen & Rechte
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Kapitel 4 – Benutzer, Rollen & Rechte
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#was-du-in-diesem-kapitel-lernst" class="md-nav__link">
+    <span class="md-ellipsis">
+      Was du in diesem Kapitel lernst
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#41-warum-benutzer-rollen-und-rechte-trennen" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.1 Warum Benutzer, Rollen und Rechte trennen?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#42-das-redaxo-rechtekonzept" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.2 Das REDAXO-Rechtekonzept
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#43-rollen-in-redaxo-anlegen" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.3 Rollen in REDAXO anlegen
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#44-redaktion-vs-administration" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.4 Redaktion vs. Administration
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#45-eine-rollenrichtlinie-formulieren" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.5 Eine Rollenrichtlinie formulieren
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#kurzubungen" class="md-nav__link">
+    <span class="md-ellipsis">
+      Kurzübungen
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#workshop" class="md-nav__link">
+    <span class="md-ellipsis">
+      Workshop
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../kapitel5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Kapitel 5 – Frontend, Backend & Workflows
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../kapitel6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Kapitel 6 – Content, Medien & Mehrsprachigkeit
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../kapitel7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Kapitel 7 – Layout & Design
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../kapitel8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Kapitel 8 – AddOns, Updates & Staging
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../kapitel9/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Kapitel 9 – Mailing, Newsletter & Datenschutz
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../kapitel10/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Kapitel 10 – Sicherheit & Notfallmaßnahmen
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="kapitel-4-benutzer-rollen-rechte">Kapitel 4 – Benutzer, Rollen &amp; Rechte<a class="headerlink" href="#kapitel-4-benutzer-rollen-rechte" title="Permanent link">&para;</a></h1>
+<div class="kurs-progress">
+  <div class="step done"></div>
+  <div class="step done"></div>
+  <div class="step done"></div>
+  <div class="step active"></div>
+  <div class="step"></div>
+  <div class="step"></div>
+  <div class="step"></div>
+  <div class="step"></div>
+  <div class="step"></div>
+  <div class="step"></div>
+</div>
+
+<div class="lernziele">
+<h3 id="was-du-in-diesem-kapitel-lernst">Was du in diesem Kapitel lernst<a class="headerlink" href="#was-du-in-diesem-kapitel-lernst" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Warum ein CMS <strong>Benutzer, Rollen und Rechte</strong> trennt und was das mit Sicherheit zu tun hat</li>
+<li>Wie REDAXO zwischen <strong>Administrator</strong> und <strong>rollenbasierten Benutzern</strong> unterscheidet</li>
+<li>Wie du in REDAXO <strong>Rollen</strong> anlegst und Rechte auf Struktur, Medienpool und Module vergibst</li>
+<li>Was der Unterschied zwischen <strong>Redaktion</strong> und <strong>Administration</strong> ist</li>
+<li>Wie du eine <strong>Rollenrichtlinie</strong> für die Content-Pflege formulierst und umsetzt</li>
+</ul>
+</div>
+<hr />
+<h2 id="41-warum-benutzer-rollen-und-rechte-trennen">4.1 Warum Benutzer, Rollen und Rechte trennen?<a class="headerlink" href="#41-warum-benutzer-rollen-und-rechte-trennen" title="Permanent link">&para;</a></h2>
+<p>In Kapitel 1 gab es das Beispiel „ohne CMS kann jeder mit FTP-Zugang alles überschreiben". Ein CMS löst das über ein <strong>Berechtigungssystem</strong>. Drei Begriffe musst du sauber unterscheiden:</p>
+<table>
+<thead>
+<tr>
+<th>Begriff</th>
+<th>Bedeutung</th>
+<th>Beispiel</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Benutzer</strong></td>
+<td>Eine konkrete Person mit Login</td>
+<td><code>anna.mueller</code></td>
+</tr>
+<tr>
+<td><strong>Rolle</strong></td>
+<td>Ein Bündel von Rechten, das man Benutzern zuweist</td>
+<td>„Redakteur", „Administrator"</td>
+</tr>
+<tr>
+<td><strong>Recht</strong></td>
+<td>Eine einzelne erlaubte Aktion</td>
+<td>„darf Artikel in Kategorie X bearbeiten"</td>
+</tr>
+</tbody>
+</table>
+<pre class="mermaid"><code>flowchart LR
+    U1([Benutzer Anna]) --&gt; R1([Rolle Redakteur])
+    U2([Benutzer Ben]) --&gt; R1
+    U3([Benutzer Chris]) --&gt; R2([Rolle Administrator])
+    R1 --&gt; P1[Rechte: Artikel bearbeiten,&lt;br/&gt;Medien hochladen]
+    R2 --&gt; P2[Rechte: alles inkl.&lt;br/&gt;Templates, Benutzer, AddOns]</code></pre>
+<div class="admonition info">
+<p class="admonition-title">Warum nicht jedem alles erlauben?</p>
+<p>Das <strong>Least-Privilege-Prinzip</strong> (aus Kapitel 3) gilt auch für Menschen: Wer nur Texte pflegt, braucht <strong>keinen</strong> Zugriff auf Templates, AddOns oder Benutzerverwaltung. Weniger Rechte bedeuten <strong>weniger Schaden</strong> durch Versehen <strong>und</strong> durch ein gekapertes Konto.</p>
+</div>
+<hr />
+<h2 id="42-das-redaxo-rechtekonzept">4.2 Das REDAXO-Rechtekonzept<a class="headerlink" href="#42-das-redaxo-rechtekonzept" title="Permanent link">&para;</a></h2>
+<p>REDAXO unterscheidet grundsätzlich zwei Arten von Backend-Benutzern:</p>
+<table>
+<thead>
+<tr>
+<th>Typ</th>
+<th>Beschreibung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Administrator</strong> (Admin-Flag)</td>
+<td>Hat <strong>uneingeschränkten</strong> Zugriff auf <strong>alles</strong> – Struktur, Templates, Module, AddOns, Benutzerverwaltung, Systemeinstellungen. Rollen werden ignoriert.</td>
+</tr>
+<tr>
+<td><strong>Benutzer mit Rolle(n)</strong></td>
+<td>Sieht und darf <strong>nur</strong>, was die zugewiesene(n) <strong>Rolle(n)</strong> erlauben.</td>
+</tr>
+</tbody>
+</table>
+<p>Eine <strong>Rolle</strong> in REDAXO bündelt Rechte in mehreren Bereichen:</p>
+<ul>
+<li><strong>Allgemeine Rechte / Module (Perm):</strong> Welche Backend-Menüpunkte/AddOns sichtbar sind (z. B. Struktur, Medienpool, MetaInfo).</li>
+<li><strong>Struktur-Rechte:</strong> Auf <strong>welche Kategorien</strong> (Seitenbaum) der Benutzer zugreifen darf.</li>
+<li><strong>Medienpool-Rechte:</strong> Auf welche <strong>Medienkategorien</strong> und ob er hochladen/löschen darf.</li>
+<li><strong>Sprach-Rechte (clang):</strong> In welchen Sprachversionen er arbeiten darf (siehe Kapitel 6).</li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Admin-Konten sparsam einsetzen</p>
+<p>Das <strong>Admin-Flag</strong> überschreibt alle Rollen und Einschränkungen. Es sollte nur <strong>wenigen, technisch verantwortlichen</strong> Personen gehören. Für die tägliche Redaktion nutzt man <strong>niemals</strong> ein Admin-Konto – das ist wie „immer als root arbeiten".</p>
+</div>
+<hr />
+<h2 id="43-rollen-in-redaxo-anlegen">4.3 Rollen in REDAXO anlegen<a class="headerlink" href="#43-rollen-in-redaxo-anlegen" title="Permanent link">&para;</a></h2>
+<p>Der Weg im Backend: <strong>System → Benutzer → Rollen</strong> (Reiter <em>Rollen</em>).</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Rolle anlegen</label><label for="__tabbed_1_2">Benutzer zuweisen</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<ol>
+<li>Neue Rolle erstellen, z. B. „Redaktion".</li>
+<li><strong>Allgemeine Rechte / Module</strong> auswählen: nur die AddOns, die die Rolle sehen soll (z. B. <code>structure</code>, <code>mediapool</code>).</li>
+<li><strong>Struktur:</strong> die Kategorien markieren, die diese Rolle bearbeiten darf (oder „alle").</li>
+<li><strong>Medienpool:</strong> erlaubte Medienkategorien + Upload-/Löschrechte.</li>
+<li><strong>Sprachen (clang):</strong> erlaubte Sprachversionen.</li>
+<li>Speichern.</li>
+</ol>
+</div>
+<div class="tabbed-block">
+<ol>
+<li><strong>System → Benutzer</strong> → Benutzer anlegen/bearbeiten.</li>
+<li>Benutzername, sicheres Passwort, ggf. E-Mail.</li>
+<li><strong>Rolle(n)</strong> zuweisen (mehrere möglich – die Rechte addieren sich).</li>
+<li>Das <strong>Admin-Flag</strong> bewusst <strong>nicht</strong> setzen.</li>
+<li>Speichern.</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Rechte kumulieren</p>
+<p>Ein Benutzer kann <strong>mehrere Rollen</strong> haben; die Rechte werden <strong>addiert</strong>. So kannst du kleine, klar benannte Rollen bauen (z. B. „Redaktion News", „Medien-Upload") und sie kombinieren, statt eine große unübersichtliche Rolle zu pflegen.</p>
+</div>
+<hr />
+<h2 id="44-redaktion-vs-administration">4.4 Redaktion vs. Administration<a class="headerlink" href="#44-redaktion-vs-administration" title="Permanent link">&para;</a></h2>
+<p>In der Praxis reichen meist wenige, klar geschnittene Rollen. Ein bewährtes Grundmodell:</p>
+<table>
+<thead>
+<tr>
+<th>Rolle</th>
+<th>Darf</th>
+<th>Darf nicht</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Redaktion</strong></td>
+<td>Artikel/Seiten in zugewiesenen Kategorien erstellen &amp; bearbeiten, Medien hochladen, veröffentlichen</td>
+<td>Templates/Module ändern, Benutzer verwalten, AddOns installieren</td>
+</tr>
+<tr>
+<td><strong>Chefredaktion / Freigabe</strong></td>
+<td>wie Redaktion + Inhalte anderer prüfen &amp; freigeben, Struktur anlegen</td>
+<td>System-/Sicherheitseinstellungen</td>
+</tr>
+<tr>
+<td><strong>Administration</strong></td>
+<td>Alles: Templates, Module, AddOns, Benutzer, System</td>
+<td>– (volle Verantwortung)</td>
+</tr>
+</tbody>
+</table>
+<pre class="mermaid"><code>flowchart TB
+    subgraph Redaktionsebene
+      R1([Redaktion]) --&gt; C1[Content pflegen]
+      R2([Chefredaktion]) --&gt; C2[Content freigeben]
+    end
+    subgraph Technische Ebene
+      A([Administration]) --&gt; T1[Templates/Module]
+      A --&gt; T2[AddOns/Updates]
+      A --&gt; T3[Benutzer/Rechte]
+    end</code></pre>
+<div class="admonition info">
+<p class="admonition-title">Trennung von Inhalt und Technik</p>
+<p>Diese Rollentrennung spiegelt die <strong>Trennung von Inhalt und Darstellung</strong> aus Kapitel 1 auf der <strong>Personen-Ebene</strong> wider: Redakteure kümmern sich um Inhalte, Administratoren um Technik/Design. Das reduziert Fehler und macht Verantwortlichkeiten klar.</p>
+</div>
+<hr />
+<h2 id="45-eine-rollenrichtlinie-formulieren">4.5 Eine Rollenrichtlinie formulieren<a class="headerlink" href="#45-eine-rollenrichtlinie-formulieren" title="Permanent link">&para;</a></h2>
+<p>Eine <strong>Rollenrichtlinie</strong> (Policy) hält schriftlich fest, <strong>welche Rollen</strong> es gibt, <strong>wer</strong> sie bekommt und <strong>was</strong> sie dürfen. Sie ist die Grundlage für nachvollziehbare, prüfbare Rechtevergabe.</p>
+<p><strong>Bestandteile einer Rollenrichtlinie:</strong></p>
+<ol>
+<li><strong>Rollenkatalog</strong> – Liste aller Rollen mit Kurzbeschreibung.</li>
+<li><strong>Rechtematrix</strong> – Tabelle: Rolle × Berechtigung (darf / darf nicht).</li>
+<li><strong>Vergabeprozess</strong> – Wer beantragt, wer genehmigt, wer legt an?</li>
+<li><strong>Onboarding/Offboarding</strong> – Konten anlegen bei Eintritt, <strong>deaktivieren/löschen</strong> bei Austritt.</li>
+<li><strong>Regelmäßige Prüfung</strong> – Rechte periodisch kontrollieren („brauchst du das noch?").</li>
+</ol>
+<p><strong>Beispiel-Rechtematrix (Ausschnitt):</strong></p>
+<table>
+<thead>
+<tr>
+<th>Berechtigung</th>
+<th style="text-align: center;">Redaktion</th>
+<th style="text-align: center;">Chefredaktion</th>
+<th style="text-align: center;">Administration</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Artikel bearbeiten (eigene Kategorie)</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td>Artikel veröffentlichen</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td>Struktur/Kategorien ändern</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td>Medien hochladen</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td>Templates/Module bearbeiten</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td>Benutzer/Rollen verwalten</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td>AddOns installieren/updaten</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">✅</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition warning">
+<p class="admonition-title">Offboarding nicht vergessen</p>
+<p>Verwaiste Konten ausgeschiedener Mitarbeiter sind ein <strong>Sicherheitsrisiko</strong>. Deaktiviere Konten sofort bei Austritt. In REDAXO kannst du Benutzer <strong>deaktivieren</strong> (Login gesperrt), ohne ihre Inhalte/Zuordnungen zu verlieren.</p>
+</div>
+<hr />
+<h2 id="kurzubungen">Kurzübungen<a class="headerlink" href="#kurzubungen" title="Permanent link">&para;</a></h2>
+<details class="question">
+<summary><span class="task-level task-level--1">Grundlagen</span> Benutzer, Rolle, Recht unterscheiden</summary>
+<p>Erkläre die Begriffe <strong>Benutzer</strong>, <strong>Rolle</strong> und <strong>Recht</strong> je in einem Satz und gib für jeden ein Beispiel.</p>
+<p>Beantworte außerdem: Was ist in REDAXO der Unterschied zwischen einem <strong>Administrator</strong> und einem Benutzer mit <strong>Rolle</strong>?</p>
+<details class="info">
+<summary>Tipp</summary>
+<p>Benutzer = Person, Rolle = Rechtebündel, Recht = einzelne erlaubte Aktion.</p>
+</details>
+<details class="success">
+<summary>Lösung</summary>
+<ul>
+<li><strong>Benutzer:</strong> eine konkrete Person mit Login, z. B. <code>anna.mueller</code>.</li>
+<li><strong>Rolle:</strong> ein Bündel von Rechten, das man Benutzern zuweist, z. B. „Redakteur".</li>
+<li><strong>Recht:</strong> eine einzelne erlaubte Aktion, z. B. „Artikel in Kategorie X bearbeiten".</li>
+</ul>
+<p>Ein <strong>Administrator</strong> hat uneingeschränkten Zugriff auf alles (Rollen werden ignoriert). Ein Benutzer mit <strong>Rolle</strong> darf nur, was seine Rolle(n) erlauben.</p>
+</details>
+</details>
+<details class="question">
+<summary><span class="task-level task-level--2">Fortgeschritten</span> Eine Redaktions-Rolle planen</summary>
+<p>Eine Redakteurin soll <strong>nur</strong> die News-Artikel pflegen und Bilder in die Medienkategorie „News" hochladen dürfen. Sie soll <strong>keine</strong> Templates, Benutzer oder AddOns anfassen.</p>
+<ol>
+<li>In welchen Bereichen legst du beim Anlegen der Rolle in REDAXO Rechte fest?</li>
+<li>Welche Rechte bekommt die Rolle, welche ausdrücklich <strong>nicht</strong>?</li>
+<li>Warum ist es falsch, ihr einfach das Admin-Flag zu geben?</li>
+</ol>
+<details class="info">
+<summary>Tipp</summary>
+<p>REDAXO-Rollen steuern: allgemeine Rechte/Module, Struktur (Kategorien), Medienpool, Sprachen.</p>
+</details>
+<details class="success">
+<summary>Lösung</summary>
+<ol>
+<li><strong>Allgemeine Rechte/Module</strong> (nur <code>structure</code>, <code>mediapool</code>), <strong>Struktur</strong> (nur News-Kategorie), <strong>Medienpool</strong> (nur Kategorie „News", Upload erlaubt), <strong>Sprachen</strong> (die benötigte).</li>
+<li>Bekommt: News-Artikel bearbeiten/veröffentlichen, Bilder in „News" hochladen. Nicht: Templates/Module, Benutzerverwaltung, AddOn-Installation, andere Kategorien.</li>
+<li>Das Admin-Flag überschreibt <strong>alle</strong> Einschränkungen → sie könnte alles ändern/zerstören. Das verstößt gegen Least Privilege.</li>
+</ol>
+</details>
+</details>
+<details class="question">
+<summary><span class="task-level task-level--3">Experte</span> Rechtematrix entwerfen</summary>
+<p>Entwirf eine <strong>Rechtematrix</strong> für drei Rollen (<strong>Redaktion</strong>, <strong>Chefredaktion</strong>, <strong>Administration</strong>) und mindestens <strong>sechs</strong> Berechtigungen (z. B. Artikel bearbeiten, veröffentlichen, Struktur ändern, Medien hochladen, Templates/Module bearbeiten, Benutzer verwalten, AddOns installieren).</p>
+<p>Markiere je Zelle mit ✅ / ❌ und erkläre in 2–3 Sätzen, welche <strong>Grundregel</strong> hinter der Verteilung steht.</p>
+<details class="info">
+<summary>Tipp</summary>
+<p>Redaktion = nur Inhalte. Chefredaktion = Inhalte + Freigabe/Struktur. Administration = Technik/System.</p>
+</details>
+<details class="success">
+<summary>Lösung</summary>
+<p>Mögliche Lösung:</p>
+<table>
+<thead>
+<tr>
+<th>Berechtigung</th>
+<th style="text-align: center;">Redaktion</th>
+<th style="text-align: center;">Chefredaktion</th>
+<th style="text-align: center;">Administration</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Artikel bearbeiten</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td>Artikel veröffentlichen</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td>Struktur ändern</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td>Medien hochladen</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td>Templates/Module bearbeiten</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td>Benutzer verwalten</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td>AddOns installieren</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">✅</td>
+</tr>
+</tbody>
+</table>
+<p>Grundregel: <strong>Least Privilege</strong> – jede Rolle erhält nur, was sie für ihre Aufgabe braucht. Technik/System bleibt der Administration vorbehalten; Redaktion arbeitet ausschließlich an Inhalten.</p>
+</details>
+</details>
+<hr />
+<h2 id="workshop">Workshop<a class="headerlink" href="#workshop" title="Permanent link">&para;</a></h2>
+<details class="question">
+<summary><span class="task-level task-level--4">Workshop</span> Rollenrichtlinie erstellen und umsetzen</summary>
+<p><strong>Szenario:</strong> Für die Website eines Vereins arbeiten drei Personengruppen: <strong>Redakteure</strong> (pflegen News &amp; Termine), eine <strong>Chefredakteurin</strong> (gibt frei, verwaltet die Struktur) und ein <strong>Administrator</strong> (Technik). Bisher haben alle ein Admin-Konto – das soll sich ändern.</p>
+<hr />
+<p><strong>Aufgabe (konzeptionell + praktisch):</strong></p>
+<ol>
+<li><strong>Rollenkatalog:</strong> Beschreibe die drei Rollen mit je 1–2 Sätzen.</li>
+<li><strong>Rechtematrix:</strong> Erstelle eine Matrix (Rollen × mind. 7 Berechtigungen).</li>
+<li><strong>Prozess:</strong> Beschreibe kurz den Vergabeprozess sowie <strong>Onboarding/Offboarding</strong> (was passiert bei Ein-/Austritt?).</li>
+<li><strong>Umsetzung in REDAXO:</strong> Lege die Rollen im Backend an, erstelle je einen Testbenutzer und weise die Rollen zu (Admin-Flag nur für die Administration). Prüfe durch Test-Login, dass ein Redakteur wirklich keine Templates sieht.</li>
+</ol>
+<p><strong>Deliverable:</strong> Rollenrichtlinie (1–2 Seiten) + in REDAXO angelegte Rollen und Testbenutzer.</p>
+<details class="info">
+<summary>Tipp</summary>
+<p>Teilt die Arbeit: eine Person Katalog, eine Matrix, eine Prozess, eine setzt in REDAXO um. Denkt an das Offboarding – verwaiste Konten sind ein Sicherheitsrisiko.</p>
+</details>
+<details class="success">
+<summary>Lösung</summary>
+<p>Bewertungskriterien:</p>
+<ul>
+<li>Rollenkatalog klar und aufgabenbezogen; keine „Alles-Rolle" außer Administration.</li>
+<li>Rechtematrix vollständig, konsistent mit dem Katalog, Least Privilege erkennbar.</li>
+<li>Prozess beschreibt Beantragung/Genehmigung und <strong>Offboarding</strong> (Konten bei Austritt deaktivieren).</li>
+<li>In REDAXO: Rollen mit passenden Struktur-/Medien-/Modulrechten angelegt, Testbenutzer zugewiesen, Admin-Flag nur bei Administration.</li>
+<li>Test-Login belegt die Einschränkung (Redakteur sieht keine Templates/Benutzerverwaltung).</li>
+</ul>
+</details>
+</details>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../kapitel3/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Kapitel 3 – Datenbank &amp; Konfiguration">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Kapitel 3 – Datenbank & Konfiguration
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../kapitel5/" class="md-footer__link md-footer__link--next" aria-label="Next: Kapitel 5 – Frontend, Backend &amp; Workflows">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Kapitel 5 – Frontend, Backend & Workflows
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2026 Qualidy GmbH
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://de.linkedin.com/company/qualidy" target="_blank" rel="noopener" title="de.linkedin.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3M135.4 416H69V202.2h66.5V416zM102.2 96a38.5 38.5 0 1 1 0 77 38.5 38.5 0 1 1 0-77m282.1 320h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://qualidy.de" target="_blank" rel="noopener" title="qualidy.de" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M351.9 280H161c2.9 64.5 17.2 123.9 37.5 167.4 11.4 24.5 23.7 41.8 35.1 52.4 11.2 10.5 18.9 12.2 22.9 12.2s11.7-1.7 22.9-12.2c11.4-10.6 23.7-28 35.1-52.4 20.3-43.5 34.6-102.9 37.5-167.4zm-191-48h190.9c-2.8-64.5-17.1-123.9-37.4-167.4-11.4-24.4-23.7-41.8-35.1-52.4C268.1 1.7 260.4 0 256.4 0s-11.7 1.7-22.9 12.2c-11.4 10.6-23.7 28-35.1 52.4-20.3 43.5-34.6 102.9-37.5 167.4m-48 0c3.5-85.6 25.6-165.1 57.9-217.3C78.7 47.3 10.9 131.2 1.5 232zM1.5 280c9.4 100.8 77.2 184.7 169.3 217.3-32.3-52.2-54.4-131.7-57.9-217.3zm398.4 0c-3.5 85.6-25.6 165.1-57.9 217.3 92.1-32.7 159.9-116.5 169.3-217.3zm111.4-48C501.9 131.2 434.1 47.3 342 14.7c32.3 52.2 54.4 131.7 57.9 217.3z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.tracking", "navigation.path", "navigation.top", "navigation.footer", "navigation.prune", "toc.follow", "toc.integrate", "content.code.copy", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

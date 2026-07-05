@@ -1,0 +1,1340 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../kapitel1/">
+      
+      
+        <link rel="next" href="../kapitel3/">
+      
+      
+      <link rel="icon" href="../../assets/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.18">
+    
+    
+      
+        <title>Kapitel 2 – Installation & Einrichtung - M5.4a: CMS – Installation & Konfiguration (REDAXO)</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=DM+Sans:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"DM Sans";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/theme.css">
+    
+      <link rel="stylesheet" href="../../stylesheets/grid.css">
+    
+      <link rel="stylesheet" href="../../stylesheets/logo.css">
+    
+      <link rel="stylesheet" href="../../stylesheets/video_admonition.css">
+    
+      <link rel="stylesheet" href="../../stylesheets/mermaid.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent="orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#kapitel-2-installation-einrichtung" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="M5.4a: CMS – Installation &amp; Konfiguration (REDAXO)" class="md-header__button md-logo" aria-label="M5.4a: CMS – Installation & Konfiguration (REDAXO)" data-md-component="logo">
+      
+  <img src="../../assets/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            M5.4a: CMS – Installation & Konfiguration (REDAXO)
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Kapitel 2 – Installation & Einrichtung
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Übersicht
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../kapitel1/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Kapitel 1 – Was ist ein CMS?
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="./" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Kapitel 2 – Installation & Einrichtung
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../kapitel3/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Kapitel 3 – Datenbank & Konfiguration
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../kapitel4/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Kapitel 4 – Benutzer, Rollen & Rechte
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../kapitel5/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Kapitel 5 – Frontend, Backend & Workflows
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../kapitel6/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Kapitel 6 – Content, Medien & Mehrsprachigkeit
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../kapitel7/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Kapitel 7 – Layout & Design
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../kapitel8/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Kapitel 8 – AddOns, Updates & Staging
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../kapitel9/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Kapitel 9 – Mailing, Newsletter & Datenschutz
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../kapitel10/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Kapitel 10 – Sicherheit & Notfallmaßnahmen
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="M5.4a: CMS – Installation &amp; Konfiguration (REDAXO)" class="md-nav__button md-logo" aria-label="M5.4a: CMS – Installation & Konfiguration (REDAXO)" data-md-component="logo">
+      
+  <img src="../../assets/logo.png" alt="logo">
+
+    </a>
+    M5.4a: CMS – Installation & Konfiguration (REDAXO)
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Übersicht
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../kapitel1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Kapitel 1 – Was ist ein CMS?
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Kapitel 2 – Installation & Einrichtung
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Kapitel 2 – Installation & Einrichtung
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#was-du-in-diesem-kapitel-lernst" class="md-nav__link">
+    <span class="md-ellipsis">
+      Was du in diesem Kapitel lernst
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#21-der-webserver-stack-amp" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1 Der Webserver-Stack (AMP)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#22-systemvoraussetzungen-von-redaxo-5" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2 Systemvoraussetzungen von REDAXO 5
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#23-variante-a-installation-unter-windows-mit-xampp" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3 Variante A – Installation unter Windows mit XAMPP
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#24-variante-b-installation-in-einer-linux-vm-lamplemp" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.4 Variante B – Installation in einer Linux-VM (LAMP/LEMP)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#25-dateirechte-verstehen" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.5 Dateirechte verstehen
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#26-die-redaxo-setup-routine" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.6 Die REDAXO-Setup-Routine
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#27-installation-nachvollziehbar-dokumentieren" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.7 Installation nachvollziehbar dokumentieren
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#kurzubungen" class="md-nav__link">
+    <span class="md-ellipsis">
+      Kurzübungen
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#workshop" class="md-nav__link">
+    <span class="md-ellipsis">
+      Workshop
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../kapitel3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Kapitel 3 – Datenbank & Konfiguration
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../kapitel4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Kapitel 4 – Benutzer, Rollen & Rechte
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../kapitel5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Kapitel 5 – Frontend, Backend & Workflows
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../kapitel6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Kapitel 6 – Content, Medien & Mehrsprachigkeit
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../kapitel7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Kapitel 7 – Layout & Design
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../kapitel8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Kapitel 8 – AddOns, Updates & Staging
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../kapitel9/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Kapitel 9 – Mailing, Newsletter & Datenschutz
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../kapitel10/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Kapitel 10 – Sicherheit & Notfallmaßnahmen
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="kapitel-2-installation-einrichtung">Kapitel 2 – Installation &amp; Einrichtung<a class="headerlink" href="#kapitel-2-installation-einrichtung" title="Permanent link">&para;</a></h1>
+<div class="kurs-progress">
+  <div class="step done"></div>
+  <div class="step active"></div>
+  <div class="step"></div>
+  <div class="step"></div>
+  <div class="step"></div>
+  <div class="step"></div>
+  <div class="step"></div>
+  <div class="step"></div>
+  <div class="step"></div>
+  <div class="step"></div>
+</div>
+
+<div class="lernziele">
+<h3 id="was-du-in-diesem-kapitel-lernst">Was du in diesem Kapitel lernst<a class="headerlink" href="#was-du-in-diesem-kapitel-lernst" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Aus welchen Teilen ein <strong>Webserver-Stack</strong> besteht (AMP: Apache/MySQL/PHP) und wie <strong>XAMPP</strong> und <strong>LAMP/LEMP</strong> sich unterscheiden</li>
+<li>Wie du eine lokale Entwicklungsumgebung unter <strong>Windows (XAMPP)</strong> oder in einer <strong>Linux-VM (LAMP/LEMP)</strong> aufsetzt</li>
+<li>Welche <strong>Systemvoraussetzungen</strong> REDAXO 5 hat und wie du sie prüfst</li>
+<li>Wie <strong>Dateirechte</strong> funktionieren und warum sie für Installation und Sicherheit wichtig sind</li>
+<li>Wie die <strong>REDAXO-Setup-Routine</strong> Schritt für Schritt abläuft</li>
+<li>Wie du <strong>Installationsschritte nachvollziehbar dokumentierst</strong></li>
+</ul>
+</div>
+<hr />
+<h2 id="21-der-webserver-stack-amp">2.1 Der Webserver-Stack (AMP)<a class="headerlink" href="#21-der-webserver-stack-amp" title="Permanent link">&para;</a></h2>
+<p>Ein CMS wie REDAXO ist ein <strong>PHP-Programm</strong>, das Inhalte aus einer <strong>Datenbank</strong> liest. Damit es läuft, braucht es einen kompletten Software-Stack:</p>
+<table>
+<thead>
+<tr>
+<th>Buchstabe</th>
+<th>Komponente</th>
+<th>Aufgabe</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>A</strong></td>
+<td>Webserver (<strong>A</strong>pache oder <strong>N</strong>ginx)</td>
+<td>Nimmt Anfragen aus dem Browser entgegen, liefert Antworten</td>
+</tr>
+<tr>
+<td><strong>M</strong></td>
+<td>Datenbank (<strong>M</strong>ySQL oder <strong>M</strong>ariaDB)</td>
+<td>Speichert Inhalte, Struktur, Benutzer</td>
+</tr>
+<tr>
+<td><strong>P</strong></td>
+<td><strong>P</strong>HP</td>
+<td>Führt den CMS-Code aus, erzeugt das HTML</td>
+</tr>
+</tbody>
+</table>
+<p>Je nach Betriebssystem und Webserver spricht man von:</p>
+<ul>
+<li><strong>XAMPP</strong> – ein fertiges Paket (Apache + MariaDB + PHP + Perl) für <strong>Windows/macOS/Linux</strong>, ideal zum <strong>lokalen Lernen</strong>.</li>
+<li><strong>LAMP</strong> – <strong>L</strong>inux + <strong>A</strong>pache + <strong>M</strong>ySQL/MariaDB + <strong>P</strong>HP (klassischer Server-Stack).</li>
+<li><strong>LEMP</strong> – wie LAMP, aber mit <strong>Nginx</strong> (»Engine-X«, daher das <strong>E</strong>) statt Apache.</li>
+</ul>
+<pre class="mermaid"><code>flowchart LR
+    U([Browser]) --&gt;|HTTP-Anfrage| WS[Webserver&lt;br/&gt;Apache / Nginx]
+    WS --&gt; PHP[PHP-Interpreter&lt;br/&gt;REDAXO-Code]
+    PHP &lt;--&gt; DB[(MySQL / MariaDB)]
+    PHP --&gt;|fertiges HTML| WS
+    WS --&gt;|HTTP-Antwort| U</code></pre>
+<div class="admonition info">
+<p class="admonition-title">Lokal entwickeln, später live schalten</p>
+<p>Wir installieren zuerst <strong>lokal</strong> (XAMPP oder VM). Das ist schnell, kostenlos und man kann gefahrlos experimentieren. Der Umzug auf einen echten Webserver (Live-Server) folgt demselben Prinzip – nur mit zusätzlicher Absicherung (Kapitel 10).</p>
+</div>
+<hr />
+<h2 id="22-systemvoraussetzungen-von-redaxo-5">2.2 Systemvoraussetzungen von REDAXO 5<a class="headerlink" href="#22-systemvoraussetzungen-von-redaxo-5" title="Permanent link">&para;</a></h2>
+<p>Vor der Installation prüfst du, ob dein System die Anforderungen erfüllt. Für die <strong>aktuelle REDAXO-5-Version</strong> gilt:</p>
+<table>
+<thead>
+<tr>
+<th>Anforderung</th>
+<th>Wert</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>PHP</td>
+<td><strong>8.3+</strong> (aktuelle Version); mind. 8.1 für ältere 5.x-Releases</td>
+</tr>
+<tr>
+<td>Datenbank</td>
+<td><strong>MySQL ab 5.6</strong> oder <strong>MariaDB ab 10.1</strong></td>
+</tr>
+<tr>
+<td>Empfohlen</td>
+<td>MySQL ab 5.7.7 / MariaDB ab 10.2 (utf8mb4 – volle Unicode-/Emoji-Unterstützung)</td>
+</tr>
+<tr>
+<td>PHP-Extensions</td>
+<td><code>ctype</code>, <code>fileinfo</code>, <code>gd</code>, <code>iconv</code>, <code>intl</code>, <code>mbstring</code>, <code>pdo</code>, <code>pdo_mysql</code>, <code>pcre</code>, <code>session</code>, <code>tokenizer</code></td>
+</tr>
+<tr>
+<td>Empfohlen</td>
+<td>ImageMagick (als PHP-Extension oder per CLI) für bessere Bildbearbeitung</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition tip">
+<p class="admonition-title">Voraussetzungen prüfen</p>
+<ul>
+<li>PHP-Version im Terminal: <code>php -v</code></li>
+<li>Aktive Extensions: <code>php -m</code></li>
+<li>In XAMPP zeigt das <strong>phpinfo</strong> (über das XAMPP-Dashboard) alle geladenen Extensions.
+Die <strong>REDAXO-Setup-Routine</strong> führt zusätzlich einen automatischen <strong>Systemcheck</strong> durch und warnt, wenn etwas fehlt.</li>
+</ul>
+</div>
+<hr />
+<h2 id="23-variante-a-installation-unter-windows-mit-xampp">2.3 Variante A – Installation unter Windows mit XAMPP<a class="headerlink" href="#23-variante-a-installation-unter-windows-mit-xampp" title="Permanent link">&para;</a></h2>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">1. XAMPP installieren</label><label for="__tabbed_1_2">2. Datenbank anlegen</label><label for="__tabbed_1_3">3. REDAXO ablegen</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<ol>
+<li>XAMPP von der offiziellen Seite herunterladen (Version mit <strong>PHP 8.x</strong>).</li>
+<li>Installieren (Standardpfad <code>C:\xampp</code>).</li>
+<li><strong>XAMPP Control Panel</strong> öffnen und <strong>Apache</strong> sowie <strong>MySQL</strong> starten.</li>
+<li>Test: Im Browser <code>http://localhost/</code> aufrufen – die XAMPP-Startseite erscheint.</li>
+</ol>
+</div>
+<div class="tabbed-block">
+<ol>
+<li>Im Control Panel bei MySQL auf <strong>Admin</strong> klicken → <strong>phpMyAdmin</strong> öffnet sich.</li>
+<li>Reiter <strong>Datenbanken</strong> → neue <strong>leere</strong> Datenbank anlegen, z. B. <code>redaxo</code>.</li>
+<li>Kollation <strong><code>utf8mb4_general_ci</code></strong> wählen.</li>
+<li>Zugangsdaten notieren (Host <code>127.0.0.1</code>, Benutzer, Passwort, DB-Name) – die Detailkonfiguration (eigener DB-Benutzer mit Minimalrechten) machen wir in Kapitel 3.</li>
+</ol>
+</div>
+<div class="tabbed-block">
+<ol>
+<li>Aktuelle REDAXO-Version von <code>redaxo.org/download/core/</code> herunterladen.</li>
+<li>ZIP entpacken und den Inhalt in einen neuen Ordner unter dem Webroot legen, z. B. <code>C:\xampp\htdocs\meinprojekt\</code>.</li>
+<li>Setup im Browser starten: <code>http://localhost/meinprojekt/redaxo/</code>.</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="admonition info">
+<p class="admonition-title">Alternative: REDAXO-Loader</p>
+<p>Statt das ZIP manuell herunterzuladen, kannst du die Datei <code>redaxo-loader.php</code> in den Projektordner legen und im Browser aufrufen – sie lädt den Core automatisch. Im Terminal: <code>curl -JLO https://redaxo.org/loader</code>.</p>
+</div>
+<hr />
+<h2 id="24-variante-b-installation-in-einer-linux-vm-lamplemp">2.4 Variante B – Installation in einer Linux-VM (LAMP/LEMP)<a class="headerlink" href="#24-variante-b-installation-in-einer-linux-vm-lamplemp" title="Permanent link">&para;</a></h2>
+<p>Diese Variante bildet einen <strong>echten Server</strong> realistischer ab. Du richtest z. B. in <strong>VirtualBox</strong> eine VM mit einer Linux-Distribution (z. B. Ubuntu Server) ein.</p>
+<p><strong>LAMP-Stack (Apache) installieren – Beispiel Ubuntu/Debian:</strong></p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code>sudo<span class="w"> </span>apt<span class="w"> </span>update
+sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>apache2<span class="w"> </span>mariadb-server<span class="w"> </span>php<span class="w"> </span>php-mysql<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>php-gd<span class="w"> </span>php-intl<span class="w"> </span>php-mbstring<span class="w"> </span>php-curl<span class="w"> </span>php-zip<span class="w"> </span>php-xml<span class="w"> </span>unzip
+</code></pre></div></td></tr></table></div>
+<p><strong>Datenbank absichern und anlegen:</strong></p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>sudo<span class="w"> </span>mysql_secure_installation
+sudo<span class="w"> </span>mysql<span class="w"> </span>-u<span class="w"> </span>root<span class="w"> </span>-p
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">CREATE</span><span class="w"> </span><span class="k">DATABASE</span><span class="w"> </span><span class="n">redaxo</span><span class="w"> </span><span class="nb">CHARACTER</span><span class="w"> </span><span class="k">SET</span><span class="w"> </span><span class="n">utf8mb4</span><span class="w"> </span><span class="k">COLLATE</span><span class="w"> </span><span class="n">utf8mb4_general_ci</span><span class="p">;</span>
+</code></pre></div></td></tr></table></div>
+<p><strong>REDAXO in das Webverzeichnis legen:</strong></p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>/var/www/html
+sudo<span class="w"> </span>curl<span class="w"> </span>-JLO<span class="w"> </span>https://redaxo.org/loader
+</code></pre></div></td></tr></table></div>
+<div class="admonition info">
+<p class="admonition-title">LEMP statt LAMP</p>
+<p>Für <strong>Nginx</strong> installierst du <code>nginx</code> und <code>php-fpm</code> statt <code>apache2</code> und musst PHP-Anfragen per FastCGI an <code>php-fpm</code> weiterleiten sowie eine Rewrite-Regel für „schöne URLs" setzen. Das Prinzip (Webserver → PHP → DB) bleibt gleich; nur die Konfigurationsdateien unterscheiden sich.</p>
+</div>
+<p>Anschließend rufst du das Setup über die IP-Adresse der VM auf: <code>http://&lt;VM-IP&gt;/redaxo/</code>.</p>
+<hr />
+<h2 id="25-dateirechte-verstehen">2.5 Dateirechte verstehen<a class="headerlink" href="#25-dateirechte-verstehen" title="Permanent link">&para;</a></h2>
+<p>Auf <strong>Linux</strong> hat jede Datei einen <strong>Eigentümer</strong>, eine <strong>Gruppe</strong> und <strong>Rechte</strong> für drei Klassen (Eigentümer / Gruppe / Andere), jeweils <strong>r</strong>ead, <strong>w</strong>rite, e<strong>x</strong>ecute:</p>
+<table>
+<thead>
+<tr>
+<th>Notation</th>
+<th>Bedeutung</th>
+<th>Typisch für</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>644</code></td>
+<td>Eigentümer lesen/schreiben, Rest nur lesen</td>
+<td>Dateien</td>
+</tr>
+<tr>
+<td><code>755</code></td>
+<td>Eigentümer alles, Rest lesen/ausführen</td>
+<td>Ordner &amp; Skripte</td>
+</tr>
+<tr>
+<td><code>775</code> / <code>664</code></td>
+<td>zusätzlich Schreibrecht für die Gruppe</td>
+<td>Ordner, in die der Webserver schreibt</td>
+</tr>
+</tbody>
+</table>
+<p>Der Webserver läuft unter einem eigenen Benutzer (bei Apache/Ubuntu meist <code>www-data</code>). Verzeichnisse, in die REDAXO <strong>schreiben</strong> muss – vor allem <code>redaxo/data/</code> und <code>redaxo/cache/</code> – müssen für diesen Benutzer beschreibbar sein.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># Eigentümer auf den Webserver-Benutzer setzen</span>
+sudo<span class="w"> </span>chown<span class="w"> </span>-R<span class="w"> </span>www-data:www-data<span class="w"> </span>/var/www/html
+<span class="c1"># Ordner 755, Dateien 644 als sichere Standardbasis</span>
+sudo<span class="w"> </span>find<span class="w"> </span>/var/www/html<span class="w"> </span>-type<span class="w"> </span>d<span class="w"> </span>-exec<span class="w"> </span>chmod<span class="w"> </span><span class="m">755</span><span class="w"> </span><span class="o">{}</span><span class="w"> </span><span class="se">\;</span>
+sudo<span class="w"> </span>find<span class="w"> </span>/var/www/html<span class="w"> </span>-type<span class="w"> </span>f<span class="w"> </span>-exec<span class="w"> </span>chmod<span class="w"> </span><span class="m">644</span><span class="w"> </span><span class="o">{}</span><span class="w"> </span><span class="se">\;</span>
+</code></pre></div></td></tr></table></div>
+<div class="admonition warning">
+<p class="admonition-title">Rechte-Balance: so eng wie möglich</p>
+<p>Zu <strong>enge</strong> Rechte → REDAXO kann Cache/Konfiguration nicht schreiben, das Setup schlägt fehl. Zu <strong>weite</strong> Rechte (z. B. <code>777</code>) → jeder Prozess auf dem Server darf schreiben, ein <strong>Sicherheitsrisiko</strong>. Ziel: <strong>so viel wie nötig, so wenig wie möglich</strong>. Unter <strong>XAMPP/Windows</strong> spielt das lokal meist keine Rolle – auf dem <strong>Live-Server</strong> ist es aber essenziell (siehe Kapitel 10).</p>
+</div>
+<hr />
+<h2 id="26-die-redaxo-setup-routine">2.6 Die REDAXO-Setup-Routine<a class="headerlink" href="#26-die-redaxo-setup-routine" title="Permanent link">&para;</a></h2>
+<p>Beim ersten Aufruf von <code>.../redaxo/</code> startet der <strong>7-Schritte-Installer</strong>:</p>
+<pre class="mermaid"><code>flowchart TD
+    A[1. Sprache &amp; Perspektive] --&gt; B[2. Systemcheck]
+    B --&gt; C[3. Datenbank-Zugangsdaten]
+    C --&gt; D[4. Datenbank einrichten/aktualisieren]
+    D --&gt; E[5. utf8-Option wählen]
+    E --&gt; F[6. Admin-Konto anlegen]
+    F --&gt; G[7. Fertigstellen &amp; einloggen]</code></pre>
+<ol>
+<li><strong>Sprache</strong> wählen (Deutsch/Englisch).</li>
+<li><strong>Systemcheck</strong>: Der Installer prüft PHP-Version, Extensions und Schreibrechte. Warnungen jetzt beheben!</li>
+<li><strong>Datenbank-Zugangsdaten</strong> eingeben: Server (<code>127.0.0.1</code>), Datenbankname (<code>redaxo</code>), Benutzer, Passwort.</li>
+<li><strong>Datenbank einrichten</strong>: Option „Datenbank neu anlegen" wählen (leere DB).</li>
+<li><strong>Zeichensatz</strong> wählen (utf8mb4, wenn unterstützt).</li>
+<li><strong>Administrator-Konto</strong> anlegen: Benutzername + <strong>sicheres Passwort</strong> (mind. 8 Zeichen, Groß-/Kleinbuchstaben, Zahlen, Sonderzeichen).</li>
+<li><strong>Fertigstellen</strong> – anschließend am Backend einloggen.</li>
+</ol>
+<div class="admonition tip">
+<p class="admonition-title">Basisdemo als Lern-Startpunkt</p>
+<p>REDAXO bringt über das AddOn <strong><code>Installer</code></strong> Demo-Websites mit. Die <strong><code>demo_base</code> (Basisdemo)</strong> ist vollständig übersetzt und zeigt Templates, Module und Struktur an einem echten Beispiel – ideal zum Nachvollziehen, wie eine REDAXO-Seite aufgebaut ist.</p>
+</div>
+<hr />
+<h2 id="27-installation-nachvollziehbar-dokumentieren">2.7 Installation nachvollziehbar dokumentieren<a class="headerlink" href="#27-installation-nachvollziehbar-dokumentieren" title="Permanent link">&para;</a></h2>
+<p>Zu einer professionellen Installation gehört die <strong>Dokumentation</strong>. Sie ermöglicht es, die Installation zu wiederholen, Fehler zu finden und im Team zu arbeiten. Eine gute Installations-Doku enthält mindestens:</p>
+<table>
+<thead>
+<tr>
+<th>Abschnitt</th>
+<th>Inhalt</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Umgebung</td>
+<td>Betriebssystem, Stack (XAMPP/LAMP/LEMP), Versionen (PHP, DB, REDAXO)</td>
+</tr>
+<tr>
+<td>Voraussetzungen</td>
+<td>Geprüfte Extensions, Ergebnis des Systemchecks</td>
+</tr>
+<tr>
+<td>Schritte</td>
+<td>Nummerierte Abfolge inkl. ausgeführter Befehle</td>
+</tr>
+<tr>
+<td>Datenbank</td>
+<td>DB-Name, Benutzer, Host (Passwörter <strong>nicht</strong> im Klartext ablegen!)</td>
+</tr>
+<tr>
+<td>Dateirechte</td>
+<td>Gesetzte Eigentümer/Rechte für schreibbare Ordner</td>
+</tr>
+<tr>
+<td>Zugänge</td>
+<td>Backend-URL, Admin-Benutzername (Passwort separat/sicher)</td>
+</tr>
+<tr>
+<td>Besonderheiten</td>
+<td>Abweichungen, aufgetretene Fehler und deren Lösung</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition warning">
+<p class="admonition-title">Keine Passwörter im Klartext dokumentieren</p>
+<p>Dokumentiere <strong>Benutzernamen</strong> und <strong>welche</strong> Zugangsdaten existieren, aber lege <strong>Passwörter</strong> in einem <strong>Passwort-Manager</strong> ab – nicht in der Doku oder im Projektordner. Mehr zu Zugangs-Hygiene in Kapitel 10.</p>
+</div>
+<hr />
+<h2 id="kurzubungen">Kurzübungen<a class="headerlink" href="#kurzubungen" title="Permanent link">&para;</a></h2>
+<details class="question">
+<summary><span class="task-level task-level--1">Grundlagen</span> Den Webserver-Stack erklären</summary>
+<p>Erkläre die Abkürzungen <strong>XAMPP</strong>, <strong>LAMP</strong> und <strong>LEMP</strong> und benenne, wofür jeder Buchstabe des AMP-Teils steht.</p>
+<p>Beantworte außerdem: Welche <strong>drei Kernkomponenten</strong> braucht REDAXO, um zu laufen?</p>
+<details class="info">
+<summary>Tipp</summary>
+<p>A = Webserver, M = Datenbank, P = PHP. Der Unterschied LAMP/LEMP liegt im Webserver.</p>
+</details>
+<details class="success">
+<summary>Lösung</summary>
+<ul>
+<li><strong>XAMPP:</strong> Fertiges Paket (Apache, MariaDB, PHP, Perl) für Windows/macOS/Linux – ideal zum lokalen Lernen.</li>
+<li><strong>LAMP:</strong> Linux + Apache + MySQL/MariaDB + PHP.</li>
+<li><strong>LEMP:</strong> Linux + Nginx („Engine-X" → E) + MySQL/MariaDB + PHP.</li>
+<li><strong>A</strong> = Webserver (Apache/Nginx), <strong>M</strong> = Datenbank (MySQL/MariaDB), <strong>P</strong> = PHP.</li>
+</ul>
+<p>REDAXO braucht: <strong>Webserver + Datenbank (MySQL/MariaDB) + PHP</strong>.</p>
+</details>
+</details>
+<details class="question">
+<summary><span class="task-level task-level--2">Fortgeschritten</span> Systemvoraussetzungen prüfen</summary>
+<p>Du sollst REDAXO 5 auf einem Server installieren. Bevor du startest, willst du die <strong>Systemvoraussetzungen</strong> prüfen.</p>
+<ol>
+<li>Welche <strong>PHP-</strong> und <strong>Datenbank-Versionen</strong> setzt die aktuelle REDAXO-5-Version voraus?</li>
+<li>Mit welchen <strong>Befehlen</strong> prüfst du auf der Kommandozeile die PHP-Version und die geladenen Extensions?</li>
+<li>Nenne drei der von REDAXO benötigten PHP-Extensions.</li>
+</ol>
+<details class="info">
+<summary>Tipp</summary>
+<p><code>php -v</code> und <code>php -m</code>. Die Setup-Routine macht zusätzlich einen automatischen Systemcheck.</p>
+</details>
+<details class="success">
+<summary>Lösung</summary>
+<ol>
+<li><strong>PHP 8.3+</strong> (aktuelle Version; mind. 8.1 für ältere 5.x-Releases), <strong>MySQL ab 5.6</strong> oder <strong>MariaDB ab 10.1</strong> (empfohlen 5.7.7 / 10.2 für utf8mb4).</li>
+<li><code>php -v</code> (Version), <code>php -m</code> (geladene Module/Extensions); im XAMPP-Dashboard auch über <code>phpinfo</code>.</li>
+<li>Z. B. <code>gd</code>, <code>intl</code>, <code>mbstring</code>, <code>pdo_mysql</code>, <code>fileinfo</code> (weitere: <code>ctype</code>, <code>iconv</code>, <code>pcre</code>, <code>session</code>, <code>tokenizer</code>).</li>
+</ol>
+</details>
+</details>
+<details class="question">
+<summary><span class="task-level task-level--3">Experte</span> Dateirechte richtig setzen</summary>
+<p>Nach der Installation auf einem Linux-Server (Apache, Benutzer <code>www-data</code>) meldet REDAXO, dass es den <strong>Cache nicht schreiben</strong> kann. Gleichzeitig hat ein Kollege „zur Sicherheit" alle Ordner auf <code>777</code> gesetzt.</p>
+<ol>
+<li>Erkläre, warum <code>777</code> <strong>keine</strong> gute Lösung ist.</li>
+<li>Welche Rechte (Zahlenwerte) sind für <strong>Ordner</strong> und <strong>Dateien</strong> eine sinnvolle sichere Basis?</li>
+<li>Gib die Befehle an, um Eigentümer auf <code>www-data</code> zu setzen und Ordner auf 755 / Dateien auf 644 zu bringen.</li>
+</ol>
+<details class="info">
+<summary>Tipp</summary>
+<p><code>777</code> = jeder darf schreiben = Sicherheitsrisiko. Ziel: so viel wie nötig, so wenig wie möglich.</p>
+</details>
+<details class="success">
+<summary>Lösung</summary>
+<ol>
+<li><code>777</code> erlaubt <strong>jedem</strong> Prozess/Benutzer auf dem Server das Schreiben – ein erhebliches Sicherheitsrisiko. Der Webserver braucht Schreibrechte nur an wenigen Stellen (z. B. <code>redaxo/data/</code>, Cache).</li>
+<li><strong>Ordner 755</strong>, <strong>Dateien 644</strong> (bei Bedarf 775/664 für gezielt beschreibbare Ordner).
+3.
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code>sudo<span class="w"> </span>chown<span class="w"> </span>-R<span class="w"> </span>www-data:www-data<span class="w"> </span>/var/www/html
+sudo<span class="w"> </span>find<span class="w"> </span>/var/www/html<span class="w"> </span>-type<span class="w"> </span>d<span class="w"> </span>-exec<span class="w"> </span>chmod<span class="w"> </span><span class="m">755</span><span class="w"> </span><span class="o">{}</span><span class="w"> </span><span class="se">\;</span>
+sudo<span class="w"> </span>find<span class="w"> </span>/var/www/html<span class="w"> </span>-type<span class="w"> </span>f<span class="w"> </span>-exec<span class="w"> </span>chmod<span class="w"> </span><span class="m">644</span><span class="w"> </span><span class="o">{}</span><span class="w"> </span><span class="se">\;</span>
+</code></pre></div></td></tr></table></div></li>
+</ol>
+</details>
+</details>
+<hr />
+<h2 id="workshop">Workshop<a class="headerlink" href="#workshop" title="Permanent link">&para;</a></h2>
+<details class="question">
+<summary><span class="task-level task-level--4">Workshop</span> REDAXO installieren und dokumentieren</summary>
+<p><strong>Szenario:</strong> Du richtest deine eigene lokale REDAXO-Umgebung ein – die Grundlage für alle folgenden Kapitel.</p>
+<hr />
+<p><strong>Aufgabe (praktisch, am eigenen Rechner):</strong></p>
+<ol>
+<li><strong>Umgebung aufsetzen:</strong> Installiere entweder <strong>XAMPP (Windows)</strong> oder eine <strong>Linux-VM mit LAMP</strong>. Starte Webserver und Datenbank.</li>
+<li><strong>Datenbank anlegen:</strong> Erstelle eine leere Datenbank <code>redaxo</code> mit Kollation <code>utf8mb4_general_ci</code>.</li>
+<li><strong>REDAXO installieren:</strong> Lade den aktuellen Core (oder nutze den Loader) und durchlaufe die <strong>7 Setup-Schritte</strong>. Lege ein Admin-Konto mit <strong>starkem Passwort</strong> an.</li>
+<li><strong>Basisdemo (optional):</strong> Installiere über den <code>Installer</code> die <code>demo_base</code> und sieh dir Templates/Module/Struktur an.</li>
+<li><strong>Installations-Doku:</strong> Schreibe eine nachvollziehbare Doku mit den Abschnitten Umgebung, Versionen (PHP/DB/REDAXO), Schritte, Datenbank, Dateirechte, Zugänge (ohne Klartext-Passwörter) und Besonderheiten.</li>
+</ol>
+<p><strong>Deliverable:</strong> Laufende lokale REDAXO-Installation + Installations-Doku (1–2 Seiten).</p>
+<details class="info">
+<summary>Tipp</summary>
+<p>Wenn der Systemcheck warnt, zuerst Voraussetzungen beheben. Notiere Fehler und Lösungen direkt – das ist Teil der Doku. Passwörter gehören in einen Passwort-Manager, nicht in die Doku.</p>
+</details>
+<details class="success">
+<summary>Lösung</summary>
+<p>Bewertungskriterien:</p>
+<ul>
+<li>REDAXO ist erreichbar (Frontend + Backend unter <code>/redaxo/</code>), Login funktioniert.</li>
+<li>Datenbank ist leer angelegt und korrekt eingebunden (utf8mb4).</li>
+<li>Doku enthält alle geforderten Abschnitte, ist <strong>wiederholbar</strong> (jemand anderes könnte damit installieren).</li>
+<li>Versionen sind konkret angegeben; aufgetretene Warnungen/Fehler samt Lösung dokumentiert.</li>
+<li>Keine Passwörter im Klartext in der Doku; starkes Admin-Passwort verwendet.</li>
+</ul>
+</details>
+</details>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../kapitel1/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Kapitel 1 – Was ist ein CMS?">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Kapitel 1 – Was ist ein CMS?
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../kapitel3/" class="md-footer__link md-footer__link--next" aria-label="Next: Kapitel 3 – Datenbank &amp; Konfiguration">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Kapitel 3 – Datenbank & Konfiguration
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2026 Qualidy GmbH
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://de.linkedin.com/company/qualidy" target="_blank" rel="noopener" title="de.linkedin.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3M135.4 416H69V202.2h66.5V416zM102.2 96a38.5 38.5 0 1 1 0 77 38.5 38.5 0 1 1 0-77m282.1 320h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://qualidy.de" target="_blank" rel="noopener" title="qualidy.de" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M351.9 280H161c2.9 64.5 17.2 123.9 37.5 167.4 11.4 24.5 23.7 41.8 35.1 52.4 11.2 10.5 18.9 12.2 22.9 12.2s11.7-1.7 22.9-12.2c11.4-10.6 23.7-28 35.1-52.4 20.3-43.5 34.6-102.9 37.5-167.4zm-191-48h190.9c-2.8-64.5-17.1-123.9-37.4-167.4-11.4-24.4-23.7-41.8-35.1-52.4C268.1 1.7 260.4 0 256.4 0s-11.7 1.7-22.9 12.2c-11.4 10.6-23.7 28-35.1 52.4-20.3 43.5-34.6 102.9-37.5 167.4m-48 0c3.5-85.6 25.6-165.1 57.9-217.3C78.7 47.3 10.9 131.2 1.5 232zM1.5 280c9.4 100.8 77.2 184.7 169.3 217.3-32.3-52.2-54.4-131.7-57.9-217.3zm398.4 0c-3.5 85.6-25.6 165.1-57.9 217.3 92.1-32.7 159.9-116.5 169.3-217.3zm111.4-48C501.9 131.2 434.1 47.3 342 14.7c32.3 52.2 54.4 131.7 57.9 217.3z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.tracking", "navigation.path", "navigation.top", "navigation.footer", "navigation.prune", "toc.follow", "toc.integrate", "content.code.copy", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
