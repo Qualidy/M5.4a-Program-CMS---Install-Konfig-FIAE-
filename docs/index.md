@@ -10,30 +10,6 @@ hide:
   <p class="course-desc">Von den Grundlagen eines Content-Management-Systems über Installation, Datenbank und Rechteverwaltung bis zu Content-Pflege, Design, AddOns, Datenschutz und Absicherung – praxisnah am Beispiel des Open-Source-CMS REDAXO 5.</p>
 </div>
 
-<h2 class="course-week-title">So läuft der Kurstag ab</h2>
-
-<div class="how-grid">
-
-<div class="how-card">
-  <span class="how-num">VORMITTAG</span>
-  <strong>Theorie & angeleitete Übungen</strong>
-  <p>Wir erarbeiten gemeinsam die Kapitelinhalte und lösen die <strong>Kurzübungen</strong> (Grundlagen → Fortgeschritten → Experte) direkt im Unterricht.</p>
-</div>
-
-<div class="how-card">
-  <span class="how-num">NACHMITTAG</span>
-  <strong>Selbstständiger Workshop</strong>
-  <p>Ihr bearbeitet die <strong>Workshop-Aufgabe</strong> eigenständig (allein oder in der Lerngruppe) und wendet das Gelernte an einem zusammenhängenden REDAXO-Projekt an.</p>
-</div>
-
-<div class="how-card">
-  <span class="how-num">RHYTHMUS</span>
-  <strong>Zwei Kapitel pro Tag</strong>
-  <p>Pro Kurstag behandeln wir <strong>zwei Kapitel</strong>. Die 10 Kapitel verteilen sich so auf <strong>fünf Tage</strong> – vom leeren Server bis zur abgesicherten Website.</p>
-</div>
-
-</div>
-
 <h2 class="course-week-title">Tag 1 · Grundlagen & Installation</h2>
 
 <div class="chapter-grid">
