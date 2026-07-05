@@ -1,0 +1,24 @@
+title: Abrechnung analysieren
+difficulty: 3
+question: |
+  Vereinfachte Abrechnung Azubi:
+
+  | Position | Betrag |
+  |----------|--------|
+  | Brutto | 1.000 € |
+  | KV AN | − 85 € |
+  | PV AN | − 17 € |
+  | RV AN | − 93 € |
+  | AV AN | − 13 € |
+  | Lohnsteuer | − 0 € |
+  | **Auszahlung** | **792 €** |
+
+  1. Stimmt die **Auszahlung** (rechnerisch prüfen)?
+  2. Welcher **Prozentsatz** des Bruttos geht an SV (AN-Anteil)?
+  3. Reicht 792 € Netto für einen Azubi in deiner Region – **3 Argumente** pro/contra?
+tip: |
+  Summe der Abzüge vom Brutto subtrahieren.
+solution: |
+  1. Ja: 1000 − 208 = 792 €.
+  2. 20,8 % AN-SV-Anteil.
+  3. Abhängig von Wohnkosten, Familienstand, Nebenjob – individuell diskutieren.

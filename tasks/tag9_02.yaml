@@ -1,0 +1,17 @@
+title: Lernmethoden auswählen
+difficulty: 2
+question: |
+  Ordne die Lernmethode zum besten **Einsatz**:
+
+  **Methoden:** Pomodoro, Active Recall, Lerngruppe, Spaced Repetition, Praxisprojekt
+
+  **Situationen:**
+  - BBiG-Paragraphen für Prüfung
+  - PHP-Syntax merken
+  - UML verstehen
+  - WISO-Fallaufgabe üben
+  - Motivation in Online-Kurs
+tip: |
+  Active Recall und Spaced Repetition für Fakten; Lerngruppe für Motivation.
+solution: |
+  BBiG – Spaced Repetition/Active Recall; PHP – Active Recall; UML – Lerngruppe/Erklären; Fallaufgabe – Praxisprojekt/Pomodoro; Motivation – Lerngruppe.

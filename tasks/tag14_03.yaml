@@ -1,0 +1,18 @@
+title: Prompt-Dokumentation
+difficulty: 3
+question: |
+  Wählen Sie **ein finales Bild** aus den Midjourney-Übungen.
+
+  Legen Sie eine **Prompt-Dokumentation** an (Word, Notion oder Textdatei – nach Wahl) mit:
+
+  - Datum / Marke / Kanal
+  - Vollständiger englischer Prompt inkl. Parameter
+  - Kurz: Vary/Upscale ja/nein
+  - No-Gos-Liste (mindestens 3)
+  - Platz für Screenshot oder Dateiname
+
+  **Deliverable:** die Dokumentationsdatei oder ein Screenshot davon.
+tip: |
+  In Agenturen heißt das oft „Prompt Sheet“ oder liegt im Kampagnenordner – gute Gewohnheit für Umschüler.
+solution: |
+  Vollständiger Prompt = reproduzierbar. Ohne Dokumentation ist Nachstellen Glückssache.

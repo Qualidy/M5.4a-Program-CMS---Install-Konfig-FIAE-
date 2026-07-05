@@ -1,0 +1,16 @@
+title: Story-Format 9:16
+difficulty: 3
+question: |
+  Erzeugen Sie ein **Story-Format-Bild** für **BakeHaus**:
+
+  ```
+  Close-up of hands breaking fresh crusty bread, warm bakery atmosphere, vertical composition, cinematic food photography, golden hour light --ar 9:16 --no text, logo, distorted hands
+  ```
+
+  Prüfen Sie das Ergebnis: Sind die Hände natürlich? Falls nicht: Prompt mit `--no extra fingers, distorted hands` verschärfen und **einmal** neu generieren.
+
+  **Deliverable:** finales Story-Bild + Prompt.
+tip: |
+  Menschen und Hände sind fehleranfällig – lieber neu prompten als zehnmal Vary.
+solution: |
+  Bei Hände-Problemen: `simple composition, hands partially out of frame` oder nur Produkt ohne Person.

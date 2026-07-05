@@ -1,0 +1,22 @@
+title: Prompt nachschärfen
+difficulty: 2
+question: |
+  **Ausgangsprompt (BakeHaus):**
+
+  ```
+  Fresh bread on table in bakery, warm light, food photo --ar 4:5
+  ```
+
+  Das Ergebnis ist Ihnen **zu unruhig** im Hintergrund.
+
+  Formulieren Sie den Prompt **präziser** (MSLK + `--no clutter, messy background`) und erzeugen Sie ein neues Bild.
+
+  **Deliverable:** alter Prompt, neuer Prompt, finales Bild.
+tip: |
+  Ein konkretes Problem im Prompt benennen – nicht „mach es besser“.
+solution: |
+  Beispiel:
+
+  ```
+  Fresh artisan sourdough on wooden board, shallow depth of field, bakery background heavily blurred, warm golden light, clean uncluttered composition, editorial food photography --ar 4:5 --no text, logo, clutter, messy background
+  ```

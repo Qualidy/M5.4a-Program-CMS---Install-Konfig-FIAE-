@@ -1,0 +1,12 @@
+title: Beiträge berechnen (vereinfacht)
+difficulty: 3
+question: |
+  Brutto Ausbildungsvergütung: 1.200 €. Arbeitnehmeranteile (vereinfacht): KV 8,55 %, PV 1,7 %, RV 9,3 %, AV 1,3 %.
+
+  1. Berechne jeden **AN-Beitrag** in Euro.
+  2. Berechne die **Summe der Abzüge**.
+  3. Was bleibt vor Lohnsteuer (vereinfacht ohne Steuer)?
+tip: |
+  Prozent von 1.200 € berechnen und addieren.
+solution: |
+  KV 102,60 €; PV 20,40 €; RV 111,60 €; AV 15,60 €; Summe 250,20 €; Rest 949,80 € vor Steuer (1.200,00 € − 250,20 €).

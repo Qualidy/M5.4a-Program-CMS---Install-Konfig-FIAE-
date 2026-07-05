@@ -1,0 +1,16 @@
+title: Realistischer Produkt-Look
+difficulty: 2
+question: |
+  Erzeugen Sie ein **realistisches Produktfoto** für **LumaSkin** (weiße Serumflasche, Spa-Stimmung):
+
+  ```
+  Photorealistic product photo of matte white skincare serum bottle on travertine stone, soft diffused spa lighting, luxury beauty editorial, sharp focus, subtle natural imperfections --ar 4:5 --no text, logo, cartoon, oversaturated
+  ```
+
+  Vergleichen Sie mit einer Version **ohne** `photorealistic` und `natural imperfections` – nur `skincare product photo`.
+
+  **Deliverable:** zwei Bilder, ein Satz: Welches wirkt glaubwürdiger für Marketing?
+tip: |
+  Realismus-Begriffe reduzieren den typischen „zu schönen“ Midjourney-Look.
+solution: |
+  Die Version mit photorealistic + imperfections wirkt oft weniger „KI-glatt“ – besser für Vertrauen bei Kosmetik.

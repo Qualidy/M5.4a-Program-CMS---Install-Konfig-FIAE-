@@ -1,0 +1,19 @@
+title: Vierer-Bildreihe planen
+difficulty: 2
+question: |
+  Planen Sie für **Nordkorn** eine **4er-Bildreihe** (Stichpunkte reichen):
+
+  | Nr. | Motiv | Format |
+  |---|---|---|
+  | 1 | Produkt Hero | 1:1 |
+  | 2 | Zutaten-Detail | 1:1 |
+  | 3 | Frühstück Lifestyle | 4:5 |
+  | 4 | Verpackung (ohne lesbaren Text) | 1:1 |
+
+  Erzeugen Sie **mindestens zwei** der vier Bilder in Midjourney mit **gleicher Farbpalette** im Prompt (`warm oat tones, cream, soft morning light`).
+
+  **Deliverable:** Planungstabelle + 2 exportierte Bilder + Prompts.
+tip: |
+  Nicht alle vier müssen perfekt sein – Planung + Konsistenz üben.
+solution: |
+  Verpackung: `generic paper bag, no readable text, blank label` + `--no text, logo`.

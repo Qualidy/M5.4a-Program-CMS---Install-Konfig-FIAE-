@@ -1,0 +1,15 @@
+title: Lücken im BAP finden
+difficulty: 3
+question: |
+  Im BAP eines Betriebs sind für AE geplant: PHP-Entwicklung, SQL-Grundlagen, Helpdesk-Rotation.
+  In der Ausbildungsordnung AE sind zusätzlich vorgeschrieben: Software testen, Anforderungsanalyse mit Kunden, Datenbanken modellieren.
+
+  1. Welche **Lücken** siehst du?
+  2. Schlage **3 Maßnahmen** vor, wie der Betrieb die Lücken schließen kann.
+  3. Warum reicht **nur Unterricht** beim Bildungsträger nicht aus?
+tip: |
+  Betriebliche Handlungsfähigkeit muss im Betrieb aufgebaut werden.
+solution: |
+  Lücken: Testing, Anforderungsanalyse, Datenbankmodellierung fehlen oder unklar.
+  Maßnahmen: QA-Rotation, Kundenprojekt mit Betreuung, Modellierungsworkshop + Praxisprojekt.
+  Unterricht ersetzt keine betriebliche Praxiserfahrung für Prüfung und Beruf.

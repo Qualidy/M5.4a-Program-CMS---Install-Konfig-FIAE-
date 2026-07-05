@@ -1,0 +1,10 @@
+title: Brutto und Netto
+difficulty: 1
+question: |
+  Erkläre den Weg vom **Bruttoentgelt** zum **Nettoentgelt** in **5 Schritten** (Stichpunkte).
+
+  Welche **Abzüge** sind typisch?
+tip: |
+  Sozialversicherung und Steuern vom Brutto.
+solution: |
+  Brutto → KV/PV/RV/AV AN → Lohnsteuer → Solidaritätszuschlag → optional Kirchensteuer → Netto. Abzüge: SV-Beiträge, Lohnsteuer, Soli, KiSt.

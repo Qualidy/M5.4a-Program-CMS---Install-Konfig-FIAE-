@@ -1,0 +1,17 @@
+title: Markenfarben im Prompt
+difficulty: 3
+question: |
+  Erzeugen Sie zwei **GreenLoop**-Bilder mit expliziter Farbpalette im Prompt:
+
+  **Version A:**
+  ```
+  Sustainable fashion flat lay, sage green and cream color palette, muted earth tones, linen texture, soft daylight --ar 1:1 --no text, logo
+  ```
+
+  **Version B:** Gleicher Prompt, aber `vibrant neon colors, high contrast` statt der gedämpften Palette.
+
+  Welche Version passt zur Marke? Speichern Sie A und notieren Sie, warum B für GreenLoop unpassend wäre.
+tip: |
+  Farbadjekteive steuern die Stimmung stärker als ein einzelnes Wort „grün“.
+solution: |
+  GreenLoop = gedämpft, natürlich, vertrauenswürdig – Version A. Version B eignet sich eher für Sport/Party-Marken.

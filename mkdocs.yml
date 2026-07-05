@@ -1,0 +1,89 @@
+site_name: "M1.1 WISO: Berufsbildung, Arbeits- u. Tarifrecht"
+
+nav:
+  - Übersicht: index.md
+  - "Kapitel 1 – Berufsbildung und Umschulung": content/kapitel1.md
+  - "Kapitel 2 – Ausbildungsvertrag": content/kapitel2.md
+  - "Kapitel 3 – Ausbildungsplan und Ausbildungsordnung": content/kapitel3.md
+  - "Kapitel 4 – Arbeitsrecht Grundlagen": content/kapitel4.md
+  - "Kapitel 5 – Sozialversicherung und Sozialrecht": content/kapitel5.md
+  - "Kapitel 6 – Mitbestimmungsrecht": content/kapitel6.md
+  - "Kapitel 7 – Tarifrecht und Arbeitszeit": content/kapitel7.md
+  - "Kapitel 8 – Entgeltabrechnung": content/kapitel8.md
+  - "Kapitel 9 – Lern- und Arbeitstechniken": content/kapitel9.md
+  - "Kapitel 10 – Lebenslanges Lernen und IT-Karriere": content/kapitel10.md
+
+theme:
+  name: material
+  palette:
+    scheme: default
+    primary: black
+    accent: orange
+  logo: assets/logo.png
+  favicon: assets/favicon.png
+  font:
+    text: DM Sans
+    code: JetBrains Mono
+  features:
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.tracking
+    - navigation.path
+    - navigation.top
+    - navigation.footer
+    - navigation.prune
+    - toc.follow
+    - toc.integrate
+    - content.code.copy
+    - content.code.annotate
+
+markdown_extensions:
+  - pymdownx.keys
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - toc:
+      permalink: true
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - attr_list
+  - md_in_html
+  - tables
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.highlight:
+      linenums: true
+  - pymdownx.tabbed:
+      alternate_style: true
+
+extra_css:
+  - stylesheets/theme.css
+  - stylesheets/grid.css
+  - stylesheets/logo.css
+  - stylesheets/video_admonition.css
+  - stylesheets/mermaid.css
+
+extra_javascript:
+  - javascripts/mathjax.js
+  - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js
+
+plugins:
+  - search
+  - macros
+
+extra:
+  social:
+    - icon: fontawesome/brands/linkedin
+      link: https://de.linkedin.com/company/qualidy
+    - icon: fontawesome/solid/globe
+      link: https://qualidy.de
+
+watch:
+  - tasks
+
+copyright: Copyright &copy; 2026 Qualidy GmbH

@@ -1,0 +1,10 @@
+title: Abrechnungspositionen
+difficulty: 2
+question: |
+  Ordne die Positionen: **Brutto**, **Netto**, **KV-AN**, **Lohnsteuer**, **AG-Anteil RV**
+
+  Frage: Welche Positionen werden vom **Arbeitnehmer-Brutto abgezogen**? Welche sieht man auf der Abrechnung, zahlt aber der **Arbeitgeber**?
+tip: |
+  AG-Anteile sind nicht vom Netto des AN abgezogen.
+solution: |
+  Vom AN abgezogen: KV-AN, Lohnsteuer (und weitere SV, Soli). AG zahlt AG-Anteile RV etc. – auf Abrechnung sichtbar, nicht vom AN-Netto abgezogen.

@@ -1,0 +1,16 @@
+title: Drei Stilrichtungen für ein Motiv
+difficulty: 1
+question: |
+  **Motiv:** eine einzelne Kaffeetasse (passend zum Übungs-Café-Szenario).
+
+  Erzeugen Sie **drei Bilder** mit gleichem Motiv, unterschiedlichem Look – nur der Stil-Teil im Prompt ändert sich:
+
+  1. **Foto:** `lifestyle product photography, natural light`
+  2. **Illustration:** `flat vector illustration, bold simple shapes`
+  3. **3D:** `3D render, soft shadows, clean minimal background`
+
+  Jeweils `--ar 1:1 --no text, logo`. Speichern Sie alle drei und notieren Sie, welcher Stil für welchen Kanal passieren könnte.
+tip: |
+  Nur ein Baustein pro Durchlauf ändern – so sehen Sie den Effekt des Stils klar.
+solution: |
+  Foto → Instagram/Website. Illustration → erklärende Posts, junge Zielgruppe. 3D → Tech/SaaS (z. B. FlowTask), weniger für BakeHaus.

@@ -1,0 +1,16 @@
+title: LinkedIn-Banner Waldwerk
+difficulty: 2
+question: |
+  **Briefing:** **Waldwerk** (Outdoor-Ausrüster). Botschaft: „Bestellung ohne Kundenkonto“ – als **Stimmungsbild**, nicht als Text im Prompt.
+
+  Erzeugen Sie ein Banner-Bild:
+
+  ```
+  Outdoor hiking gear flat lay on weathered wood, backpack and boots, misty forest mood in soft background, trustworthy adventure brand photography, wide composition with negative space on the left for text overlay --ar 16:9 --no text, logo, watermark
+  ```
+
+  Speichern Sie das Bild. Skizzieren Sie stichpunktartig, **welcher Text** später links platziert würde (in Canva – nicht in Midjourney).
+tip: |
+  `negative space on the left` reserviert Platz für Text aus dem Layout-Tool.
+solution: |
+  Text-Overlay später z. B.: „Jetzt ohne Kundenkonto bestellen“ + Unterzeile – kurz, aus Copilot formuliert.

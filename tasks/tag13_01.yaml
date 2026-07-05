@@ -1,0 +1,12 @@
+title: Instagram-Feed-Bild GreenLoop
+difficulty: 1
+question: |
+  **Briefing:** GreenLoop, Frühjahrskollektion, Instagram Feed, 1:1, gedämpfte Naturtöne, kein Text im Bild.
+
+  Formulieren Sie den englischen Prompt und erzeugen Sie das Bild mit `--ar 1:1`.
+
+  Speichern Sie Bild + Prompt. Notieren Sie in **Copilot** (optional): eine Instagram-Caption zu dem Bild – max. 60 Wörter, Du-Form. So verbinden Sie Woche 1 und 2.
+tip: |
+  Bild und Text getrennt erzeugen, später im Layout-Tool zusammenführen.
+solution: |
+  Beispiel-Prompt siehe Kapitel 10/11 GreenLoop Flat Lay. Caption in Copilot: Produkt + Nachhaltigkeit + CTA, keine erfundenen Zertifikate.
